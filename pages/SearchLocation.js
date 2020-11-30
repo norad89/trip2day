@@ -1,10 +1,10 @@
-import { Form, Button, InputGroup, FormControl } from "react-bootstrap";
+import { Button, InputGroup, FormControl } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import Header from "./components/Header";
 import Link from "next/link";
-import { AddCardViaggio } from "./addCardViaggio";
+import AddCardViaggio from "./functions/AddCardViaggio"
 
-function NewTrip() {
+function SearchLocation() {
   return (
     <div>
       <TopNavbar />
@@ -17,7 +17,7 @@ function NewTrip() {
         />
         <InputGroup.Append>
           <Button variant="outline-secondary">
-            <Link href="./Suggestions">Send request of suggestions</Link>
+            <Link href="./CreateNewTrip">Travel!</Link>
           </Button>
           <AddCardViaggio />
         </InputGroup.Append>
@@ -26,4 +26,4 @@ function NewTrip() {
   );
 }
 
-export default NewTrip;
+export default SearchLocation;

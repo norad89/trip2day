@@ -8,6 +8,10 @@ export default function Home() {
       <Head>
         <title>Trip2Day</title>
         <link rel="icon" href="/charizard.ico" />
+        <link rel="preload" href="/fonts/Comfortaa-Light.ttf" />
+        <link rel="preload" href="/fonts/Comfortaa-Medium.ttf" />
+        <link rel="preload" href="/fonts/Comfortaa-Regular.ttf" />
+        <link rel="preload" href="/fonts/Comfortaa-SemiBold.ttf" />
       </Head>
 
       <LoginPage />

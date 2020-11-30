@@ -15,8 +15,8 @@ export default function TopNavbar() {
         />
       </Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="/MyTrips">My Trips</Nav.Link>
-        <Nav.Link href="/MyFriendsList">Friends</Nav.Link>
+        <Nav.Link href="/PlannedTrips">My Travel Book</Nav.Link>
+        <Nav.Link href="/PlannedTrips">Friends</Nav.Link>
       </Nav>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
@@ -24,12 +24,12 @@ export default function TopNavbar() {
           {!session && (
             <>
               <p>Not signed in</p>
-              <button onClick={() => signIn("facebook", { callbackUrl: "http://localhost:3000/MyTravelBook" })
+              <button onClick={() => signIn("facebook", { callbackUrl: "http://localhost:3000/PlannedTrips" })
               }> Sign in </button></>)}
           {session && (
             <>
               <p>Signed in as {session.user.name}!</p>
-              <button onClick={() => signOut({ callbackUrl: "http://localhost:3000" })
+              <button className='ButtonNavbar' onClick={() => signOut({ callbackUrl: "http://localhost:3000" })
               }> Sign out </button></>)}
         </Navbar>
       </Navbar.Collapse>
