@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 
 function LoginPage() {
   const [session, loading] = useSession();
+  
   return (
     <>
 
@@ -19,7 +20,7 @@ function LoginPage() {
                 <br />
                 <br /> 
                   <button className="DefaultButton" onClick={() => signIn("facebook",
-                    { callbackUrl: "http://localhost:3000/MyTrips" })}>Sign in</button>
+                    { callbackUrl: "http://localhost:3000/PlannedTrips" })}>Sign in</button>
                 </>
               )}
               {session && (

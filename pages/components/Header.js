@@ -1,5 +1,4 @@
-import { Image, Button, ButtonGroup } from 'react-bootstrap'
-// import styles from '../../styles/header.module.css'
+import { Button, ButtonGroup } from 'react-bootstrap'
 import Link from 'next/link'
 
 function Header() {
@@ -22,29 +21,29 @@ function Header() {
             <br />
 
             <div className='ButtonPosition'>
-                <button className='ButtonToTrip'> <a className='ButtonText' href='./NewTrip'> Plan your next trip </a> </button>
+                <Link href='./SearchLocation'><button className='ButtonToTrip'><a className='ButtonText'> Plan your next trip </a></button></Link>
             </div>
 
             <br />
             <div className='text-center'>
                 <ButtonGroup aria-label="Basic example">
 
-                    <Button
+                    <Link href="./PastTrips"><Button
                         style={{ color: 'white', backgroundColor: '#455753' }}
                         variant="secondary">
-                        <Link href="./MyTrips">My Trips</Link></Button>
+                        My Past Trips</Button></Link>
 
-                    <Button
+                    <Link href="./PlannedTrips"><Button
                         variant="secondary"
                         style={{ color: 'white', backgroundColor: '#455753' }}>
-                        <Link href="./MyPlannedTrips">My Planned Trips</Link>
-                    </Button>
+                        My Planned Trips
+                    </Button></Link>
 
-                    <Button
+                    <Link href="./Photos"><Button
                         style={{ color: 'white', backgroundColor: '#455753' }}
                         variant="secondary">
-                        <Link href="./MyPhotos">My Photos</Link>
-                    </Button>
+                        My Photos
+                    </Button></Link>
 
                 </ButtonGroup>
             </div>
