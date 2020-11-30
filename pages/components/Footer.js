@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <div className="Foot">
-            <p>ciao, sono il copyright del sito</p>
+            <p>Copyright 2020 Team Rosso</p>
         </div>
     )
 }

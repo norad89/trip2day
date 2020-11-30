@@ -3,11 +3,8 @@ import TopNavbar from "./components/TopNavbar";
 import Header from './components/Header'
 import Link from "next/link";
 import { useState, useEffect } from 'react'
-import { CardViaggioList } from './listCardViaggio'
-import { AddCardViaggio } from './addCardViaggio.js'
 
-
-function MyPlannedTrips() {
+function PlannedTrips() {
   const [cardList, setList] = useState([]);
 
   useEffect(() => {
@@ -47,16 +44,7 @@ function MyPlannedTrips() {
     <div>
       <TopNavbar />
       <Header />
-      <h1>Ciao, sono l'elenco dei tuoi viaggi pianificati</h1>
-      <ButtonGroup aria-label="Basic example">
-        <Button variant="secondary">
-          <Link href="./MyTrips">My Trips</Link>
-        </Button>
-        <Button variant="secondary">My Planned Trips </Button>
-        <Button variant="secondary">
-          <Link href="./MyPhotos">My Photos</Link>
-        </Button>
-      </ButtonGroup>
+      
 
       <Container>
 
@@ -69,7 +57,7 @@ function MyPlannedTrips() {
               <Card.Text>
 
               </Card.Text>
-              <Button onChange={handleChange}><Link href="./NewTrip">+</Link></Button>
+              <Button onChange={handleChange}><Link href="./SearchLocation">+</Link></Button>
             </Card.Body>
           </Card>
           <div>{renderCard()}</div>
@@ -101,4 +89,4 @@ function MyPlannedTrips() {
   );
 }
 
-export default MyPlannedTrips
+export default PlannedTrips
