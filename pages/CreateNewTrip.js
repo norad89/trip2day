@@ -22,8 +22,7 @@ function CreateNewTrip() {
     },
   ];
 
-    const displaySuggestions = () => {}
- 
+
     const mapSuggestions = () => {
       return museumSuggestions.map((museumSuggestions, index) => {
         const { Author } = museumSuggestions
@@ -33,6 +32,8 @@ function CreateNewTrip() {
         )
       });
     }
+
+    /* const displaySuggestions = () => {}
 
     const Search = () => {
       const [showResults, setShowResults] = useState(false)
@@ -50,7 +51,7 @@ function CreateNewTrip() {
         Some Results
       </div>
     )
-    
+     */
 
   
   return (
@@ -64,14 +65,14 @@ function CreateNewTrip() {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item onClick={displaySuggestions}>Museums</Dropdown.Item>
+          <Dropdown.Item onClick={mapSuggestions}>Museums</Dropdown.Item>
           <Dropdown.Item>Restaurants</Dropdown.Item>
           <Dropdown.Item>Hotels</Dropdown.Item>
           <Dropdown.Item>Best places to discover</Dropdown.Item>
           <Dropdown.Item>Tours to takes</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Search />
+
       <div>{mapSuggestions()}</div>
     </div>
 

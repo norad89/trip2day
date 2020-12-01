@@ -20,7 +20,7 @@ export default function TopNavbar() {
       </Nav>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
-        <Navbar inline>
+        <Navbar>
           {!session && (
             <>
               <p>Not signed in</p>
