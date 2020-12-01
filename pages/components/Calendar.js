@@ -1,10 +1,7 @@
-
 import React from "react";
 import moment from "moment";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
-
 
 export default class CheckDate extends React.Component {
   constructor(props) {
@@ -42,7 +39,7 @@ export default class CheckDate extends React.Component {
     const daysLeft = this.calculateDaysLeft(startDate, endDate);
     return (
       <div>
-        <h3>Get Difference between two dates in days</h3>
+        <h3>Please select the dates of travel:</h3>
         <b>Start Date</b>:
         <DatePicker
           selected={this.state.startDate}
@@ -54,7 +51,8 @@ export default class CheckDate extends React.Component {
           selected={this.state.endDate}
           onChange={this.handleChangeEnd}
         />
-        <div className="amount">{daysLeft}</div>
+        <div className="amount">Your trip will last {daysLeft} days. Here's your daily agenda:</div>
+        <div>- Daily Agenda goes Here -</div>
       </div>
     );
   }

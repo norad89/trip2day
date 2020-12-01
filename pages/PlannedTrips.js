@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Card, Container, Row } from "react-bootstrap";
+import { Button, Card, Container, Row } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import Header from './components/Header'
 import Link from "next/link";
@@ -7,17 +7,15 @@ import { useSession } from "next-auth/client";
 import { useRouter } from 'next/router'
 
 function loginCheck() {
-const [ session, loading ] = useSession()
-const router = useRouter()
+  const [session, loading] = useSession()
+  const router = useRouter()
 
-useEffect(() => {
-  if (!(session || loading)) {
-    router.push('/')
-  }
-}, [session, loading])
+  useEffect(() => {
+    if (!(session || loading)) {
+      router.push('/')
+    }
+  }, [session, loading])
 }
-
-
 
 function PlannedTrips() {
   const [cardList, setList] = useState([]);
