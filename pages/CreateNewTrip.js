@@ -1,6 +1,6 @@
-import { Dropdown} from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
-import { useState } from "react"
+import Calendar from "./components/Calendar"
 
 function CreateNewTrip() {
 
@@ -23,37 +23,37 @@ function CreateNewTrip() {
   ];
 
 
-    const mapSuggestions = () => {
-      return museumSuggestions.map((museumSuggestions, index) => {
-        const { Author } = museumSuggestions
-        return (
-          console.log(Author),
-          <div>{Author}</div>
-        )
-      });
-    }
-
-    /* const displaySuggestions = () => {}
-
-    const Search = () => {
-      const [showResults, setShowResults] = useState(false)
-      const onClick = () => setShowResults(true)
+  const mapSuggestions = () => {
+    return museumSuggestions.map((museumSuggestions, index) => {
+      const { Author } = museumSuggestions
       return (
-        <div>
-          <input type="submit" value="Search" onClick={onClick} />
-          { showResults ? <Results /> : null }
-        </div>
+        console.log(Author),
+        <div>{Author}</div>
       )
-    }
-    
-    const Results = () => (
-      <div id="results" className="search-results">
-        Some Results
+    });
+  }
+
+  /* const displaySuggestions = () => {}
+
+  const Search = () => {
+    const [showResults, setShowResults] = useState(false)
+    const onClick = () => setShowResults(true)
+    return (
+      <div>
+        <input type="submit" value="Search" onClick={onClick} />
+        { showResults ? <Results /> : null }
       </div>
     )
-     */
-
+  }
   
+  const Results = () => (
+    <div id="results" className="search-results">
+      Some Results
+    </div>
+  )
+   */
+
+
   return (
     <div>
       <TopNavbar />
@@ -74,9 +74,11 @@ function CreateNewTrip() {
       </Dropdown>
 
       <div>{mapSuggestions()}</div>
+
+      <Calendar />
     </div>
 
-   
+
   );
 }
 

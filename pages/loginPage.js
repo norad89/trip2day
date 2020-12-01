@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import { signIn, signOut, useSession } from "next-auth/client";
 import Footer from "./components/Footer";
 import { useRouter } from "next/router";
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 function loginCheck() {
   const [session, loading] = useSession()
@@ -15,14 +15,8 @@ function loginCheck() {
   }, [session, loading])
 }
 
-
-
 function LoginPage() {
   const [session, loading] = useSession();
-
-
-
-
 
   return (
     <>
@@ -67,8 +61,6 @@ function LoginPage() {
       </Container>
       <Footer />
     </>
-
-
   );
 }
 export default LoginPage

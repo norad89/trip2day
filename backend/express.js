@@ -5,72 +5,50 @@ const app = express();
 const port = 3001;
 app.use(cors());
 
-const trips = [ {
-    uniqueid : "id",
-    location : "location",
-    user : "user",
-    museumSugg = [
+const trips = [{
+    uniqueid: "id",
+    location: "location",
+    user: "user",
+    museumSugg: [
         {
             id: "id",
             user: "Germano",
-            sugg: "In via del platano ci sono dei gran mignottoni"
+            sugg: "Il Museo del Meme merita di essere visitato!"
         },
         {}
     ],
-    restaurantSugg = [],
-    hotelSugg = [],
-    placeSugg = [],
-    tourSugg = [],
-    toDoList = [
+    restaurantSugg: [],
+    hotelSugg: [],
+    placeSugg: [],
+    tourSugg: [],
+    toDoList: [
         {
             id: "id",
             user: "Germano",
-            sugg: "In via del platano ci sono dei gran mignottoni"
+            sugg: "Il museo del Meme merita di essere visitato!"
         },
         {}
     ],
-    days = [
+    days: [
         {
             day: 1,
-            sugg: "In via del platano ci sono dei gran mignottoni"
+            sugg: "Il museo del Meme merita di essere visitato!"
         }
     ],
-    photos = [
+    photos: [
         {
             location: "location",
             photo: "img.jpg",
-            suggestion: "Ecco una foto dei mignottoni in via del platano"
+            suggestion: "Ecco una foto che ho fatto al museo del Meme!"
         }
     ]
 }]
 
-
-
-const suggestion = [
-    {
-        location : "Tokyo",
-        name : "Geralt",
-        landmark: "Gwent",
-        comment: "Meglio di mia figlia"
-    },
-    {
-        location : "Tokyo",
-        name : "Simp",
-        landmark: "Waifu",
-        comment: "Furries o Scalies"
-    },
-    {
-        location : "Parigi",
-        name : "Jean-Claude",
-        landmark: "Bidet",
-        comment: "Non riesco a trovarlo"
-    }
-]
-
+/*
 const friend = [
     {
-        name : "Geralt",
-        surname : "of Rivia"
+        name: "Geralt",
+        surname: "of Rivia"
     }
 ]
 
@@ -83,7 +61,7 @@ const trip = [
     {
         id: "Parigi",
         location: "Parigi",
-        photo: "Tokyo.jpg"
+        photo: "Parigi.jpg"
     }
 
 ]
@@ -96,7 +74,7 @@ app.get("/", (req, res) => {
     })
 })
 
-app.get(`/${trip[1].id}`, (req, res) =>{ 
+app.get(`/${trip[1].id}`, (req, res) => {
     res.json({
         location: trip[1].location,
 
@@ -105,20 +83,20 @@ app.get(`/${trip[1].id}`, (req, res) =>{
 }
 )
 
-// app.post("/", (req, res) => {
-//     trip.push({
-//         id: "Londra",
-//         location: "Londra",
-//         photo: "Londra.jpg"
-//     })
-//     res.json({
-//         cardViaggio: trip,
-//     })
-// })
-
+app.post("/", (req, res) => {
+    trip.push({
+        id: "Londra",
+        location: "Londra",
+        photo: "Londra.jpg"
+    })
+    res.json({
+        cardViaggio: trip,
+    })
+})
+*/
 
 app.all((req, res) => {
-    res.json({ error: "Sei un coglione!!" });
+    res.json({ error: "EH!!! VOLEVI!!!" });
 })
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
