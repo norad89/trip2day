@@ -5,6 +5,47 @@ const app = express();
 const port = 3001;
 app.use(cors());
 
+const trips = [ {
+    uniqueid : "id",
+    location : "location",
+    user : "user",
+    museumSugg = [
+        {
+            id: "id",
+            user: "Germano",
+            sugg: "In via del platano ci sono dei gran mignottoni"
+        },
+        {}
+    ],
+    restaurantSugg = [],
+    hotelSugg = [],
+    placeSugg = [],
+    tourSugg = [],
+    toDoList = [
+        {
+            id: "id",
+            user: "Germano",
+            sugg: "In via del platano ci sono dei gran mignottoni"
+        },
+        {}
+    ],
+    days = [
+        {
+            day: 1,
+            sugg: "In via del platano ci sono dei gran mignottoni"
+        }
+    ],
+    photos = [
+        {
+            location: "location",
+            photo: "img.jpg",
+            suggestion: "Ecco una foto dei mignottoni in via del platano"
+        }
+    ]
+}]
+
+
+
 const suggestion = [
     {
         location : "Tokyo",
@@ -74,6 +115,8 @@ app.get(`/${trip[1].id}`, (req, res) =>{
 //         cardViaggio: trip,
 //     })
 // })
+
+
 app.all((req, res) => {
     res.json({ error: "Sei un coglione!!" });
 })
