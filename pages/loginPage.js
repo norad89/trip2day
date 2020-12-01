@@ -1,13 +1,32 @@
 import { Container, Row, Col } from "react-bootstrap"
 import { signIn, signOut, useSession } from "next-auth/client";
 import Footer from "./components/Footer";
+import { useRouter } from "next/router";
+import { useState, useEffect } from 'react'
+
+function loginCheck() {
+  const [session, loading] = useSession()
+  const router = useRouter()
+
+  useEffect(() => {
+    if ((session || loading)) {
+      router.push('/PlannedTrips')
+    }
+  }, [session, loading])
+}
+
+
 
 function LoginPage() {
   const [session, loading] = useSession();
-  
+
+
+
+
+
   return (
     <>
-
+      <div>{loginCheck()}</div>
       <Container fluid>
         <Row>
           <Col className="logincover" style={{ backgroundImage: 'url("loginpage.jpg")' }} />
@@ -18,7 +37,7 @@ function LoginPage() {
               {!session && (
                 <>Not signed in
                 <br />
-                <br /> 
+                  <br />
                   <button className="DefaultButton" onClick={() => signIn("facebook",
                     { callbackUrl: "http://localhost:3000/PlannedTrips" })}>Sign in</button>
                 </>
