@@ -12,9 +12,8 @@ function Header() {
 
             <div className='Description'>
                 <h1 className='ProfileName'> Cristina Munuz </h1>
-                <p className='MyStory'> Ciao sono Cristina, mi piace molto viaggiare da quando ad Amsterdam
-                ho incontrato la mia anima gemella. non lo dimenticherò mai. Ho amato Gianpaolo dal primo momento.
-                Era entrato nel locale per un "massaggio" con sorpresa ed io era la sua massaggiatrice.
+                <p className='MyStory'>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
             </div>
 
@@ -54,3 +53,4 @@ function Header() {
 }
 
 export default Header
+
