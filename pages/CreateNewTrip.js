@@ -1,6 +1,6 @@
-import { Dropdown} from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
-import { useState } from "react"
+import Calendar from "./components/Calendar"
 
 function CreateNewTrip() {
 
@@ -22,37 +22,38 @@ function CreateNewTrip() {
     },
   ];
 
-    const displaySuggestions = () => {}
- 
-    const mapSuggestions = () => {
-      return museumSuggestions.map((museumSuggestions, index) => {
-        const { Author } = museumSuggestions
-        return (
-          console.log(Author),
-          <div>{Author}</div>
-        )
-      });
-    }
 
-    const Search = () => {
-      const [showResults, setShowResults] = useState(false)
-      const onClick = () => setShowResults(true)
+  const mapSuggestions = () => {
+    return museumSuggestions.map((museumSuggestions, index) => {
+      const { Author } = museumSuggestions
       return (
-        <div>
-          <input type="submit" value="Search" onClick={onClick} />
-          { showResults ? <Results /> : null }
-        </div>
+        console.log(Author),
+        <div>{Author}</div>
       )
-    }
-    
-    const Results = () => (
-      <div id="results" className="search-results">
-        Some Results
+    });
+  }
+
+  /* const displaySuggestions = () => {}
+
+  const Search = () => {
+    const [showResults, setShowResults] = useState(false)
+    const onClick = () => setShowResults(true)
+    return (
+      <div>
+        <input type="submit" value="Search" onClick={onClick} />
+        { showResults ? <Results /> : null }
       </div>
     )
-    
-
+  }
   
+  const Results = () => (
+    <div id="results" className="search-results">
+      Some Results
+    </div>
+  )
+   */
+
+
   return (
     <div>
       <TopNavbar />
@@ -64,18 +65,20 @@ function CreateNewTrip() {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item onClick={displaySuggestions}>Museums</Dropdown.Item>
+          <Dropdown.Item onClick={mapSuggestions}>Museums</Dropdown.Item>
           <Dropdown.Item>Restaurants</Dropdown.Item>
           <Dropdown.Item>Hotels</Dropdown.Item>
           <Dropdown.Item>Best places to discover</Dropdown.Item>
           <Dropdown.Item>Tours to takes</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Search />
+
       <div>{mapSuggestions()}</div>
+
+      <Calendar />
     </div>
 
-   
+
   );
 }
 
