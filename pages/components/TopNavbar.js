@@ -24,7 +24,7 @@ export default function TopNavbar() {
           {!session && (
             <>
               <p>Not signed in</p>
-              <button onClick={() => signIn("facebook", { callbackUrl: "http://localhost:3000/PlannedTrips" })
+              <button className='ButtonNavbar' onClick={() => signIn("facebook", { callbackUrl: "http://localhost:3000/PlannedTrips" })
               }> Sign in </button></>)}
           {session && (
             <>
