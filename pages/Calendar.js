@@ -1,13 +1,12 @@
-import TopNavbar from "./components/TopNavbar";
-import Header from "./components/Header";
+
 import React from "react";
-import ReactDOM from "react-dom";
 import moment from "moment";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-class CheckDate extends React.Component {
+
+export default class CheckDate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,7 +60,6 @@ class CheckDate extends React.Component {
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<CheckDate />, rootElement);
+
 
 
