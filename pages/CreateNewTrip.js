@@ -1,5 +1,6 @@
 import { DropdownButton, Dropdown, Form } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
+import Calendar from "./components/Calendar"
 import React, { useState } from "react";
 
 function CreateNewTrip() {
@@ -20,6 +21,7 @@ function CreateNewTrip() {
       sug: "British Museum",
     },
   ];
+
 
   const restaurantSuggestions = [
     {
@@ -161,7 +163,6 @@ class SuggestionsBox extends React.Component {
 
       <SuggestionsBox />
     
-
     </div>
   );
 }
