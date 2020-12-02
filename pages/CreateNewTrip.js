@@ -92,7 +92,7 @@ class SuggestionsBox extends React.Component {
   render() {
     return (
       <div className="App">
-        <h2> Checkbox: </h2>
+        <h2> Quali attività ti interessano? </h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-check">
             <label className="form-check-label">
@@ -141,7 +141,7 @@ class SuggestionsBox extends React.Component {
   return (
     <div>
       <TopNavbar />
-
+      <h2>Inizia il tuo viaggio a "_________"</h2>
       <h3>Ti serve un suggerimento? Scegli tra queste categorie:</h3>
 
       <DropdownButton
@@ -162,6 +162,15 @@ class SuggestionsBox extends React.Component {
       <h4>{value}</h4>
 
       <SuggestionsBox />
+      <div> Ecco la tua To Do List: </div>
+      <br/>
+      <br/>
+      <br/>
+      <div>To Do List</div>
+      <br/>
+      <br/>
+      <br/>
+      <Calendar />
     
     </div>
   );
