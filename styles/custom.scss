@@ -290,6 +290,77 @@ $theme-colors: (
 }
 
 
+// SEARCH LOCATION
+
+.LocationLogo {
+  padding-top: 3%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 70px;
+}
+
+.BackgroundLocation {
+  background-image: url('/Landscape.jpg');
+  background-repeat: no-repeat;
+  // background-size: 90% 800px;
+  background-size: cover;
+  background-position: center;
+  // -webkit-border-radius: 50px;
+  // -moz-border-radius: 50px;
+  border-radius: 70px;
+  border: none;
+  width: 90%;
+  min-height: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.LocationStyle {
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.OnSubmitStyle {
+  color: #222222;
+  font-family: Comfortaa-SemiBold;
+}
+
+input[type=submit] {
+  background-color: #455753;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input[type=text] {
+  width: 300px;
+  border-color: #455753;
+  border-radius: 5px;
+
+  background-image: url('/Binocolo.png');
+  background-size: 22px;
+  background-position: 4px 2px;
+  background-repeat: no-repeat;
+  padding-left: 35px;
+}
+
+.TextCenter {
+  text-align: center;
+  font-size: 50px;
+  color: #222222;
+  font-family: Comfortaa-SemiBold;
+  // margin-top: 10px;
+  top: 80px;
+  position: relative;
+}
 
 
 // FONT STYLE
