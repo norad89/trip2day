@@ -1,147 +1,86 @@
 import { DropdownButton, Dropdown, Form } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import Calendar from "./components/Calendar"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Checkbox, useCheckboxState } from 'pretty-checkbox-react'
 
 function CreateNewTrip() {
+
   const museumSuggestions = [
     {
-      id: 1,
-      Author: "A",
-      sug: "Louvre",
+      author: "Mario",
+      sug: "Ti consiglio di visitare il Museo dei Funghi",
     },
     {
-      id: 2,
-      Author: "B",
-      sug: "Musei Vaticani",
+      author: "Luigi",
+      sug: "Il Museo dei Meme va assolutamente visitato!",
     },
     {
-      id: 3,
-      Author: "C",
-      sug: "British Museum",
+      author: "Peach",
+      sug: "Non visitare il museo di React, è una perdita di tempo",
     },
   ];
-
 
   const restaurantSuggestions = [
     {
-      id: 1,
-      Author: "A",
-      sug: "Bellavista",
+      author: "Mario",
+      sug: "Ti consiglio di visitare il Ristorante Pizza e Fichi",
     },
     {
-      id: 2,
-      Author: "B",
-      sug: "Piazza duomo",
+      author: "Luigi",
+      sug: "Il Paninaro Onto va assolutamente visitato!",
     },
     {
-      id: 3,
-      Author: "C",
-      sug: "San Marco",
+      author: "Peach",
+      sug: "Non visitare il Gelataio Fiammingo, è una perdita di tempo",
     },
   ];
 
-  const [value, setValue] = useState("");
+  const hotelSuggestions = [];
+  const placeSuggestions = [];
+  const tourSuggestions = [];
 
-  const handleSelect = () => {
-    const Authors = [];
-    museumSuggestions.map((museumSuggestions, index) => {
-      const { Author } = museumSuggestions;
-      const { sug } = museumSuggestions;
-      Authors.push(Author + " " + sug + " ");
-      setValue(Authors);
-    });
-  };
+  const checkbox = useCheckboxState({ state: [] });
+  const [shown, setShown] = useState([])
 
-
-class SuggestionsBox extends React.Component {
-
-  
-  state = {
-    isA: false,
-    isB: false,
-    isC: false,
-
-  };
-
-  
-  onChangeA = () => {
-    this.setState(initialState => ({
-      isA: !initialState.isA,
-    }));
+  const handleSelect = (e) => {
+    setShown(e)
   }
 
-  onChangeB = () => {
-    this.setState(initialState => ({
-      isB: !initialState.isB,
-    }));
-  }
-
-  onChangeC = () => {
-    this.setState(initialState => ({
-      isC: !initialState.isC,
-    }));
-  }
-
-  
-  onSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-  }
-
-  render() {
+  function renderSuggestions() {
     return (
-      <div className="App">
-        <h2> Quali attività ti interessano? </h2>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-check">
-            <label className="form-check-label">
-              <input type="checkbox"
-                checked={this.state.isA}
-                onChange={this.onChangeA}
-                className="form-check-input"
-              />
-              Louvre
-            </label>
-          </div>
-
-          <div className="form-check">
-            <label className="form-check-label">
-              <input type="checkbox"
-                checked={this.state.isB}
-                onChange={this.onChangeB}
-                className="form-check-input"
-              />
-              Musei Vaticani
-            </label>
-          </div>
-
-          <div className="form-check">
-            <label className="form-check-label">
-              <input type="checkbox"
-                checked={this.state.isC}
-                onChange={this.onChangeC}
-                className="form-check-input"
-              />
-              British Museum
-            </label>
-          </div>
-
-          <div className="form-group">
-            <button className="btn btn-success">
-              Save
-            </button>
-          </div>
-        </form>
-      </div>
-    );
+      shown.map(({ author, sug, index }) => (
+        <Checkbox key={index} value={sug} {...checkbox}>
+          {author + " Suggerisce: " + sug}
+        </Checkbox>
+      )))
   }
-}
+
+
+  /* this solution is WRONG!!! Must be rewritten ---------------------------------------------*/
+
+  const [todoList, settodoList] = useState([])
+
+  function handleRemove() { }
+
+  function renderToDoList() {
+    todoList.push(checkbox.state[checkbox.state.length - 1])
+    let unique = [...new Set(todoList.filter(function (sugg) { return sugg !== undefined }))]
+    return (
+      unique.map((item, { index }) => (
+        <ul key={index}>
+          <li>{item}</li><button onClick={() => [handleRemove({})]}>remove</button>
+        </ul>
+      )))
+  }
+
+  /*-------------------------------------------------------------------------------------------*/
+
 
   return (
     <div>
       <TopNavbar />
-      <h2>Inizia il tuo viaggio a "_________"</h2>
+      <h2>Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
       <h3>Ti serve un suggerimento? Scegli tra queste categorie:</h3>
 
       <DropdownButton
@@ -149,29 +88,21 @@ class SuggestionsBox extends React.Component {
         title="Categories"
         id="dropdown-menu-align-right"
       >
-        <Dropdown.Item eventKey="Museums" onSelect={handleSelect}>
-          Museums
-        </Dropdown.Item>
-        <Dropdown.Item eventKey="Restaurants">Restaurants</Dropdown.Item>
-        <Dropdown.Item eventKey="Hotels">Hotels</Dropdown.Item>
-        <Dropdown.Item eventKey="Best places to discover">
-          Best places to discover
-        </Dropdown.Item>
-        <Dropdown.Item eventKey="Tours to takes">Tours to takes</Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(museumSuggestions)}>Museums</Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(restaurantSuggestions)}>Restaurants</Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(hotelSuggestions)}>Hotels</Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(placeSuggestions)}>Best places to discover</Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(tourSuggestions)}>Tours to takes</Dropdown.Item>
       </DropdownButton>
-      <h4>{value}</h4>
+      <br />
+      <br />
+      <h3>Seleziona i suggerimenti di tuoi interesse:</h3>
 
-      <SuggestionsBox />
-      <div> Ecco la tua To Do List: </div>
-      <br/>
-      <br/>
-      <br/>
-      <div>To Do List</div>
-      <br/>
-      <br/>
-      <br/>
+      {renderSuggestions()}
+      <h3>Ecco la tua To Do List:</h3>
+      {renderToDoList()}
       <Calendar />
-    
+
     </div>
   );
 }

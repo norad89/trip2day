@@ -13,9 +13,9 @@ function LocationForm() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    fetch("http://localhost:3001/Parigi", {
+    fetch("http://localhost:3001/", {
       method: 'POST',
-      body: JSON.stringify({ "location": [{ "location": value }] }),
+      body: JSON.stringify({ location: [{ location: value }] }),
       headers: { 'Content-Type': 'application/json' },
     })
       .then(res => res.json())
@@ -26,7 +26,7 @@ function LocationForm() {
     <form className="OnSubmitStyle" onSubmit={handleSubmit}>
       <label>
         <div>Choose your destination:</div>
-          <input type="text" value={value} onChange={handleChange} />
+        <input type="text" value={value} onChange={handleChange} />
       </label>
       <Link href="./CreateNewTrip"><input type="submit" value="Submit" /></Link>
     </form>
@@ -47,7 +47,7 @@ function SearchLocation() {
       <div className='BackgroundLocation'>
         <h1 className="TextCenter" >Prepare for a new adventure!</h1>
         <div className="LocationStyle">
-        <LocationForm />
+          <LocationForm />
         </div>
       </div>
       <br />
