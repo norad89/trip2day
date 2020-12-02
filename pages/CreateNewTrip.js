@@ -50,11 +50,11 @@ function CreateNewTrip() {
       setValue(Authors);
     });
   };
-////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 class SuggestionsBox extends React.Component {
 
-  // Checkbox Initial State
+  
   state = {
     isA: false,
     isB: false,
@@ -62,7 +62,7 @@ class SuggestionsBox extends React.Component {
 
   };
 
-  // React Checkboxes onChange Methods
+  
   onChangeA = () => {
     this.setState(initialState => ({
       isA: !initialState.isA,
@@ -81,7 +81,7 @@ class SuggestionsBox extends React.Component {
     }));
   }
 
-  // Submit
+  
   onSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
@@ -135,8 +135,6 @@ class SuggestionsBox extends React.Component {
     );
   }
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <div>
