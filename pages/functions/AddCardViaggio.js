@@ -34,7 +34,7 @@ const AddCardViaggio = (props) => {
                     );
                 }}
             >
-                <Link href="./PlannedTrips">Inizia il tuo nuovo viaggio!1</Link>
+                <Link href="./PlannedTrips">Inizia il tuo nuovo viaggio!</Link>
             </Button>
         </div>
     );

@@ -23,9 +23,9 @@ function LocationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="OnSubmitStyle" onSubmit={handleSubmit}>
       <label>
-        Name:
+        <div>Choose your destination:</div>
           <input type="text" value={value} onChange={handleChange} />
       </label>
       <Link href="./CreateNewTrip"><input type="submit" value="Submit" /></Link>
@@ -37,9 +37,21 @@ function LocationForm() {
 function SearchLocation() {
   return (
     <div>
-      <TopNavbar />
-      <AddCardViaggio />
-      <LocationForm />
+
+      <div>
+        <TopNavbar />
+      </div>
+
+      <img className="LocationLogo" src="trip2day_logo.png" width="30%" />
+
+      <div className='BackgroundLocation'>
+        <h1 className="TextCenter" >Prepare for a new adventure!</h1>
+        <div className="LocationStyle">
+        <LocationForm />
+        </div>
+      </div>
+      <br />
+
     </div>
   );
 }
