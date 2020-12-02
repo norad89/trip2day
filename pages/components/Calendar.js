@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -27,8 +27,8 @@ export default class CheckDate extends React.Component {
   }
 
   calculateDaysLeft(startDate, endDate) {
-    if (!moment.isMoment(startDate)) startDate = moment(startDate);
-    if (!moment.isMoment(endDate)) endDate = moment(endDate);
+    if (!dayjs.isDayjs(startDate)) startDate = dayjs(startDate);
+    if (!dayjs.isDayjs(endDate)) endDate = dayjs(endDate);
 
     return endDate.diff(startDate, "days");
   }
