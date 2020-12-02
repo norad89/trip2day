@@ -1,6 +1,7 @@
 import TopNavbar from "./components/TopNavbar";
 import AddCardViaggio from "./functions/AddCardViaggio"
 import { useState } from 'react'
+import Link from 'next/link'
 
 function LocationForm() {
 
@@ -27,7 +28,7 @@ function LocationForm() {
         <div>Choose your destination:</div>
           <input type="text" value={value} onChange={handleChange} />
       </label>
-      <input type="submit" value="Submit" />
+      <Link href="./CreateNewTrip"><input type="submit" value="Submit" /></Link>
     </form>
   );
 
@@ -36,6 +37,7 @@ function LocationForm() {
 function SearchLocation() {
   return (
     <div>
+
       <div>
         <TopNavbar />
       </div>
@@ -49,6 +51,7 @@ function SearchLocation() {
         </div>
       </div>
       <br />
+
     </div>
   );
 }
