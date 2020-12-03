@@ -51,31 +51,19 @@ function CreateNewTrip() {
     return (
       shown.map(({ author, sug, index }) => (
         <Checkbox key={index} value={sug} {...checkbox}>
-          {author + " Suggerisce: " + sug}
+          {author + " suggerisce: " + sug}
         </Checkbox>
       )))
   }
 
-
-  /* this solution is WRONG!!! Must be rewritten ---------------------------------------------*/
-
-  const [todoList, settodoList] = useState([])
-
-  function handleRemove() { }
-
   function renderToDoList() {
-    todoList.push(checkbox.state[checkbox.state.length - 1])
-    let unique = [...new Set(todoList.filter(function (sugg) { return sugg !== undefined }))]
     return (
-      unique.map((item, { index }) => (
+      checkbox.state.map((item, { index }) => (
         <ul key={index}>
-          <li>{item}</li><button onClick={() => [handleRemove({})]}>remove</button>
+          <li>{item}</li>
         </ul>
       )))
   }
-
-  /*-------------------------------------------------------------------------------------------*/
-
 
   return (
     <div>
@@ -97,7 +85,6 @@ function CreateNewTrip() {
       <br />
       <br />
       <h3>Seleziona i suggerimenti di tuoi interesse:</h3>
-
       {renderSuggestions()}
       <h3>Ecco la tua To Do List:</h3>
       {renderToDoList()}
