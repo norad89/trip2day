@@ -88,7 +88,7 @@ function CreateNewTrip() {
       {renderSuggestions()}
       <h3>Ecco la tua To Do List:</h3>
       {renderToDoList()}
-      <Calendar />
+      <Calendar renderToDoList={renderToDoList()}/>
 
     </div>
   );

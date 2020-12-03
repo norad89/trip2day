@@ -38,9 +38,7 @@ function SearchLocation() {
   return (
     <div>
 
-      <div>
-        <TopNavbar />
-      </div>
+      <TopNavbar />
 
       <img className="LocationLogo" src="trip2day_logo.png" width="30%" />
 
