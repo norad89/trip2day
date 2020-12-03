@@ -49,7 +49,7 @@ function LocationForm() {
     <form className="OnSubmitStyle" onSubmit={handleSubmit}>
       <label>
         <div>Choose your destination:</div>
-        <input type="text" value={value} onChange={handleChange} />
+        <Search type="text" value={value} onChange={handleChange}/>
       </label>
       <Link href="./CreateNewTrip"><input type="submit" value="Submit" /></Link>
     </form>
@@ -58,6 +58,8 @@ function LocationForm() {
 }
 
 function SearchLocation() {
+
+
   return (
     <div>
 
@@ -70,11 +72,11 @@ function SearchLocation() {
       <div className='BackgroundLocation'>
         <h1 className="TextCenter" >Prepare for a new adventure!</h1>
         <div className="LocationStyle">
-          <LocationForm />
+          <LocationForm/>
         </div>
       </div>
       <br />
-      <Search />
+      
     </div>
   );
 }

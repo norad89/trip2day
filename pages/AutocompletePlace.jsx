@@ -11,9 +11,9 @@ export default class AutocompletePlace extends Component {
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
 
-    if (!process.env.REACT_APP_MAPBOX_API_KEY) {
+    if (!process.env.NEXT_PUBLIC_MAPBOX_API_KEY) {
       throw new Error(
-        "You don't have any 'process.env.REACT_APP_MAPBOX_API_KEY'"
+        "You don't have any 'process.env.NEXT_PUBLIC_MAPBOX_API_KEY'"
       );
     }
   }
@@ -41,7 +41,7 @@ export default class AutocompletePlace extends Component {
     }
     axios
       .get(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.search}.json?access_token=${process.env.REACT_APP_MAPBOX_API_KEY}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.state.search}.json?access_token=${process.env.NEXT_PUBLIC_MAPBOX_API_KEY}`
       )
       .then((response) => {
         this.setState({
@@ -65,7 +65,7 @@ export default class AutocompletePlace extends Component {
           type="text"
           value={this.state.search}
           onChange={this.handleSearchChange}
-          placeholder="Type an address"
+          placeholder=""
         />
         <ul className="AutocompletePlace-results">
           {this.state.results.map((place) => (

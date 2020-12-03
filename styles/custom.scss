@@ -362,6 +362,30 @@ input[type=text] {
   position: relative;
 }
 
+// AUTOCOMPLETE PLACE
+
+.AutocompletePlace {
+  position: relative;
+}
+
+.AutocompletePlace-results {
+  position: absolute;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #00000011;
+}
+
+.AutocompletePlace-items {
+  list-style: none;
+  border: 1px solid #00000011;
+  cursor: pointer;
+  padding: 10px 10px;
+}
+
+.AutocompletePlace-items:hover {
+  background-color: #0000FF11;
+}
 
 // FONT STYLE
 
