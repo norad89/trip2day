@@ -69,7 +69,7 @@ function CreateNewTrip() {
     <div>
       <TopNavbar />
       <h2>Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
-      <h3>Ti serve un suggerimento? Scegli tra queste categorie:</h3>
+      <h3>Ti serve un suggerimento? Scegli tra queste categorie:</h3> 
 
       <DropdownButton
         alignRight

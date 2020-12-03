@@ -6,14 +6,16 @@ function Header() {
         <div className='contenitore'>
 
             <br />
-            <img className='images' src="https://i.pinimg.com/originals/ac/b9/6b/acb96bd45aa8123f05757b16666cd45d.jpg" width="200px" />
-
+            <div className="ImgContainer">
+            <img className='images' src="https://bidonica.files.wordpress.com/2010/04/vlcsnap-2010-04-19-19h00m46s204.png"/>
+            </div>
             <br />
 
             <div className='Description'>
                 <h1 className='ProfileName'> Cristina Munuz </h1>
+                <br />
                 <p className='MyStory'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.                    
                 </p>
             </div>
 
