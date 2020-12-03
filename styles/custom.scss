@@ -133,10 +133,20 @@ $theme-colors: (
 }
 
 .images{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.ImgContainer {
   border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
+  border: 3px solid #455753;
 }
 
 .Description {
@@ -146,7 +156,7 @@ $theme-colors: (
   font-family: Comfortaa-Regular;
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .ProfileName {
@@ -159,6 +169,13 @@ $theme-colors: (
 
 .MyStory {
   font-family: Comfortaa-Light;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 25px;     /* fallback */
+   max-height: 500px;      /* fallback */
+   -webkit-line-clamp: 10; /* number of lines to show */
+   -webkit-box-orient: vertical;
 }
 
 .ButtonToTrip {
@@ -293,11 +310,11 @@ $theme-colors: (
 // SEARCH LOCATION
 
 .LocationLogo {
-  padding-top: 3%;
+  padding-top: 2.5%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 70px;
+  padding-bottom: 60px;
 }
 
 .BackgroundLocation {
@@ -361,6 +378,10 @@ input[type=text] {
   top: 80px;
   position: relative;
 }
+
+
+// CREATE NEW TRIP
+
 
 
 // FONT STYLE

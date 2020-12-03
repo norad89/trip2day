@@ -61,6 +61,7 @@ function PlannedTrips() {
       <Header />
       <br />
       <div className='text-center'>
+        <br />
         <Container>
 
           <Row>
