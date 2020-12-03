@@ -1,7 +1,30 @@
 import TopNavbar from "./components/TopNavbar";
 import AddCardViaggio from "./functions/AddCardViaggio"
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+
+import AutocompletePlace from './AutocompletePlace'
+
+class Search extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      place: null,
+    }
+    this.handleSelect = this.handleSelect.bind(this)
+  }
+  handleSelect(place) {
+    this.setState({ place })
+  }
+  render() {
+    return (
+      <div>
+        <AutocompletePlace onSelect={this.handleSelect} />
+      </div>
+    );
+  }
+}
+
 
 function LocationForm() {
 
@@ -51,7 +74,7 @@ function SearchLocation() {
         </div>
       </div>
       <br />
-
+      <Search />
     </div>
   );
 }
