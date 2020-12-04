@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker";
 import { Card, Button, Container, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 export default function CheckDate(checkedProps) {
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());

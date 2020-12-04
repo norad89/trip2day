@@ -19,9 +19,9 @@ import InputLocation from "./components/InputLocation";
 //       console.error(err.message);
 //     }
 //   }
-  // function handleSelect(place) {
-  //   setLocation({ place })
-  // }
+// function handleSelect(place) {
+//   setLocation({ place })
+// }
 //   const [location, setLocation] = useState("")
 //   return (
 //     <form className="OnSubmitStyle" onSubmit={onSubmitForm}>
@@ -39,19 +39,15 @@ function SearchLocation() {
     <div>
       <TopNavbar />
 
-
       <img className="locationLogo" src="trip2day_logo.png" width="30%" />
 
-
-      <div className='backgroundLocation'>
-        <h1 className="textCenter" >Prepare for a new adventure!</h1>
+      <div className="backgroundLocation">
+        <h1 className="textCenter">Prepare for a new adventure!</h1>
         <div className="locationStyle">
-          <LocationForm/>
-
+          <LocationForm />
         </div>
       </div>
       <br />
-
     </div>
   );
 }

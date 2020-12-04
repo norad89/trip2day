@@ -49,14 +49,17 @@ function CreateNewTrip() {
   };
 
   function renderSuggestions() {
-
-    return (
-      shown.map(({ author, sug, index }) => (
-        <Checkbox color="success" shape="round" key={index} value={sug} {...checkbox}>
-          {author + " suggerisce: " + sug}
-        </Checkbox>
-      )))
-
+    return shown.map(({ author, sug, index }) => (
+      <Checkbox
+        color="success"
+        shape="round"
+        key={index}
+        value={sug}
+        {...checkbox}
+      >
+        {author + " suggerisce: " + sug}
+      </Checkbox>
+    ));
   }
   const [show, setShow] = useState(false);
 
@@ -128,7 +131,9 @@ function CreateNewTrip() {
       </DropdownButton>
 
       <br />
-      <h2 className="headerNewTrip">Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
+      <h2 className="headerNewTrip">
+        Inizia il tuo viaggio a D E S T I N A Z I O N E
+      </h2>
       <br />
 
       <div className="allSuggCont">
@@ -143,20 +148,45 @@ function CreateNewTrip() {
               id="dropdown-menu-align-right"
               variant="success"
             >
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(museumSuggestions)}>Museums</Dropdown.Item>
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(restaurantSuggestions)}>Restaurants</Dropdown.Item>
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(hotelSuggestions)}>Hotels</Dropdown.Item>
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(placeSuggestions)}>Best places to discover</Dropdown.Item>
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(tourSuggestions)}>Tours to takes</Dropdown.Item>
+              <Dropdown.Item
+                style={{ color: "#222222" }}
+                onSelect={() => handleSelect(museumSuggestions)}
+              >
+                Museums
+              </Dropdown.Item>
+              <Dropdown.Item
+                style={{ color: "#222222" }}
+                onSelect={() => handleSelect(restaurantSuggestions)}
+              >
+                Restaurants
+              </Dropdown.Item>
+              <Dropdown.Item
+                style={{ color: "#222222" }}
+                onSelect={() => handleSelect(hotelSuggestions)}
+              >
+                Hotels
+              </Dropdown.Item>
+              <Dropdown.Item
+                style={{ color: "#222222" }}
+                onSelect={() => handleSelect(placeSuggestions)}
+              >
+                Best places to discover
+              </Dropdown.Item>
+              <Dropdown.Item
+                style={{ color: "#222222" }}
+                onSelect={() => handleSelect(tourSuggestions)}
+              >
+                Tours to takes
+              </Dropdown.Item>
             </DropdownButton>
           </div>
         </div>
 
         <div className="SuggContainer">
-          <h3 className="textStyleSugg">Seleziona i suggerimenti di tuoi interesse:</h3>
-          <div className="suggestions">
-            {renderSuggestions()}
-          </div>
+          <h3 className="textStyleSugg">
+            Seleziona i suggerimenti di tuoi interesse:
+          </h3>
+          <div className="suggestions">{renderSuggestions()}</div>
         </div>
       </div>
 
@@ -164,7 +194,6 @@ function CreateNewTrip() {
       {renderToDoList()}
 
       <Calendar checkboxState={checkbox.state} selectDate={selectDate} />
-
     </div>
   );
 }
