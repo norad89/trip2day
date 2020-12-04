@@ -1,12 +1,12 @@
-import '../styles/custom.scss'
-import { Provider } from 'next-auth/client'
-
+import "../styles/custom.scss";
+import { Provider } from "next-auth/client";
 
 function MyApp({ Component, pageProps }) {
   return (
     <Provider session={pageProps.session}>
       <Component {...pageProps} />
-    </Provider>)
+    </Provider>
+  );
 }
 
-export default MyApp
+export default MyApp;
