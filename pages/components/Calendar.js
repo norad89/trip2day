@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import { Card, Button, Container, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 export default function CheckDate(checkedProps) {
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());
@@ -20,7 +21,7 @@ export default function CheckDate(checkedProps) {
     if (!dayjs.isDayjs(startDate)) startDate = dayjs(startDate);
     if (!dayjs.isDayjs(endDate)) endDate = dayjs(endDate);
 
-    return endDate.diff(startDate, "days");
+    return endDate.diff(startDate, "days") + 1;
   }
 
   function myAgenda(props) {
