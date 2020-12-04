@@ -4,7 +4,8 @@ import DatePicker from "react-datepicker";
 import { Card, Button, Container, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function CheckDate(cabbage) {
+
+export default function CheckDate(checkedProps) {
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());
 
@@ -23,43 +24,46 @@ export default function CheckDate(cabbage) {
     return endDate.diff(startDate, "days") + 1;
   }
 
-  Array.prototype.insert = function (index, item) {
-    this.splice(index, 0, item);
-  };
-
-  function pushTry(arr) {
-    arr.insert(3, 0, { sugg: "sticazzi" });
-  }
-
   function myAgenda(props) {
-    const day = { giorno: "Giorno", sugg: "" };
-    const agenda = new Array(props).fill(day);
+    if (props > 0) {
+      const day = { giorno: "Giorno", sugg: "duccio apri" };
+      const agenda = new Array(props).fill(day);
 
-    return (
-      <Container fluid>
-        <Row>
-          {agenda.map((item, index) => (
-            <>
-              <Card style={{ width: "18rem" }}>
-                <Card.Body>
-                  <Card.Title>
-                    {item.giorno} {index + 1}
-                  </Card.Title>
-                  <Card.Text>
-                    {item.sugg}
-                    {cabbage.renderToDoList}
-                  </Card.Text>
-                  <Button variant="primary">Duccio, apri tutto</Button>
-                </Card.Body>
-              </Card>
-            </>
-          ))}
-        </Row>
-      </Container>
-    );
+      function addSuggestion(arr) {
+        arr.splice(3, 0, {
+          giorno: "Giorno",
+          sugg: checkedProps.checkboxState[0],
+        });
+        console.log(arr);
+      }
+
+      return (
+        <>
+          <Container fluid>
+            <Row>
+              {agenda.map((item, index) => (
+                <>
+                  <Card style={{ width: "18rem" }} key={index}>
+                    <Card.Body>
+                      <Card.Title>
+                        {item.giorno} {index + 1}
+                      </Card.Title>
+                      <Card.Text>{item.sugg}</Card.Text>
+                      <Button variant="primary" onClick={addSuggestion(agenda)}>
+                        aggiungi le cose da fare
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </>
+              ))}
+            </Row>
+          </Container>
+        </>
+      );
+    }
   }
 
-  const daysLeft = calculateDaysLeft(startDate, endDate) +1;
+  const daysLeft = calculateDaysLeft(startDate, endDate) + 1;
 
   return (
     <div>

@@ -5,7 +5,7 @@ const app = express();
 const port = 3001;
 app.use(cors());
 
-const trips = [{
+const trip = [{
     uniqueid: "id",
     location: "location",
     user: "user",
@@ -44,7 +44,13 @@ const trips = [{
     ]
 }]
 
-/*
+app.get("/", (req, res) => {
+    res.json({
+        trips: trip,
+    })
+})
+
+/*  
 const friend = [
     {
         name: "Geralt",
