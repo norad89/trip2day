@@ -1,14 +1,13 @@
 import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
-import Calendar from "./components/Calendar"
+import Calendar from "./components/Calendar";
 import React, { useState } from "react";
-import { Checkbox, useCheckboxState } from 'pretty-checkbox-react'
+import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 function CreateNewTrip() {
-
   const museumSuggestions = [
     {
       author: "Mario",
@@ -44,52 +43,58 @@ function CreateNewTrip() {
   const tourSuggestions = [];
 
   const checkbox = useCheckboxState({ state: [] });
-  const [shown, setShown] = useState([])
+  const [shown, setShown] = useState([]);
 
   const handleSelect = (e) => {
-    setShown(e)
-  }
+    setShown(e);
+  };
 
   function renderSuggestions() {
-    return (
-      shown.map(({ author, sug, index }) => (
-        <Checkbox key={index} value={sug} {...checkbox}>
-          {author + " suggerisce: " + sug}
-        </Checkbox>
-      )))
+    return shown.map(({ author, sug, index }) => (
+      <Checkbox key={index} value={sug} {...checkbox}>
+        {author + " suggerisce: " + sug}
+      </Checkbox>
+    ));
   }
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [selectDate, setSelectDate] = useState(new Date())
+  const [selectDate, setSelectDate] = useState(new Date());
 
   function renderToDoList() {
-
     return (
-      <>  {checkbox.state.map((item, index) => (
-        <ul key={index}>
-          <li>{item}</li>
-          <Button variant="primary" onClick={handleShow}>
-            Inserisci nel calendario
-      </Button>
-        </ul>
-      ))}<Modal show={show} onHide={handleClose} animation={false}>
+      <>
+        {checkbox.state.map((item, index) => (
+          <ul key={index}>
+            <li>{item}</li>
+            <Button variant="primary" onClick={handleShow}>
+              Inserisci nel calendario
+            </Button>
+          </ul>
+        ))}
+        <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>Scegli la data</Modal.Title>
           </Modal.Header>
-      <Modal.Body><DatePicker selected={selectDate} onChange={date => setSelectDate(date)} /></Modal.Body>
+          <Modal.Body>
+            <DatePicker
+              selected={selectDate}
+              onChange={(date) => setSelectDate(date)}
+            />
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Chiudi
-      </Button>
+            </Button>
             <Button variant="primary" onClick={handleClose}>
               Salva le modifiche
-      </Button>
+            </Button>
           </Modal.Footer>
-        </Modal></>)
-
+        </Modal>
+      </>
+    );
   }
 
   return (
@@ -103,11 +108,21 @@ function CreateNewTrip() {
         title="Categories"
         id="dropdown-menu-align-right"
       >
-        <Dropdown.Item onSelect={() => handleSelect(museumSuggestions)}>Museums</Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(restaurantSuggestions)}>Restaurants</Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(hotelSuggestions)}>Hotels</Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(placeSuggestions)}>Best places to discover</Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(tourSuggestions)}>Tours to takes</Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(museumSuggestions)}>
+          Museums
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(restaurantSuggestions)}>
+          Restaurants
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(hotelSuggestions)}>
+          Hotels
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(placeSuggestions)}>
+          Best places to discover
+        </Dropdown.Item>
+        <Dropdown.Item onSelect={() => handleSelect(tourSuggestions)}>
+          Tours to takes
+        </Dropdown.Item>
       </DropdownButton>
       <br />
       <br />
@@ -115,9 +130,7 @@ function CreateNewTrip() {
       {renderSuggestions()}
       <h3>Ecco la tua To Do List:</h3>
       {renderToDoList()}
-      <Calendar checkboxState={checkbox.state} selectDate={selectDate}/>
-      
-
+      <Calendar checkboxState={checkbox.state} selectDate={selectDate} />
     </div>
   );
 }
