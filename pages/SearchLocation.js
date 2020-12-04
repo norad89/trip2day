@@ -1,8 +1,8 @@
 import TopNavbar from "./components/TopNavbar";
 import React, { useState } from "react";
 import Link from "next/link";
-
 import AutocompletePlace from "./AutocompletePlace";
+
 
 class Search extends React.Component {
   constructor(props) {
@@ -43,7 +43,7 @@ function LocationForm() {
   }
 
   return (
-    <form className="OnSubmitStyle" onSubmit={handleSubmit}>
+    <form className="onSubmitStyle" onSubmit={handleSubmit}>
       <label>
         <div>Choose your destination:</div>
         <Search type="text" value={value} onChange={handleChange} />
@@ -60,12 +60,14 @@ function SearchLocation() {
     <div>
       <TopNavbar />
 
-      <img className="LocationLogo" src="trip2day_logo.png" width="30%" />
+      <img className="locationLogo" src="trip2day_logo.png" width="30%" />
 
-      <div className="BackgroundLocation">
-        <h1 className="TextCenter">Prepare for a new adventure!</h1>
-        <div className="LocationStyle">
-          <LocationForm />
+
+      <div className='backgroundLocation'>
+        <h1 className="textCenter" >Prepare for a new adventure!</h1>
+        <div className="locationStyle">
+          <LocationForm/>
+
         </div>
       </div>
       <br />
