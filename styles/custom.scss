@@ -1,11 +1,62 @@
+/*............................. GENERAL  .........................*/
 $theme-colors: (
   "primary": #e4e4e4,
 );
+
+//Bootsrap Button
+// button[type=button] {
+//   /* Border */
+//   border: none;
+//   border-radius: 12px;
+ 
+//   /* Color */
+//   background-color: #75D8A2;
+//   color: white;
+ 
+//   /* Display and Box Model */
+//   display: inline-block;
+//   margin: 4px 2px;
+//   padding: 12px 40px;
+//   text-decoration: none;
+ 
+//    /* Text */
+//   font-family: Comfortaa-Light;
+//   font-size: 16px;
+//   text-align: center;
+ 
+//   /* Other */
+//   cursor: pointer;
+// }
+
+//Normal Button
+button {
+  /* Color */
+  background-color: #75D8A2;
+  color: white;
+
+  /* Display and Box Model */
+  padding: 12px 40px;
+  text-decoration: none;
+
+  /* Text */
+  font-family: Comfortaa-Light;
+  text-align: center;
+}
+
+a {
+  /* Text */
+  font-family: Comfortaa-Light;
+  font-size: 16px;
+}
 
 
 
 /*............................. FOOTER STYLE  .........................*/
 .foot {
+  /* Color */
+  background-color: black;
+  color:#E4E4E4; 
+
   /* Display and Box Model */
   height: 3vh;
 
@@ -14,9 +65,139 @@ $theme-colors: (
   font-size: small;
   text-align: center;
 
+  
+}
+
+
+/*............................. HEADER STYLE  .........................*/
+.buttonToTrip {
+  /* Border */
+  border: none;
+  border-radius: 12px;
+
   /* Color */
-  background-color: black;
-  color:#E4E4E4; 
+  // background-color: #75D8A2;
+  // color: white;
+
+  /* Display and Box Model */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  // padding: 12px 40px;
+  // text-decoration: none;
+
+  /* Text */
+  // font-family: Comfortaa-Light;
+  // font-size: 16px;
+  // text-align: center;
+
+  /* Other */
+  // cursor: pointer;
+  transition-duration: 0.4s;
+  &:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    outline: none;
+    transition: .5s ease;
+    }
+}
+
+.buttonText {
+  /* Text */
+  color: white;
+
+  &:hover {
+    /* Color */
+    color: white;
+
+    /* Text */
+    text-decoration: none;
+  }
+  &:link {
+    /* Color */
+    color: white;
+
+    /* Text */
+    text-decoration: none;
+  }
+  &:visited {
+    /* Color */
+    color: white;
+
+    /* Text */
+    text-decoration: none;
+  }
+  &:active {
+    /* Color */
+    color: white;
+
+    /* Text */
+    text-decoration: none;
+  }
+}
+
+.buttonPosition {
+  /* Display and Box Model */
+  height: 100px;
+  position: relative;
+}
+
+.case {
+  /* Display and Box Model */
+  margin: 0;
+  padding: 10px;
+
+  /* Text */
+  text-align: justify;
+}
+
+.description {
+  /* Display and Box Model */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  width: 500px;
+  word-wrap: break-word;
+
+  /* Text */
+  font-family: Comfortaa-Regular;
+}
+
+.images {
+  /* Display and Box Model */
+  height: 200px;
+  object-fit: cover;
+  width: 200px;
+}
+
+.imgContainer {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #455753;
+}
+
+.myStory {
+  font-family: Comfortaa-Light;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 25px;     /* fallback */
+   max-height: 500px;      /* fallback */
+   -webkit-line-clamp: 10; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.profileName {
+  background-color: #75D8A2;
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  font-family: Comfortaa-Medium;
 }
 
 
@@ -157,136 +338,7 @@ $theme-colors: (
 }
 
 
-/*............................. HEADER STYLE  .........................*/
-.buttonToTrip {
-  /* Border */
-  border: none;
-  border-radius: 12px;
 
-  /* Color */
-  background-color: #75D8A2;
-  color: white;
-
-  /* Display and Box Model */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 12px 40px;
-  text-decoration: none;
-
-  /* Text */
-  font-family: Comfortaa-Light;
-  font-size: 16px;
-  text-align: center;
-
-  /* Other */
-  cursor: pointer;
-  transition-duration: 0.4s;
-  &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    outline: none;
-    transition: .5s ease;
-    }  
-}
-
-.buttonText {
-  /* Text */
-  color: white;
-
-  &:hover {
-    /* Color */
-    color: white;
-
-    /* Text */
-    text-decoration: none;
-  }
-  &:link {
-    /* Color */
-    color: white;
-
-    /* Text */
-    text-decoration: none;
-  }
-  &:visited {
-    /* Color */
-    color: white;
-
-    /* Text */
-    text-decoration: none;
-  }
-  &:active {
-    /* Color */
-    color: white;
-
-    /* Text */
-    text-decoration: none;
-  }
-}
-
-.buttonPosition {
-  /* Display and Box Model */
-  height: 100px;
-  position: relative;
-}
-
-.case {
-  /* Display and Box Model */
-  margin: 0;
-  padding: 10px;
-
-  /* Text */
-  text-align: justify;
-}
-
-.description {
-  /* Display and Box Model */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px;
-  width: 500px;
-  word-wrap: break-word;
-
-  /* Text */
-  font-family: Comfortaa-Regular;
-}
-
-.images {
-  /* Display and Box Model */
-  height: 200px;
-  object-fit: cover;
-  width: 200px;
-}
-
-.imgContainer {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 3px solid #455753;
-}
-
-.myStory {
-  font-family: Comfortaa-Light;
-  overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   line-height: 25px;     /* fallback */
-   max-height: 500px;      /* fallback */
-   -webkit-line-clamp: 10; /* number of lines to show */
-   -webkit-box-orient: vertical;
-}
-
-.profileName {
-  background-color: #75D8A2;
-  color: white;
-  border-radius: 6px;
-  text-align: center;
-  font-family: Comfortaa-Medium;
-}
 
 
 
