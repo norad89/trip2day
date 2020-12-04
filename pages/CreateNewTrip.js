@@ -4,6 +4,7 @@ import Calendar from "./components/Calendar"
 import React, { useState, useEffect } from "react";
 import { Checkbox, useCheckboxState } from 'pretty-checkbox-react'
 
+
 function CreateNewTrip() {
 
   const museumSuggestions = [
@@ -50,7 +51,7 @@ function CreateNewTrip() {
   function renderSuggestions() {
     return (
       shown.map(({ author, sug, index }) => (
-        <Checkbox key={index} value={sug} {...checkbox}>
+        <Checkbox color="success" shape="round" key={index} value={sug} {...checkbox}>
           {author + " suggerisce: " + sug}
         </Checkbox>
       )))
@@ -68,27 +69,42 @@ function CreateNewTrip() {
   return (
     <div>
       <TopNavbar />
-      <h2>Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
-      <h3>Ti serve un suggerimento? Scegli tra queste categorie:</h3> 
+      <br />
+      <h2 className="HeaderNewTrip">Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
+      <br />
 
-      <DropdownButton
-        alignRight
-        title="Categories"
-        id="dropdown-menu-align-right"
-      >
-        <Dropdown.Item onSelect={() => handleSelect(museumSuggestions)}>Museums</Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(restaurantSuggestions)}>Restaurants</Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(hotelSuggestions)}>Hotels</Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(placeSuggestions)}>Best places to discover</Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(tourSuggestions)}>Tours to takes</Dropdown.Item>
-      </DropdownButton>
-      <br />
-      <br />
-      <h3>Seleziona i suggerimenti di tuoi interesse:</h3>
-      {renderSuggestions()}
-      <h3>Ecco la tua To Do List:</h3>
+      <div className="AllSuggCont">
+        <div className="row">
+          <div className="blockOne">
+            <h3 className="TextStyleSugg">Ti serve un suggerimento?</h3>
+          </div>
+          <div className="blockTwo">
+            <DropdownButton
+              alignRight
+              title="Categories"
+              id="dropdown-menu-align-right"
+              variant="success"
+            >
+              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(museumSuggestions)}>Museums</Dropdown.Item>
+              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(restaurantSuggestions)}>Restaurants</Dropdown.Item>
+              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(hotelSuggestions)}>Hotels</Dropdown.Item>
+              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(placeSuggestions)}>Best places to discover</Dropdown.Item>
+              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(tourSuggestions)}>Tours to takes</Dropdown.Item>
+            </DropdownButton>
+          </div>
+        </div>
+
+        <div ClassName="SuggContainer">
+          <h3 className="TextStyleSugg">Seleziona i suggerimenti di tuoi interesse:</h3>
+          <div className="Suggestions">
+            {renderSuggestions()}
+          </div>
+        </div>
+      </div>
+
+      <h3 className="TextStyleSugg">Ecco la tua To Do List:</h3>
       {renderToDoList()}
-      <Calendar renderToDoList={renderToDoList()}/>
+      <Calendar renderToDoList={renderToDoList()} />
 
     </div>
   );

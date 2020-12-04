@@ -2,9 +2,6 @@ $theme-colors: (
   "primary": #e4e4e4,
 );
 
-.card {
-  margin-bottom: 30px;
-}
 
 // NAVBAR STYLE
 
@@ -246,6 +243,7 @@ $theme-colors: (
   margin-right: auto;
   width: 18rem;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .TravelPhotoText {
@@ -407,9 +405,68 @@ input[type=text] {
   background-color: #0000FF11;
 }
 
+
 // CREATE NEW TRIP
 
+.HeaderNewTrip {
+  text-align: center;
+  font-family: Comfortaa-Medium;
+}
 
+#dropdown-menu-align-right {
+  color: #222222;
+  background-color: #75D8A2;
+  border-color: #75D8A2;
+  font-family: Comfortaa-Medium;
+  border-radius: 12px;
+  padding: 3px 10px;
+  box-shadow: none;
+// per allineare bottone e scritta
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.dropdown-menu.show.dropdown-menu-right {
+  background-color: #75D8A2;
+  font-family: Comfortaa-Medium;
+  border-color: #75D8A2;
+}
+
+.blockOne {
+  // float: left;
+  margin-left: 15px;
+  font-family: Comfortaa-Light;
+}
+
+.TextStyleSugg {
+  font-family: Comfortaa-Light;
+  font-size: 20px;
+  // per allineare bottone e scritta
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: 10px;
+}
+
+.blockTwo {
+  float: left;
+  margin-left: 5px;
+}
+
+.pretty.p-default.p-round {
+  margin-bottom: 20px;
+}
+
+.Suggestions {
+  display: flex;
+  flex-flow: column wrap;
+  margin-left: 10px;
+}
 
 // FONT STYLE
 
@@ -434,7 +491,7 @@ input[type=text] {
 }
 
 
-// NON SO COSA CAZZO SIANO
+// NON SO COSA SIANO
 
 .flexcontainer {
   display: flex;
@@ -442,6 +499,12 @@ input[type=text] {
   justify-content: space-around;  
 }
 
+
+// Pretty Checkbox React
+
+@import '@djthoms/pretty-checkbox/src/pretty-checkbox.scss';
+
+@import '@djthoms/pretty-checkbox/src/rtl.scss';
 
 // BOOSTRAP IMPORT
 
