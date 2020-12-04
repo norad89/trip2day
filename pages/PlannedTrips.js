@@ -67,7 +67,7 @@ function PlannedTrips() {
         <Container>
           <Row>
             <Card>
-              <div className="ImageContainer">
+              <div className="imageContainer">
                 <Card.Img variant="top" />
                 <img
                   className="NewTripImage"
@@ -76,10 +76,10 @@ function PlannedTrips() {
                   height="230px"
                   overflow="hidden"
                 ></img>
-                <div className="Middle">
-                  <div className="ButtonContainer">
+                <div className="middle">
+                  <div className="buttonContainer">
                     <Link href="./SearchLocation">
-                      <button className="NewTripButton">
+                      <button className="newTripButton">
                         <a> New Trip </a>
                       </button>
                     </Link>
@@ -88,10 +88,12 @@ function PlannedTrips() {
               </div>
               <Card.Body>
                 <br />
+
                 <Card.Title>
-                  <p className="TravelPhotoText"> New trip</p>
+                  <p className="travelPhotoText"> New trip</p>
                 </Card.Title>
                 <Card.Text></Card.Text>
+
                 {/* <Link href="./SearchLocation"><Button onChange={handleChange}><a className='NewTripsButton'> Prepare </a></Button></Link> */}
               </Card.Body>
             </Card>
@@ -105,11 +107,13 @@ function PlannedTrips() {
               <Card.Body>
                 <br />
                 {/* <Card.Title><Link href="/trips/[id]" as={`/trips/${trip.id}`}><a className='NewTripsButton'>{trip.id}</a></Link></Card.Title> */}
+
                 <Card.Title>
                   {" "}
-                  <p className="TravelPhotoText"> Parigi </p>{" "}
+                  <p className="travelPhotoText"> Parigi </p>{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
+
                 {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>
             </Card>
@@ -125,11 +129,13 @@ function PlannedTrips() {
               </a>
               <Card.Body>
                 <br />
+
                 <Card.Title>
                   {" "}
-                  <p className="TravelPhotoText"> Formentera </p>{" "}
+                  <p className="travelPhotoText"> Formentera </p>{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
+
                 {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>
             </Card>

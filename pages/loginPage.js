@@ -37,7 +37,7 @@ function LoginPage() {
                   <br />
                   <br />
                   <button
-                    className="DefaultButton"
+                    className="defaultButton"
                     onClick={() =>
                       signIn("facebook", {
                         callbackUrl: "http://localhost:3000/PlannedTrips",
@@ -66,11 +66,11 @@ function LoginPage() {
                       alt={session.user.name}
                     />
                     <br />
-                    <h2 className="Welcome">Welcome {session.user.name}!</h2>
+                    <h2 className="welcome">Welcome {session.user.name}!</h2>
                   </div>{" "}
                   <br />
                   <button
-                    className="DefaultButton"
+                    className="defaultButton"
                     onClick={() =>
                       signOut({ callbackUrl: "http://localhost:3000" })
                     }
