@@ -1,8 +1,9 @@
-import { Navbar, Nav } from 'react-bootstrap'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { Navbar, Nav } from "react-bootstrap";
+import { signIn, signOut, useSession } from "next-auth/client";
 
 export default function TopNavbar() {
   const [session, loading] = useSession();
+
   return (<>
 
     <Navbar bg="primary" sticky="top">

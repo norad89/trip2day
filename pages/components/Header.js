@@ -1,7 +1,8 @@
-import { Button, ButtonGroup } from 'react-bootstrap'
-import Link from 'next/link'
+import { Button, ButtonGroup } from "react-bootstrap";
+import Link from "next/link";
 
 function Header() {
+
     return (
         <div className='case'>
 
@@ -54,5 +55,7 @@ function Header() {
     )
 }
 
-export default Header
+  );
+}
 
+export default Header;
