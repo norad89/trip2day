@@ -105,32 +105,7 @@ function CreateNewTrip() {
   return (
     <div>
       <TopNavbar />
-      <h2>Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
-      <h3>Ti serve un suggerimento? Scegli tra queste categorie:</h3>
-
-      <DropdownButton
-        alignRight
-        title="Categories"
-        id="dropdown-menu-align-right"
-      >
-        <Dropdown.Item onSelect={() => handleSelect(museumSuggestions)}>
-          Museums
-        </Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(restaurantSuggestions)}>
-          Restaurants
-        </Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(hotelSuggestions)}>
-          Hotels
-        </Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(placeSuggestions)}>
-          Best places to discover
-        </Dropdown.Item>
-        <Dropdown.Item onSelect={() => handleSelect(tourSuggestions)}>
-          Tours to takes
-        </Dropdown.Item>
-      </DropdownButton>
-
-      <br />
+      
       <h2 className="headerNewTrip">
         Inizia il tuo viaggio a D E S T I N A Z I O N E
       </h2>

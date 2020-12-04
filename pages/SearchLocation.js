@@ -44,7 +44,8 @@ function SearchLocation() {
       <div className="backgroundLocation">
         <h1 className="textCenter">Prepare for a new adventure!</h1>
         <div className="locationStyle">
-          <LocationForm />
+          <InputLocation />
+          <Link href="./CreateNewTrip"><button>Vai a CreateNewTrip</button></Link>
         </div>
       </div>
       <br />
