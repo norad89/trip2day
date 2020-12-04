@@ -32,7 +32,7 @@ function LoginPage() {
                 <>Not signed in
                 <br />
                   <br />
-                  <button className="DefaultButton" onClick={() => signIn("facebook",
+                  <button className="defaultButton" onClick={() => signIn("facebook",
                     { callbackUrl: "http://localhost:3000/PlannedTrips" })}>Sign in</button>
                 </>
               )}
@@ -48,10 +48,10 @@ function LoginPage() {
                 >
                   <img className="imgProfile" width="100px" src={session.user.image} alt={session.user.name} />
                   <br />
-                  <h2 className='Welcome' >Welcome {session.user.name}!</h2>
+                  <h2 className='welcome' >Welcome {session.user.name}!</h2>
                 </div>{" "}
                   <br />
-                  <button className="DefaultButton" onClick={() =>
+                  <button className="defaultButton" onClick={() =>
                     signOut({ callbackUrl: "http://localhost:3000" })}>Sign out</button>
                 </>
               )}

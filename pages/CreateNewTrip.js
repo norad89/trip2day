@@ -70,13 +70,13 @@ function CreateNewTrip() {
     <div>
       <TopNavbar />
       <br />
-      <h2 className="HeaderNewTrip">Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
+      <h2 className="headerNewTrip">Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
       <br />
 
-      <div className="AllSuggCont">
+      <div className="allSuggCont">
         <div className="row">
           <div className="blockOne">
-            <h3 className="TextStyleSugg">Ti serve un suggerimento?</h3>
+            <h3 className="textStyleSugg">Ti serve un suggerimento?</h3>
           </div>
           <div className="blockTwo">
             <DropdownButton
@@ -94,15 +94,15 @@ function CreateNewTrip() {
           </div>
         </div>
 
-        <div ClassName="SuggContainer">
-          <h3 className="TextStyleSugg">Seleziona i suggerimenti di tuoi interesse:</h3>
-          <div className="Suggestions">
+        <div className="SuggContainer">
+          <h3 className="textStyleSugg">Seleziona i suggerimenti di tuoi interesse:</h3>
+          <div className="suggestions">
             {renderSuggestions()}
           </div>
         </div>
       </div>
 
-      <h3 className="TextStyleSugg">Ecco la tua To Do List:</h3>
+      <h3 className="textStyleSugg">Ecco la tua To Do List:</h3>
       {renderToDoList()}
       <Calendar renderToDoList={renderToDoList()} />
 

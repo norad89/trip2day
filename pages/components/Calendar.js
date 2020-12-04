@@ -59,7 +59,7 @@ export default function CheckDate(cabbage) {
 
   return (
     <div>
-      <h3>Please select the dates of travel:</h3>
+      <h3 className="textStyleSugg">Please select the dates of travel:</h3>
       <b>Start Date</b>:
       <DatePicker
         selected={startDate}
