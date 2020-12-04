@@ -1,8 +1,7 @@
 import Head from "next/head";
-import LoginPage from "./LoginPage"
+import LoginPage from "./LoginPage";
 
 export default function Home() {
-
   return (
     <>
       <Head>
@@ -15,7 +14,6 @@ export default function Home() {
       </Head>
 
       <LoginPage />
-
     </>
   );
 }

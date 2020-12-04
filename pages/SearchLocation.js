@@ -1,9 +1,7 @@
 import TopNavbar from "./components/TopNavbar";
-import AddCardViaggio from "./functions/AddCardViaggio"
-import React, { useState } from 'react'
-import Link from 'next/link'
-
-import AutocompletePlace from './AutocompletePlace'
+import React, { useState } from "react";
+import Link from "next/link";
+import AutocompletePlace from "./AutocompletePlace";
 import InputLocation from "./components/InputLocation";
 
 // const LocationForm = () => {
@@ -39,14 +37,17 @@ import InputLocation from "./components/InputLocation";
 function SearchLocation() {
   return (
     <div>
-
       <TopNavbar />
 
-      <img className="LocationLogo" src="trip2day_logo.png" width="30%" />
-      <div className='BackgroundLocation'>
-        <h1 className="TextCenter" >Prepare for a new adventure!</h1>
-        <div className="LocationStyle">
-          <InputLocation />
+
+      <img className="locationLogo" src="trip2day_logo.png" width="30%" />
+
+
+      <div className='backgroundLocation'>
+        <h1 className="textCenter" >Prepare for a new adventure!</h1>
+        <div className="locationStyle">
+          <LocationForm/>
+
         </div>
       </div>
       <br />

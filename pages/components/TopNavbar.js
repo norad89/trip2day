@@ -1,8 +1,9 @@
-import { Navbar, Nav } from 'react-bootstrap'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { Navbar, Nav } from "react-bootstrap";
+import { signIn, signOut, useSession } from "next-auth/client";
 
 export default function TopNavbar() {
   const [session, loading] = useSession();
+
   return (<>
 
     <Navbar bg="primary" sticky="top">
@@ -24,12 +25,12 @@ export default function TopNavbar() {
           {!session && (
             <>
               <p>Not signed in</p>
-              <button className='ButtonNavbar' onClick={() => signIn("facebook", { callbackUrl: "http://localhost:3000/PlannedTrips" })
+              <button className='buttonNavbar' onClick={() => signIn("facebook", { callbackUrl: "http://localhost:3000/PlannedTrips" })
               }> Sign in </button></>)}
           {session && (
             <>
               <p>Signed in as {session.user.name}!</p>
-              <button className='ButtonNavbar' onClick={() => signOut({ callbackUrl: "http://localhost:3000" })
+              <button className='buttonNavbar' onClick={() => signOut({ callbackUrl: "http://localhost:3000" })
               }> Sign out </button></>)}
         </Navbar>
       </Navbar.Collapse>

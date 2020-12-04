@@ -1,18 +1,18 @@
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap";
 import { signIn, signOut, useSession } from "next-auth/client";
 import Footer from "./components/Footer";
 import { useRouter } from "next/router";
-import { useEffect } from 'react'
+import { useEffect } from "react";
 
 function loginCheck() {
-  const [session, loading] = useSession()
-  const router = useRouter()
+  const [session, loading] = useSession();
+  const router = useRouter();
 
   useEffect(() => {
-    if ((session || loading)) {
-      router.push('/PlannedTrips')
+    if (session || loading) {
+      router.push("/PlannedTrips");
     }
-  }, [session, loading])
+  }, [session, loading]);
 }
 
 function LoginPage() {
@@ -23,16 +23,21 @@ function LoginPage() {
       <div>{loginCheck()}</div>
       <Container fluid>
         <Row>
-          <Col className="logincover" style={{ backgroundImage: 'url("loginpage.jpg")' }} />
+          <Col
+            className="logincover"
+            style={{ backgroundImage: 'url("loginpage.jpg")' }}
+          />
           <div className="loginformcontainer">
             <img className="logo" src="trip2day_logo.png" width="60%" />
 
             <div className="loginform">
               {!session && (
-                <>Not signed in
-                <br />
+                <>
+                  Not signed in
                   <br />
-                  <button className="DefaultButton" onClick={() => signIn("facebook",
+                  <br />
+
+                  <button className="defaultButton" onClick={() => signIn("facebook",
                     { callbackUrl: "http://localhost:3000/PlannedTrips" })}>Sign in</button>
                 </>
               )}
@@ -48,11 +53,12 @@ function LoginPage() {
                 >
                   <img className="imgProfile" width="100px" src={session.user.image} alt={session.user.name} />
                   <br />
-                  <h2 className='Welcome' >Welcome {session.user.name}!</h2>
+                  <h2 className='welcome' >Welcome {session.user.name}!</h2>
                 </div>{" "}
                   <br />
-                  <button className="DefaultButton" onClick={() =>
+                  <button className="defaultButton" onClick={() =>
                     signOut({ callbackUrl: "http://localhost:3000" })}>Sign out</button>
+
                 </>
               )}
             </div>
@@ -63,4 +69,4 @@ function LoginPage() {
     </>
   );
 }
-export default LoginPage
+export default LoginPage;

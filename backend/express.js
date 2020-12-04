@@ -46,7 +46,7 @@ app.delete("/location/:id", async (req,res) => {
 
 
 
-const trips = [{
+const trip = [{
     uniqueid: "id",
     location: "location",
     user: "user",
@@ -92,6 +92,7 @@ const trips = [{
 //         surname: "of Rivia"
 //     }
 // ]
+
 
 const trip = [
     {

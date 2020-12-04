@@ -1,28 +1,29 @@
-import { Button, ButtonGroup } from 'react-bootstrap'
-import Link from 'next/link'
+import { Button, ButtonGroup } from "react-bootstrap";
+import Link from "next/link";
 
 function Header() {
+
     return (
-        <div className='contenitore'>
+        <div className='case'>
 
             <br />
-            <div className="ImgContainer">
+            <div className="imgContainer">
             <img className='images' src="https://bidonica.files.wordpress.com/2010/04/vlcsnap-2010-04-19-19h00m46s204.png"/>
             </div>
             <br />
 
-            <div className='Description'>
-                <h1 className='ProfileName'> Cristina Munuz </h1>
+            <div className='description'>
+                <h1 className='profileName'> Cristina Munuz </h1>
                 <br />
-                <p className='MyStory'>
+                <p className='myStory'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.                    
                 </p>
             </div>
 
             <br />
 
-            <div className='ButtonPosition'>
-                <Link href='./SearchLocation'><button className='ButtonToTrip'><a className='ButtonText'> Plan your next trip </a></button></Link>
+            <div className='buttonPosition'>
+                <Link href='./SearchLocation'><button className='buttonToTrip'><a className='buttonText'> Plan your next trip </a></button></Link>
             </div>
 
             <br />
@@ -54,5 +55,7 @@ function Header() {
     )
 }
 
-export default Header
+  );
+}
 
+export default Header;
