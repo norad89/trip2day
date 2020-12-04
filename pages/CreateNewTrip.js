@@ -1,8 +1,11 @@
-import { DropdownButton, Dropdown, Form } from "react-bootstrap";
+import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import Calendar from "./components/Calendar"
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Checkbox, useCheckboxState } from 'pretty-checkbox-react'
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 function CreateNewTrip() {
 
@@ -55,14 +58,38 @@ function CreateNewTrip() {
         </Checkbox>
       )))
   }
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [selectDate, setSelectDate] = useState(new Date())
 
   function renderToDoList() {
+
     return (
-      checkbox.state.map((item, { index }) => (
+      <>  {checkbox.state.map((item, index) => (
         <ul key={index}>
           <li>{item}</li>
+          <Button variant="primary" onClick={handleShow}>
+            Inserisci nel calendario
+      </Button>
         </ul>
-      )))
+      ))}<Modal show={show} onHide={handleClose} animation={false}>
+          <Modal.Header closeButton>
+            <Modal.Title>Scegli la data</Modal.Title>
+          </Modal.Header>
+      <Modal.Body><DatePicker selected={selectDate} onChange={date => setSelectDate(date)} /></Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Chiudi
+      </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Salva le modifiche
+      </Button>
+          </Modal.Footer>
+        </Modal></>)
+
   }
 
   return (
@@ -88,7 +115,8 @@ function CreateNewTrip() {
       {renderSuggestions()}
       <h3>Ecco la tua To Do List:</h3>
       {renderToDoList()}
-      <Calendar />
+      <Calendar checkboxState={checkbox.state} selectDate={selectDate}/>
+      
 
     </div>
   );

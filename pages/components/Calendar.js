@@ -1,61 +1,80 @@
-import React from "react";
+import { useState } from "react";
 import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
+import { Card, Button, Container, Row } from "react-bootstrap"
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class CheckDate extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: new Date(),
-      endDate: new Date()
-    };
-    this.handleChangeEnd = this.handleChangeEnd.bind(this);
-    this.handleChangeStart = this.handleChangeStart.bind(this);
+export default function CheckDate(checkedProps) {
+
+  const [startDate, setstartDate] = useState(new Date())
+  const [endDate, setendDate] = useState(new Date())
+
+  function handleChangeStart(date) {
+    setstartDate(date);
   }
 
-  handleChangeStart(date) {
-    this.setState({
-      startDate: date
-    });
+  function handleChangeEnd(date) {
+    setendDate(date);
   }
 
-  handleChangeEnd(date) {
-    this.setState({
-      endDate: date
-    });
-  }
-
-  calculateDaysLeft(startDate, endDate) {
+  function calculateDaysLeft(startDate, endDate) {
     if (!dayjs.isDayjs(startDate)) startDate = dayjs(startDate);
     if (!dayjs.isDayjs(endDate)) endDate = dayjs(endDate);
 
     return endDate.diff(startDate, "days");
   }
 
-  render() {
-    const { startDate, endDate } = this.state;
+  function myAgenda(props) {
 
-    const daysLeft = this.calculateDaysLeft(startDate, endDate);
+    const day = { giorno: "Giorno", sugg: "duccio apri tutto" }
+    const agenda = new Array(props).fill(day)
+
+    function addSuggestion(arr) {
+      arr.splice(3, 0, { giorno: "Giorno", sugg: checkedProps.checkboxState[0] })
+      console.log(arr)
+    }
+
     return (
-      <div>
-        <h3>Please select the dates of travel:</h3>
-        <b>Start Date</b>:
-        <DatePicker
-          selected={this.state.startDate}
-          onChange={this.handleChangeStart}
-        />
-        &nbsp;&nbsp;&nbsp;
-        <b>End Date</b>:
-        <DatePicker
-          selected={this.state.endDate}
-          onChange={this.handleChangeEnd}
-        />
-        <div className="amount">Your trip will last {daysLeft} days. Here's your daily agenda:</div>
-        <div>- Daily Agenda goes Here -</div>
-      </div>
-    );
+      <>
+        <Container fluid><Row>{
+          agenda.map((item, index) => (
+            <>
+              <Card style={{ width: '18rem' }} key={index + "k"}>
+                <Card.Body>
+                  <Card.Title>{item.giorno} {index + 1}</Card.Title>
+                  <Card.Text>
+                    {item.sugg}
+                  </Card.Text>
+                  <Button variant="primary" onClick={addSuggestion(agenda)}>aggiungi le cose da fare</Button>
+                </Card.Body>
+              </Card>
+            </>
+          ))}</Row></Container>
+      </>
+    )
   }
+
+  const daysLeft = calculateDaysLeft(startDate, endDate)
+
+  return (
+    <div>
+      <h3>Please select the dates of travel:</h3>
+      <b>Start Date</b>:
+      <DatePicker
+        selected={startDate}
+        onChange={handleChangeStart}
+      />
+        &nbsp;&nbsp;&nbsp;
+      <b>End Date</b>:
+      <DatePicker
+        selected={endDate}
+        onChange={handleChangeEnd}
+      />
+      <div className="amount">Your trip will last {daysLeft +1} days. Here's your daily agenda:</div>
+      <div>{myAgenda(daysLeft)}</div>
+    </div>
+  );
+
 }
 
 

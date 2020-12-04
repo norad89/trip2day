@@ -2,6 +2,9 @@ $theme-colors: (
   "primary": #e4e4e4,
 );
 
+.card {
+  margin-bottom: 30px;
+}
 
 // NAVBAR STYLE
 
@@ -133,10 +136,20 @@ $theme-colors: (
 }
 
 .images{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.ImgContainer {
   border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
+  border: 3px solid #455753;
 }
 
 .Description {
@@ -146,7 +159,7 @@ $theme-colors: (
   font-family: Comfortaa-Regular;
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .ProfileName {
@@ -159,6 +172,13 @@ $theme-colors: (
 
 .MyStory {
   font-family: Comfortaa-Light;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 25px;     /* fallback */
+   max-height: 500px;      /* fallback */
+   -webkit-line-clamp: 10; /* number of lines to show */
+   -webkit-box-orient: vertical;
 }
 
 .ButtonToTrip {
@@ -293,11 +313,11 @@ $theme-colors: (
 // SEARCH LOCATION
 
 .LocationLogo {
-  padding-top: 3%;
+  padding-top: 2.5%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 70px;
+  padding-bottom: 60px;
 }
 
 .BackgroundLocation {
@@ -361,6 +381,34 @@ input[type=text] {
   top: 80px;
   position: relative;
 }
+
+// AUTOCOMPLETE PLACE
+
+.AutocompletePlace {
+  position: relative;
+}
+
+.AutocompletePlace-results {
+  position: absolute;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #00000011;
+}
+
+.AutocompletePlace-items {
+  list-style: none;
+  border: 1px solid #00000011;
+  cursor: pointer;
+  padding: 10px 10px;
+}
+
+.AutocompletePlace-items:hover {
+  background-color: #0000FF11;
+}
+
+// CREATE NEW TRIP
+
 
 
 // FONT STYLE
