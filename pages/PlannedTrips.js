@@ -67,17 +67,18 @@ function PlannedTrips() {
           <Row>
 
             <Card>
-              <div className='imageContainer'>
-                <Card.Img variant="top" /><img className='NewTripImage' src="/New_Trips.jpg" width="230px" height='230px' overflow="hidden"></img>
+              <div className='image-container'>
+                <Card.Img variant="top" /><img className='new-trip-image' src="/New_Trips.jpg" width="230px" height='230px' overflow="hidden"></img>
                 <div className='middle'>
-                  <div className='buttonContainer'>
-                    <Link href='./SearchLocation'><button className='newTripButton'><a> New Trip </a></button></Link>
+                  <div className='button-container'>
+                    <Link href='./SearchLocation'><button className='new-trip-button'><a> New Trip </a></button></Link>
                   </div>
                 </div>
               </div>
+
               <Card.Body>
                 <br />
-                <Card.Title><p className='travelPhotoText'> New trip</p></Card.Title>
+                <Card.Title><p className='travel-photo-text'> New trip</p></Card.Title>
                 <Card.Text>
 
                 </Card.Text>
@@ -86,12 +87,12 @@ function PlannedTrips() {
             </Card>
 
             <div>{renderCard()}</div>
-            <Card style={{ width: "18rem" }}>
+            <Card>
               <Card.Img variant="top" /><a><img src="/Parigi.jpg" width="230px" overflow="hidden"></img></a>
               <Card.Body>
                 <br />
                 {/* <Card.Title><Link href="/trips/[id]" as={`/trips/${trip.id}`}><a className='NewTripsButton'>{trip.id}</a></Link></Card.Title> */}
-                <Card.Title> <p className='travelPhotoText'> Parigi </p> </Card.Title>
+                <Card.Title> <p className='travel-photo-text'> Parigi </p> </Card.Title>
                 <Card.Text>
 
                 </Card.Text>
@@ -99,11 +100,11 @@ function PlannedTrips() {
               </Card.Body>
             </Card>
 
-            <Card style={{ width: "18rem" }}>
+            <Card>
               <Card.Img variant="top" /><a><img src="/Formentera.jpg" width="230px" overflow="hidden"></img></a>
               <Card.Body>
                 <br />
-                <Card.Title> <p className='travelPhotoText'> Formentera </p> </Card.Title>
+                <Card.Title> <p className='travel-photo-text'> Formentera </p> </Card.Title>
                 <Card.Text>
 
                 </Card.Text>

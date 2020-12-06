@@ -45,10 +45,10 @@ function LocationForm() {
   }
 
   return (
-    <form className="onSubmitStyle" onSubmit={handleSubmit}>
+    <form className="on-submit-style" onSubmit={handleSubmit}>
       <label>
         <div>Choose your destination:</div>
-        <Search type="text" value={value} onChange={handleChange}/>
+        <Search type="text" value={value} onChange={handleChange} />
       </label>
       <Link href="./CreateNewTrip"><input type="submit" value="Submit" /></Link>
     </form>
@@ -63,17 +63,18 @@ function SearchLocation() {
     <div>
 
       <TopNavbar />
+      <div className="case">
+        <img className="location-logo" src="trip2day_logo.png" width="30%" />
 
-      <img className="locationLogo" src="trip2day_logo.png" width="30%" />
-
-      <div className='backgroundLocation'>
-        <h1 className="textCenter" >Prepare for a new adventure!</h1>
-        <div className="locationStyle">
-          <LocationForm/>
+        <div className='background-location'>
+          <h1 className="src-location-title" >Prepare for a new adventure!</h1>
+          <div className="location-style">
+            <LocationForm />
+          </div>
         </div>
+        
+        <br />
       </div>
-      <br />
-      
     </div>
   );
 }

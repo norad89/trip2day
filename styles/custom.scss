@@ -3,507 +3,79 @@ $theme-colors: (
   "primary": #e4e4e4,
 );
 
-//Bootsrap Button
-// button[type=button] {
-//   /* Border */
-//   border: none;
-//   border-radius: 12px;
- 
-//   /* Color */
-//   background-color: #75D8A2;
-//   color: white;
- 
-//   /* Display and Box Model */
-//   display: inline-block;
-//   margin: 4px 2px;
-//   padding: 12px 40px;
-//   text-decoration: none;
- 
-//    /* Text */
-//   font-family: Comfortaa-Light;
-//   font-size: 16px;
-//   text-align: center;
- 
-//   /* Other */
-//   cursor: pointer;
-// }
-
-//Normal Button
-button {
-  /* Color */
-  background-color: #75D8A2;
-  color: white;
-
-  /* Display and Box Model */
-  padding: 12px 40px;
-  text-decoration: none;
-
-  /* Text */
-  font-family: Comfortaa-Light;
-  text-align: center;
+.flexcontainer {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
 }
 
+//Center element
+.case {
+  display: block;
+  font-family: Comfortaa-Light;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.logo,
+.location-logo,
+.img-container,
+.card,
+.description-profile,
+.background-location {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//Button
 a {
-  /* Text */
+  color: white;
   font-family: Comfortaa-Light;
   font-size: 16px;
 }
 
-
-
-/*............................. FOOTER STYLE  .........................*/
-.foot {
-  /* Color */
-  background-color: black;
-  color:#E4E4E4; 
-
-  /* Display and Box Model */
-  height: 3vh;
-
-  /* Text */
+button, 
+button[style="button"] {
+  background-color: #75d8a2;
+  color: white;
+  padding: 12px 40px;
+  text-decoration: none;
   font-family: Comfortaa-Light;
-  font-size: small;
   text-align: center;
-
-  
-}
-
-
-/*............................. HEADER STYLE  .........................*/
-.buttonToTrip {
-  /* Border */
   border: none;
-  border-radius: 12px;
-
-  /* Color */
-  // background-color: #75D8A2;
-  // color: white;
-
-  /* Display and Box Model */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  // padding: 12px 40px;
-  // text-decoration: none;
-
-  /* Text */
-  // font-family: Comfortaa-Light;
-  // font-size: 16px;
-  // text-align: center;
-
-  /* Other */
-  // cursor: pointer;
-  transition-duration: 0.4s;
-  &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    outline: none;
-    transition: .5s ease;
-    }
 }
 
-.buttonText {
-  /* Text */
-  color: white;
-
-  &:hover {
-    /* Color */
-    color: white;
-
-    /* Text */
-    text-decoration: none;
-  }
-  &:link {
-    /* Color */
-    color: white;
-
-    /* Text */
-    text-decoration: none;
-  }
-  &:visited {
-    /* Color */
-    color: white;
-
-    /* Text */
-    text-decoration: none;
-  }
-  &:active {
-    /* Color */
-    color: white;
-
-    /* Text */
-    text-decoration: none;
-  }
+.button-to-trip,
+.default-button,
+.button-navbar,
+input[type="submit"] {
+  border-radius: 4px;
 }
 
-.buttonPosition {
-  /* Display and Box Model */
-  height: 100px;
-  position: relative;
-}
-
-.case {
-  /* Display and Box Model */
-  margin: 0;
-  padding: 10px;
-
-  /* Text */
-  text-align: justify;
-}
-
-.description {
-  /* Display and Box Model */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px;
-  width: 500px;
-  word-wrap: break-word;
-
-  /* Text */
-  font-family: Comfortaa-Regular;
-}
-
-.images {
-  /* Display and Box Model */
-  height: 200px;
-  object-fit: cover;
-  width: 200px;
-}
-
-.imgContainer {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 3px solid #455753;
-}
-
-.myStory {
-  font-family: Comfortaa-Light;
-  overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   line-height: 25px;     /* fallback */
-   max-height: 500px;      /* fallback */
-   -webkit-line-clamp: 10; /* number of lines to show */
-   -webkit-box-orient: vertical;
-}
-
-.profileName {
-  background-color: #75D8A2;
-  color: white;
-  border-radius: 6px;
-  text-align: center;
+//TEXT
+h1,
+h2,
+.travel-photo-text {
   font-family: Comfortaa-Medium;
 }
 
-
-/*............................. LOGIN PAGE  .........................*/
-.defaultButton {
-  /* Border */
-  border: none;
-  border-radius: 12px;
- 
-  /* Color */
-  background-color: #75D8A2;
-  color: white;
- 
-  /* Display and Box Model */
-  display: inline-block;
-  margin: 4px 2px;
-  padding: 12px 60px;
-  text-decoration: none;
- 
-   /* Text */
-  font-family: Comfortaa-Light;
-  font-size: 16px;
-  text-align: center;
- 
-  /* Other */
-  cursor: pointer;
-  transition-duration: 0.4s;
-  &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    transition: .5s ease;
-    outline: none;
-  } 
- }
-
- .imgProfile {
-  /* Display and Box Model */
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.logincover {
-  /* Display and Box Model */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-  height: 96vh;
-  width:50%;
-
-  /* Text */
-  text-align: center;
-
-  /* Other */
-  justify-content: center;
-}
-
-.loginform {
-  /* Text */
-  text-align: center;
-  font-family: Comfortaa-Regular;
-}
-
-.loginformcontainer {
-  /* Color */
-  background-color: #e4e4e4 ;
-
-  /* Display and Box Model */
-  width: 50%;
-}
-
-.logo {
-  /* Display and Box Model */
-  padding-top: 15%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 100px;
-}
-
-.welcome {
-  /* Text */
-  font-size: 20px;
-}
-
-
-/*............................. NAVBAR STYLE  .........................*/
-
-.buttonNavbar {
-  /* Border */
-  border: none;
-  border-radius: 12px;
-
-  /* Color */
-  background-color: #75D8A2;
-  color: white;
-
-  /* Display and Box Model */
-  display: inline-block;
-  margin: 4px 14px;
-  padding: 12px 40px;
-  text-decoration: none;
-
-   /* Text */
-  font-family: Comfortaa-Light;
-  font-size: 12px;
-  text-align: center;
-
-  /* Other */
-  cursor: pointer;
-  &:hover {
-    box-shadow: none;
-    outline: none;
-  }
-}
-
-.justify-content-end {
-  /* Text */
+h3,
+p {
   font-family: Comfortaa-Light;
 }
 
-.mr-auto {
-  /* Text */
-  font-family: Comfortaa-Light;
-}
-
-.navbar {
-  /* Display and Box Model */
-  &-text {
-    display: inline-block;
-    margin-bottom: 0px;
-  }
-
-  /* Text */
-  p {
-    margin-bottom: 0px;
-  }
-}
-
-
-
-
-
-
-// MY TRIPS
-
-.text-center {
-  font-family: Comfortaa-Light;
-}
-
-
-// PLANNED TRIPS
-
+//CARD
 .card {
-  // display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: 18rem;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.travelPhotoText {
-  font-family: Comfortaa-Medium;
-}
 
-.card-img-top {
-  margin-top: 20px;
-}
+/*................................ AUTOCOMPLETE PLACE ..............................*/
 
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.imageContainer {
-  &:hover .NewTripImage {
-  opacity: 0.3;
-  transition: .5s ease;
-  }
-  &:hover .middle {
-    opacity: 1;
-  }
-}
-
-// .ImageContainer:hover .NewTripImage {
-//   opacity: 0.3;
-//   transition: .5s ease;
-// }
-
-// .ImageContainer:hover .Middle {
-//   opacity: 1;
-// }
-
-.buttonContainer {
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-}
-
-.newTripButton {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 15px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #455753;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 9px #999;
-  &:hover {
-    background-color: #455753;
-    outline: none;
-  }
-  &:active {
-    background-color: #455753;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-    outline: none;
-  }
-}
-
-
-// SEARCH LOCATION
-
-.locationLogo {
-  padding-top: 2.5%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 60px;
-}
-
-.backgroundLocation {
-  background-image: url('/Landscape.jpg');
-  background-repeat: no-repeat;
-  // background-size: 90% 800px;
-  background-size: cover;
-  background-position: center;
-  // -webkit-border-radius: 50px;
-  // -moz-border-radius: 50px;
-  border-radius: 70px;
-  border: none;
-  width: 90%;
-  min-height: 600px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.locationStyle {
-  height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.onSubmitStyle {
-  color: #222222;
-  font-family: Comfortaa-SemiBold;
-}
-
-input[type=submit] {
-  background-color: #455753;
-  border-radius: 5px;
-  border: none;
-  color: white;
-  padding: 3px 20px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-input[type=text] {
-  width: 300px;
-  border-color: #455753;
-  border-radius: 5px;
-  background-image: url('/Binocolo.png');
-  background-size: 22px;
-  background-position: 4px 2px;
-  background-repeat: no-repeat;
-  padding-left: 35px;
-}
-
-.textCenter {
-  text-align: center;
-  font-size: 50px;
-  color: #222222;
-  font-family: Comfortaa-SemiBold;
-  // margin-top: 10px;
-  top: 80px;
-  position: relative;
-}
-
-// AUTOCOMPLETE PLACE
-
-.autocompletePlace {
+.autocomplete-place {
   position: relative;
   &-results {
     position: absolute;
@@ -518,77 +90,319 @@ input[type=text] {
     cursor: pointer;
     padding: 10px 10px;
     &:hover {
-      background-color: #0000FF11;
+      background-color: #0000ff11;
     }
   }
 }
 
 
-// CREATE NEW TRIP
-
-.headerNewTrip {
+/*............................. FOOTER STYLE  .........................*/
+.foot {
+  background-color: black;
+  color: #e4e4e4;
+  height: 3vh;
+  font-family: Comfortaa-Light;
+  font-size: small;
   text-align: center;
-  font-family: Comfortaa-Medium;
 }
 
-#dropdown-menu-align-right {
+
+/*............................. HEADER STYLE  .........................*/
+.button-to-trip {
+  transition-duration: 0.4s;
+  &:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s ease;
+  }
+}
+
+.button-text {
+  color: white;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+  &:link {
+    color: white;
+    text-decoration: none;
+  }
+  &:visited {
+    color: white;
+    text-decoration: none;
+  }
+  &:active {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn.btn-secondary { //className-->ButtonGroup
+  color: white;
+  background-color: #455753;
+  padding: 8px 10px;
+  border: 1px solid white;
+}
+
+.description-profile {
+  width: 500px;
+}
+
+.img-container {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.img-profile {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.myStory {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 25px; /* fallback */
+  max-height: 500px; /* fallback */
+  -webkit-line-clamp: 10; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  text-align: justify;
+}
+
+.profileName {
+  background-color: #75d8a2;
+  border-radius: 6px;
+  color: white;
+}
+
+
+/*............................. LOGIN PAGE  .........................*/
+.default-button {
+  margin: 4px 2px;
+  padding: 12px 60px;
+  transition-duration: 0.4s;
+  &:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s ease;
+  }
+}
+
+.img-prof-log {
+  border-radius: 50%;
+}
+
+.logincover {
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  height: 96vh;
+  width: 50%;
+}
+
+.loginformcontainer {
+  background-color: #e4e4e4;
+  width: 50%;
+}
+
+.logo {
+  padding-top: 15%;
+  padding-bottom: 100px;
+}
+
+.welcome {
+  font-size: 20px;
+}
+
+
+/*............................. NAVBAR STYLE  .........................*/
+.button-navbar {
+  margin: 4px 14px;
+  font-size: 12px;
+}
+
+.navbar {
+  &-text {
+    display: inline-block;
+    margin-bottom: 0px;
+  }
+  font-family: Comfortaa-Light;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+
+/*................................ PLANNED TRIPS ..............................*/
+.button-container {
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+.card-img-top { //className-->img polaroid
+  margin-top: 20px;
+}
+
+.image-container {
+  &:hover .new-trip-image {
+    opacity: 0.3;
+    transition: 0.5s ease;
+  }
+  &:hover .middle {
+    opacity: 1;
+  }
+}
+
+.middle {
+  text-align: center;
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.new-trip-button {
+  padding: 15px 25px;
+  font-size: 15px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #455753;
+  box-shadow: 0 9px #999;
+  &:hover {
+    background-color: #455753;
+  }
+  &:active {
+    background-color: #455753;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    outline: none;
+  }
+}
+
+
+/*................................ SEARCH LOCATION ..............................*/
+.background-location {
+  background-image: url("/Landscape.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 70px;
+  border: none;
+  width: 90%;
+  min-height: 600px;
+}
+
+input[type="submit"] {//Button "submit"
+  background-color: #455753;
+  border: none;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  width: 300px;
+  border-color: #455753;
+  border-radius: 5px;
+  background-image: url("/Binocolo.png");
+  background-size: 22px;
+  background-position: 4px 2px;
+  background-repeat: no-repeat;
+  padding-left: 35px;
+}
+
+.location-logo {
+  padding-top: 2.5%;
+  padding-bottom: 60px;
+}
+
+.location-style {
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.on-submit-style {
   color: #222222;
-  background-color: #75D8A2;
-  border-color: #75D8A2;
-  font-family: Comfortaa-Medium;
-  border-radius: 12px;
-  padding: 3px 10px;
-  box-shadow: none;
-// per allineare bottone e scritta
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  font-family: Comfortaa-SemiBold;
 }
 
-.dropdown-menu.show.dropdown-menu-right {
-  background-color: #75D8A2;
-  font-family: Comfortaa-Medium;
-  border-color: #75D8A2;
+.src-location-title {
+  font-size: 50px;
+  color: #222222;
+  font-family: Comfortaa-SemiBold;
+  top: 80px;
+  position: relative;
 }
 
+
+/*................................ CREATE NEW TRIP ..............................*/
 .blockOne {
-  // float: left;
   margin-left: 15px;
   font-family: Comfortaa-Light;
 }
 
-.textStyleSugg {
-  font-family: Comfortaa-Light;
-  font-size: 20px;
-  // per allineare bottone e scritta
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  margin-left: 10px;
-}
-
 .blockTwo {
-  float: left;
   margin-left: 5px;
 }
 
-.pretty.p-default.p-round {
+.dropdown-item[role="button"] {
+  color: white;
+}
+
+#dropdown-menu-align-right {//id-->DropdownButton
+  color: white;
+  background-color: #75d8a2;
+  font-family: Comfortaa-Medium;
+  padding: 3px 10px;
+  box-shadow: none;
+}
+
+.dropdown-menu.show.dropdown-menu-right {//className-->Dropdown menu
+  background-color: #75d8a2;
+  font-family: Comfortaa-Medium;
+  border-color: #75d8a2;
+}
+
+.header-new-trip {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.select-sugg,
+.text-need-sugg,
+.to-do-list {
+  font-size: 20px;
+}
+
+.pretty.p-default.p-round {//className-->tips
+  margin-bottom: 20px;
+}
+
+.select-sugg {
   margin-bottom: 20px;
 }
 
 .suggestions {
   display: flex;
   flex-flow: column wrap;
-  margin-left: 10px;
 }
 
-.allSuggCont {
-  width: 600px;
+.to-do-list {
+  margin-left: 18px;
 }
+
 
 // FONT STYLE
 
@@ -613,21 +427,13 @@ input[type=text] {
 }
 
 
-// NON SO COSA SIANO
-
-.flexcontainer {
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;  
-}
-
-
 // Pretty Checkbox React
 
-@import '@djthoms/pretty-checkbox/src/pretty-checkbox.scss';
+@import "@djthoms/pretty-checkbox/src/pretty-checkbox.scss";
 
-@import '@djthoms/pretty-checkbox/src/rtl.scss';
+@import "@djthoms/pretty-checkbox/src/rtl.scss";
+
 
 // BOOSTRAP IMPORT
 
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";

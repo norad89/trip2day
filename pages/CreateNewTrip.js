@@ -70,13 +70,17 @@ function CreateNewTrip() {
     <div>
       <TopNavbar />
       <br />
-      <h2 className="headerNewTrip">Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
       <br />
-
+      <div className="case">
+      <h2>Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
+      <br />
+      <br />
+      <br />
+      <div className="header-new-trip">
       <div className="allSuggCont">
         <div className="row">
           <div className="blockOne">
-            <h3 className="textStyleSugg">Ti serve un suggerimento?</h3>
+            <h3 className="text-need-sugg">Ti serve un suggerimento?</h3>
           </div>
           <div className="blockTwo">
             <DropdownButton
@@ -85,27 +89,33 @@ function CreateNewTrip() {
               id="dropdown-menu-align-right"
               variant="success"
             >
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(museumSuggestions)}>Museums</Dropdown.Item>
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(restaurantSuggestions)}>Restaurants</Dropdown.Item>
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(hotelSuggestions)}>Hotels</Dropdown.Item>
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(placeSuggestions)}>Best places to discover</Dropdown.Item>
-              <Dropdown.Item style={{ color: '#222222' }} onSelect={() => handleSelect(tourSuggestions)}>Tours to takes</Dropdown.Item>
+              <Dropdown.Item onSelect={() => handleSelect(museumSuggestions)}>Museums</Dropdown.Item>
+              <Dropdown.Item onSelect={() => handleSelect(restaurantSuggestions)}>Restaurants</Dropdown.Item>
+              <Dropdown.Item onSelect={() => handleSelect(hotelSuggestions)}>Hotels</Dropdown.Item>
+              <Dropdown.Item onSelect={() => handleSelect(placeSuggestions)}>Best places to discover</Dropdown.Item>
+              <Dropdown.Item onSelect={() => handleSelect(tourSuggestions)}>Tours to takes</Dropdown.Item>
             </DropdownButton>
           </div>
         </div>
-
-        <div className="SuggContainer">
-          <h3 className="textStyleSugg">Seleziona i suggerimenti di tuoi interesse:</h3>
+        <br />
+        <div className="sugg-container">
+          <h3 className="select-sugg">Seleziona i suggerimenti di tuoi interesse:</h3>
           <div className="suggestions">
             {renderSuggestions()}
           </div>
         </div>
       </div>
 
-      <h3 className="textStyleSugg">Ecco la tua To Do List:</h3>
+      <div className="to-do-list-container">
+      <h3 className="to-do-list">Ecco la tua To Do List:</h3>
       {renderToDoList()}
+      </div>
+      </div>
+      <br />
+      <br />
+      <br />
       <Calendar renderToDoList={renderToDoList()} />
-
+      </div>
     </div>
   );
 }

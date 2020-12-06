@@ -27,12 +27,12 @@ function LoginPage() {
           <div className="loginformcontainer">
             <img className="logo" src="trip2day_logo.png" width="60%" />
 
-            <div className="loginform">
+            <div className="case">
               {!session && (
                 <>Not signed in
                 <br />
                   <br />
-                  <button className="defaultButton" onClick={() => signIn("facebook",
+                  <button className="default-button" onClick={() => signIn("facebook",
                     { callbackUrl: "http://localhost:3000/PlannedTrips" })}>Sign in</button>
                 </>
               )}
@@ -46,12 +46,12 @@ function LoginPage() {
                     color: "#000",
                   }}
                 >
-                  <img className="imgProfile" width="100px" src={session.user.image} alt={session.user.name} />
+                  <img className="img-prof-log" width="100px" src={session.user.image} alt={session.user.name} />
                   <br />
                   <h2 className='welcome' >Welcome {session.user.name}!</h2>
                 </div>{" "}
                   <br />
-                  <button className="defaultButton" onClick={() =>
+                  <button className="default-button" onClick={() =>
                     signOut({ callbackUrl: "http://localhost:3000" })}>Sign out</button>
                 </>
               )}
