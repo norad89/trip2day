@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import { Card, Button, Container, Row } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 export default function CheckDate(checkedProps) {
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());
@@ -73,18 +74,20 @@ export default function CheckDate(checkedProps) {
 
   return (
     <div>
+
       <h3>Please select the dates of travel:</h3>
       <br />
       <div className="calendar-date-container">
         <div>
           <b>Start Date</b>: &nbsp;
-      <DatePicker className="datapicker-input" selected={startDate} onChange={handleChangeStart} />
+      <DatePicker dateFormat="dd/MM/yyyy" className="datapicker-input" selected={startDate} onChange={handleChangeStart} />
         </div>
         <div>
           <b>End Date</b>: &nbsp;
-      <DatePicker className="datapicker-input" selected={endDate} onChange={handleChangeEnd} />
+      <DatePicker dateFormat="dd/MM/yyyy" className="datapicker-input" selected={endDate} onChange={handleChangeEnd} />
         </div>
       </div>
+
       <div className="amount">
         <br />
         Your trip will last {daysLeft} days. Here's your daily agenda:
