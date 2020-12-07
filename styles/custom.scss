@@ -3,7 +3,6 @@ $theme-colors: (
   "primary": #e4e4e4,
 );
 
-
 .flexcontainer {
   display: flex;
 
@@ -18,7 +17,6 @@ $theme-colors: (
   text-align: center;
   padding: 10px 0;
 }
-
 
 .logo,
 .location-logo,
@@ -38,8 +36,7 @@ a {
   font-size: 16px;
 }
 
-
-button, 
+button,
 button[style="button"] {
   background-color: #75d8a2;
   color: white;
@@ -76,8 +73,6 @@ p {
   margin-bottom: 30px;
 }
 
-
-
 /*................................ AUTOCOMPLETE PLACE ..............................*/
 
 .autocomplete-place {
@@ -100,7 +95,6 @@ p {
   }
 }
 
-
 /*............................. FOOTER STYLE  .........................*/
 .foot {
   background-color: black;
@@ -111,13 +105,12 @@ p {
   text-align: center;
 }
 
-
 /*............................. HEADER STYLE  .........................*/
 .button-to-trip {
   transition-duration: 0.4s;
   &:hover {
-
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
     transition: 0.5s ease;
   }
@@ -143,7 +136,8 @@ p {
   }
 }
 
-.btn.btn-secondary { //className-->ButtonGroup
+.btn.btn-secondary {
+  //className-->ButtonGroup
   color: white;
   background-color: #455753;
   padding: 8px 10px;
@@ -178,7 +172,6 @@ p {
   -webkit-box-orient: vertical;
 
   text-align: justify;
-
 }
 
 .profileName {
@@ -187,15 +180,14 @@ p {
   color: white;
 }
 
-
-
 /*............................. LOGIN PAGE  .........................*/
 .default-button {
   margin: 4px 2px;
   padding: 12px 60px;
   transition-duration: 0.4s;
   &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
     transition: 0.5s ease;
   }
 }
@@ -212,7 +204,6 @@ p {
   width: 50%;
 }
 
-
 .loginformcontainer {
   background-color: #e4e4e4;
   width: 50%;
@@ -227,8 +218,6 @@ p {
   font-size: 20px;
 }
 
-
-
 /*............................. NAVBAR STYLE  .........................*/
 .button-navbar {
   margin: 4px 14px;
@@ -239,14 +228,12 @@ p {
   &-text {
     display: inline-block;
     margin-bottom: 0px;
-
   }
   font-family: Comfortaa-Light;
   p {
     margin-bottom: 0px;
   }
 }
-
 
 /*................................ PLANNED TRIPS ..............................*/
 .button-container {
@@ -255,7 +242,8 @@ p {
   padding: 16px 32px;
 }
 
-.card-img-top { //className-->img polaroid
+.card-img-top {
+  //className-->img polaroid
   margin-top: 20px;
 }
 
@@ -298,8 +286,6 @@ p {
   }
 }
 
-
-
 /*................................ SEARCH LOCATION ..............................*/
 .background-location {
   background-image: url("/Landscape.jpg");
@@ -312,8 +298,8 @@ p {
   min-height: 600px;
 }
 
-
-input[type="submit"] {//Button "submit"
+input[type="submit"] {
+  //Button "submit"
   background-color: #455753;
   border: none;
   color: white;
@@ -359,8 +345,6 @@ input[type="text"] {
   position: relative;
 }
 
-
-
 /*................................ CREATE NEW TRIP ..............................*/
 .blockOne {
   margin-left: 15px;
@@ -375,17 +359,18 @@ input[type="text"] {
   color: white;
 }
 
-#dropdown-menu-align-right {//id-->DropdownButton
+#dropdown-menu-align-right {
+  //id-->DropdownButton
   color: white;
   background-color: #75d8a2;
 
   font-family: Comfortaa-Medium;
   padding: 3px 10px;
   box-shadow: none;
-
 }
 
-.dropdown-menu.show.dropdown-menu-right {//className-->Dropdown menu
+.dropdown-menu.show.dropdown-menu-right {
+  //className-->Dropdown menu
 
   background-color: #75d8a2;
   font-family: Comfortaa-Medium;
@@ -405,7 +390,8 @@ input[type="text"] {
   font-size: 20px;
 }
 
-.pretty.p-default.p-round {//className-->tips
+.pretty.p-default.p-round {
+  //className-->tips
   margin-bottom: 20px;
 }
 
@@ -421,7 +407,6 @@ input[type="text"] {
 .to-do-list {
   margin-left: 18px;
 }
-
 
 // FONT STYLE
 
@@ -445,16 +430,11 @@ input[type="text"] {
   src: url("/fonts/Comfortaa-SemiBold.ttf");
 }
 
-
-
 // Pretty Checkbox React
 
 @import "@djthoms/pretty-checkbox/src/pretty-checkbox.scss";
 
-
 @import "@djthoms/pretty-checkbox/src/rtl.scss";
-
-
 
 // BOOSTRAP IMPORT
 

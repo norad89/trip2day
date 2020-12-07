@@ -67,13 +67,22 @@ function PlannedTrips() {
         <Container>
           <Row>
             <Card>
-
-              <div className='image-container'>
-                <Card.Img variant="top" /><img className='new-trip-image' src="/New_Trips.jpg" width="230px" height='230px' overflow="hidden"></img>
-                <div className='middle'>
-                  <div className='button-container'>
-                    <Link href='./SearchLocation'><button className='new-trip-button'><a> New Trip </a></button></Link>
-
+              <div className="image-container">
+                <Card.Img variant="top" />
+                <img
+                  className="new-trip-image"
+                  src="/New_Trips.jpg"
+                  width="230px"
+                  height="230px"
+                  overflow="hidden"
+                ></img>
+                <div className="middle">
+                  <div className="button-container">
+                    <Link href="./SearchLocation">
+                      <button className="new-trip-button">
+                        <a> New Trip </a>
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -81,9 +90,10 @@ function PlannedTrips() {
               <Card.Body>
                 <br />
 
-                <Card.Title><p className='travel-photo-text'> New trip</p></Card.Title>
-                <Card.Text>
-</Card.Text>
+                <Card.Title>
+                  <p className="travel-photo-text"> New trip</p>
+                </Card.Title>
+                <Card.Text></Card.Text>
 
                 {/* <Link href="./SearchLocation"><Button onChange={handleChange}><a className='NewTripsButton'> Prepare </a></Button></Link> */}
               </Card.Body>
@@ -92,26 +102,39 @@ function PlannedTrips() {
             <div>{renderCard()}</div>
 
             <Card>
-              <Card.Img variant="top" /><a><img src="/Parigi.jpg" width="230px" overflow="hidden"></img></a>
+              <Card.Img variant="top" />
+              <a>
+                <img src="/Parigi.jpg" width="230px" overflow="hidden"></img>
+              </a>
               <Card.Body>
                 <br />
                 {/* <Card.Title><Link href="/trips/[id]" as={`/trips/${trip.id}`}><a className='NewTripsButton'>{trip.id}</a></Link></Card.Title> */}
-                <Card.Title> <p className='travel-photo-text'> Parigi </p> </Card.Title>
-                <Card.Text>
-</Card.Text>
+                <Card.Title>
+                  {" "}
+                  <p className="travel-photo-text"> Parigi </p>{" "}
+                </Card.Title>
+                <Card.Text></Card.Text>
 
                 {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>
             </Card>
 
-
             <Card>
-              <Card.Img variant="top" /><a><img src="/Formentera.jpg" width="230px" overflow="hidden"></img></a>
+              <Card.Img variant="top" />
+              <a>
+                <img
+                  src="/Formentera.jpg"
+                  width="230px"
+                  overflow="hidden"
+                ></img>
+              </a>
               <Card.Body>
                 <br />
-                <Card.Title> <p className='travel-photo-text'> Formentera </p> </Card.Title>
-                <Card.Text>
-</Card.Text>
+                <Card.Title>
+                  {" "}
+                  <p className="travel-photo-text"> Formentera </p>{" "}
+                </Card.Title>
+                <Card.Text></Card.Text>
 
                 {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>

@@ -23,7 +23,6 @@ export default function CheckDate(checkedProps) {
     console.log(checkedProps.selectDate);
   }, [checkedProps.selectDate]);
 
-
   function handleChangeStart(date) {
     setstartDate(date);
   }
@@ -38,7 +37,6 @@ export default function CheckDate(checkedProps) {
 
     return endDate.diff(startDate, "days") + 1;
   }
-  
 
   function myAgenda(props) {
     if (props > 0) {

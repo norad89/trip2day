@@ -36,29 +36,47 @@ function LoginPage() {
                   Not signed in
                   <br />
                   <br />
-
-                  <button className="default-button" onClick={() => signIn("facebook",
-                    { callbackUrl: "http://localhost:3000/PlannedTrips" })}>Sign in</button>
+                  <button
+                    className="default-button"
+                    onClick={() =>
+                      signIn("facebook", {
+                        callbackUrl: "http://localhost:3000/PlannedTrips",
+                      })
+                    }
+                  >
+                    Sign in
+                  </button>
                 </>
               )}
               {session && (
-                <><div
-                  style={{
-                    width: "300px",
-                    margin: "auto",
-                    background: "#e4e4e4",
-                    padding: "20px",
-                    color: "#000",
-                  }}
-                >
-                  <img className="img-prof-log" width="100px" src={session.user.image} alt={session.user.name} />
+                <>
+                  <div
+                    style={{
+                      width: "300px",
+                      margin: "auto",
+                      background: "#e4e4e4",
+                      padding: "20px",
+                      color: "#000",
+                    }}
+                  >
+                    <img
+                      className="img-prof-log"
+                      width="100px"
+                      src={session.user.image}
+                      alt={session.user.name}
+                    />
+                    <br />
+                    <h2 className="welcome">Welcome {session.user.name}!</h2>
+                  </div>{" "}
                   <br />
-                  <h2 className='welcome' >Welcome {session.user.name}!</h2>
-                </div>{" "}
-                  <br />
-                  <button className="default-button" onClick={() =>
-                    signOut({ callbackUrl: "http://localhost:3000" })}>Sign out</button>
-
+                  <button
+                    className="default-button"
+                    onClick={() =>
+                      signOut({ callbackUrl: "http://localhost:3000" })
+                    }
+                  >
+                    Sign out
+                  </button>
                 </>
               )}
             </div>
