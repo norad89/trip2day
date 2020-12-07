@@ -6,7 +6,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 const localizer = momentLocalizer(moment);
 
 const myEventsList = [
-  { start: new Date(), end: new Date(), title: "special event" }
+  { start: new Date(), end: new Date(), title: "special event" },
 ];
 
 export default function BigCalendar() {
