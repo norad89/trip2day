@@ -3,8 +3,10 @@ $theme-colors: (
   "primary": #e4e4e4,
 );
 
+
 .flexcontainer {
   display: flex;
+
   justify-content: center;
   justify-content: space-around;
 }
@@ -16,6 +18,7 @@ $theme-colors: (
   text-align: center;
   padding: 10px 0;
 }
+
 
 .logo,
 .location-logo,
@@ -34,6 +37,7 @@ a {
   font-family: Comfortaa-Light;
   font-size: 16px;
 }
+
 
 button, 
 button[style="button"] {
@@ -71,6 +75,7 @@ p {
   align-items: center;
   margin-bottom: 30px;
 }
+
 
 
 /*................................ AUTOCOMPLETE PLACE ..............................*/
@@ -111,7 +116,9 @@ p {
 .button-to-trip {
   transition-duration: 0.4s;
   &:hover {
+
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
     transition: 0.5s ease;
   }
 }
@@ -169,7 +176,9 @@ p {
   max-height: 500px; /* fallback */
   -webkit-line-clamp: 10; /* number of lines to show */
   -webkit-box-orient: vertical;
+
   text-align: justify;
+
 }
 
 .profileName {
@@ -177,6 +186,7 @@ p {
   border-radius: 6px;
   color: white;
 }
+
 
 
 /*............................. LOGIN PAGE  .........................*/
@@ -202,6 +212,7 @@ p {
   width: 50%;
 }
 
+
 .loginformcontainer {
   background-color: #e4e4e4;
   width: 50%;
@@ -217,6 +228,7 @@ p {
 }
 
 
+
 /*............................. NAVBAR STYLE  .........................*/
 .button-navbar {
   margin: 4px 14px;
@@ -227,6 +239,7 @@ p {
   &-text {
     display: inline-block;
     margin-bottom: 0px;
+
   }
   font-family: Comfortaa-Light;
   p {
@@ -286,6 +299,7 @@ p {
 }
 
 
+
 /*................................ SEARCH LOCATION ..............................*/
 .background-location {
   background-image: url("/Landscape.jpg");
@@ -297,6 +311,7 @@ p {
   width: 90%;
   min-height: 600px;
 }
+
 
 input[type="submit"] {//Button "submit"
   background-color: #455753;
@@ -345,6 +360,7 @@ input[type="text"] {
 }
 
 
+
 /*................................ CREATE NEW TRIP ..............................*/
 .blockOne {
   margin-left: 15px;
@@ -362,12 +378,15 @@ input[type="text"] {
 #dropdown-menu-align-right {//id-->DropdownButton
   color: white;
   background-color: #75d8a2;
+
   font-family: Comfortaa-Medium;
   padding: 3px 10px;
   box-shadow: none;
+
 }
 
 .dropdown-menu.show.dropdown-menu-right {//className-->Dropdown menu
+
   background-color: #75d8a2;
   font-family: Comfortaa-Medium;
   border-color: #75d8a2;
@@ -427,11 +446,14 @@ input[type="text"] {
 }
 
 
+
 // Pretty Checkbox React
 
 @import "@djthoms/pretty-checkbox/src/pretty-checkbox.scss";
 
+
 @import "@djthoms/pretty-checkbox/src/rtl.scss";
+
 
 
 // BOOSTRAP IMPORT

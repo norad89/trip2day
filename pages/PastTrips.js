@@ -1,9 +1,7 @@
-import TopNavbar from './components/TopNavbar'
-import Header from './components/Header'
-
+import TopNavbar from "./components/TopNavbar";
+import Header from "./components/Header";
 
 function PastTrips() {
-
   return (
     <div>
       <TopNavbar />
@@ -11,6 +9,5 @@ function PastTrips() {
       <p> -page content goes here- </p>
     </div>
   );
-
 }
-export default PastTrips
+export default PastTrips;

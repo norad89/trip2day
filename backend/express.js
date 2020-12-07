@@ -1,11 +1,52 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require('body-parser')
+const pool = require("./db");
 const app = express();
-const port = 3001;
+const port = 3002;
 app.use(cors());
+app.use(express.json());
 
-const trips = [{
+app.post("/location", async (req, res) => {
+    try {
+        const { location } = req.body;
+        const newLocation = await pool.query("INSERT INTO location (location) VALUES($1) RETURNING *", [location]);
+
+        res.json(newLocation.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+app.get("/location", async (req, res) => {
+    try {
+        const allLocations = await pool.query("SELECT * FROM location");
+        res.json(allLocations.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+app.get("/location/:id", async (req, res) => {
+    try {
+        const {id} = req.params;
+        const location = await pool.query("SELECT * FROM location WHERE location_id = $1", [id]);
+        res.json(location.rows[0])
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+app.delete("/location/:id", async (req,res) => {
+    try {
+        const {id} = req.params;
+        const deleteLocation = await pool.query("DELETE FROM location WHERE location_id = $1", [id]);
+        res.json("Location was deleted")
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+
+
+
+const trip = [{
     uniqueid: "id",
     location: "location",
     user: "user",
@@ -44,13 +85,14 @@ const trips = [{
     ]
 }]
 
-/*
-const friend = [
-    {
-        name: "Geralt",
-        surname: "of Rivia"
-    }
-]
+
+// const friend = [
+//     {
+//         name: "Geralt",
+//         surname: "of Rivia"
+//     }
+// ]
+
 
 const trip = [
     {
@@ -74,26 +116,26 @@ app.get("/", (req, res) => {
     })
 })
 
-app.get(`/${trip[1].id}`, (req, res) => {
-    res.json({
-        location: trip[1].location,
+// app.get(`/${trip[1].id}`, (req, res) => {
+//     res.json({
+//         location: trip[1].location,
 
-    })
+//     })
 
-}
-)
+// }
+// )
 
-app.post("/", (req, res) => {
-    trip.push({
-        id: "Londra",
-        location: "Londra",
-        photo: "Londra.jpg"
-    })
-    res.json({
-        cardViaggio: trip,
-    })
-})
-*/
+// app.post("/", (req, res) => {
+//     trip.push({
+//         id: "Londra",
+//         location: "Londra",
+//         photo: "Londra.jpg"
+//     })
+//     res.json({
+//         cardViaggio: trip,
+//     })
+// })
+
 
 app.all((req, res) => {
     res.json({ error: "EH!!! VOLEVI!!!" });

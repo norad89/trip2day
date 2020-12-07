@@ -1,12 +1,12 @@
-import { DropdownButton, Dropdown, Form } from "react-bootstrap";
+import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
-import Calendar from "./components/Calendar"
-import React, { useState, useEffect } from "react";
-import { Checkbox, useCheckboxState } from 'pretty-checkbox-react'
-
+import Calendar from "./components/Calendar";
+import React, { useState } from "react";
+import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function CreateNewTrip() {
-
   const museumSuggestions = [
     {
       author: "Mario",
@@ -42,28 +42,84 @@ function CreateNewTrip() {
   const tourSuggestions = [];
 
   const checkbox = useCheckboxState({ state: [] });
-  const [shown, setShown] = useState([])
+  const [shown, setShown] = useState([]);
+  const [selectDate, setselectDate] = useState(new Date());
+  const [selectedSuggestion, setselectedSuggestion] = useState("")
 
   const handleSelect = (e) => {
-    setShown(e)
+    setShown(e);
+  };
+
+  function handleChangeSelect(date) {
+    setselectDate(date);
   }
 
   function renderSuggestions() {
-    return (
-      shown.map(({ author, sug, index }) => (
-        <Checkbox color="success" shape="round" key={index} value={sug} {...checkbox}>
-          {author + " suggerisce: " + sug}
-        </Checkbox>
-      )))
+    return shown.map(({ author, sug, indexSugg }) => (
+      <Checkbox
+        color="success"
+        shape="round"
+        key={indexSugg}
+        value={sug}
+        {...checkbox}
+      >
+        {author + " suggerisce: " + sug}
+      </Checkbox>
+    ));
+  }
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+  function addSelectedSuggestion(selectedSuggIndex) {
+    handleShow()
+    setselectedSuggestion(checkbox.state[selectedSuggIndex])
   }
 
+  function showInAgenda() {
+    handleClose();
+    setselectDate(selectDate)
+  }
+
+
   function renderToDoList() {
+
+
     return (
-      checkbox.state.map((item, { index }) => (
-        <ul key={index}>
-          <li>{item}</li>
-        </ul>
-      )))
+      <>
+        {
+        checkbox.state.map((item, indexTo) => (
+          <ul key={indexTo}>
+            <li>{item}</li>
+            <Button variant="primary" onClick={() => addSelectedSuggestion(indexTo)}>
+              Inserisci in agenda
+            </Button>
+          </ul>
+        ))
+        }
+        <Modal show={show} onHide={handleClose} animation={false}>
+          <Modal.Header closeButton>
+            <Modal.Title>Scegli la data per l'attività</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <DatePicker
+              selected={selectDate}
+              onChange={handleChangeSelect}
+            />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Chiudi
+            </Button>
+            <Button variant="primary" onClick={showInAgenda}>
+              Salva le modifiche
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
   }
 
   return (
@@ -89,6 +145,7 @@ function CreateNewTrip() {
               id="dropdown-menu-align-right"
               variant="success"
             >
+
               <Dropdown.Item onSelect={() => handleSelect(museumSuggestions)}>Museums</Dropdown.Item>
               <Dropdown.Item onSelect={() => handleSelect(restaurantSuggestions)}>Restaurants</Dropdown.Item>
               <Dropdown.Item onSelect={() => handleSelect(hotelSuggestions)}>Hotels</Dropdown.Item>
@@ -103,20 +160,22 @@ function CreateNewTrip() {
           <div className="suggestions">
             {renderSuggestions()}
           </div>
+
         </div>
       </div>
 
       <div className="to-do-list-container">
       <h3 className="to-do-list">Ecco la tua To Do List:</h3>
       {renderToDoList()}
+
       </div>
       </div>
       <br />
       <br />
       <br />
-      <Calendar renderToDoList={renderToDoList()} />
+      <Calendar selectedSuggestion={selectedSuggestion} checkboxState={checkbox.state} selectDate={selectDate} />
       </div>
-    </div>
+
   );
 }
 
