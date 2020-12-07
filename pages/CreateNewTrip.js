@@ -4,7 +4,7 @@ import Calendar from "./components/Calendar";
 import React, { useState } from "react";
 import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import BigCalendar from "./components/BigCalendar";
 
 function CreateNewTrip() {
   const museumSuggestions = [
@@ -62,7 +62,7 @@ function CreateNewTrip() {
     return shown.map(({ author, sug, indexSugg }) => (
       <Checkbox
         color="success"
-        shape="round"
+        shape="curve"
         key={indexSugg}
         value={sug}
         {...checkbox}
@@ -88,7 +88,7 @@ function CreateNewTrip() {
         {checkbox.state.map((item, indexTo) => (
           <ul key={indexTo}>
             <li>{item}</li>
-            <Button
+            <Button className="button-to-do-list"
               variant="primary"
               onClick={() => addSelectedSuggestion(indexTo)}
             >
@@ -96,22 +96,24 @@ function CreateNewTrip() {
             </Button>
           </ul>
         ))}
+        
         <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>Scegli la data per l'attività</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <DatePicker selected={selectDate} onChange={handleChangeSelect} />
+            <DatePicker className="datapicker-input" selected={selectDate} onChange={handleChangeSelect} />
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button className="button-modal-footer" variant="secondary" onClick={handleClose}>
               Chiudi
             </Button>
-            <Button variant="primary" onClick={showInAgenda}>
+            <Button className="button-modal-footer" variant="primary" onClick={showInAgenda}>
               Salva le modifiche
             </Button>
           </Modal.Footer>
         </Modal>
+        
       </>
     );
   }
@@ -127,7 +129,7 @@ function CreateNewTrip() {
         <br />
         <br />
         <div className="header-new-trip">
-          <div className="allSuggCont">
+          <div className="all-sugg-cont">
             <div className="row">
               <div className="blockOne">
                 <h3 className="text-need-sugg">Ti serve un suggerimento?</h3>
@@ -182,11 +184,12 @@ function CreateNewTrip() {
         <br />
         <br />
         <br />
-        <Calendar
+        {/* <Calendar
           selectedSuggestion={selectedSuggestion}
           checkboxState={checkbox.state}
-          selectDate={selectDate}
-        />
+          selectDate={selectDate} 
+        />*/}
+        <BigCalendar />
       </div>
     </div>
   );

@@ -10,25 +10,6 @@ $theme-colors: (
   justify-content: space-around;
 }
 
-//Center element
-.case {
-  display: block;
-  font-family: Comfortaa-Light;
-  text-align: center;
-  padding: 10px 0;
-}
-
-.logo,
-.location-logo,
-.img-container,
-.card,
-.description-profile,
-.background-location {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 //Button
 a {
   color: white;
@@ -37,7 +18,8 @@ a {
 }
 
 button,
-button[style="button"] {
+//Bootstrap button
+button.btn.btn-primary[type="button"] {
   background-color: #75d8a2;
   color: white;
   padding: 12px 40px;
@@ -54,6 +36,57 @@ input[type="submit"] {
   border-radius: 4px;
 }
 
+//CARD
+.card {
+  width: 18rem;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+//Center element
+.case {
+  display: block;
+  font-family: Comfortaa-Light;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.background-location,
+.card,
+.description-profile,
+.img-container,
+.logo,
+.location-logo,
+.modal-body,
+.modal-title.h4 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Comfortaa-Light;
+}
+
+//INPUT STYLE
+input[type="submit"] {
+  //Button "submit"
+  background-color: #455753;
+  border: none;
+  color: white;
+  padding: 3px 20px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  width: 300px;
+  border-radius: 5px;
+  background-image: url("/Binocolo.png");
+  background-size: 22px;
+  background-position: 4px 2px;
+  background-repeat: no-repeat;
+  padding-left: 35px;
+}
+
 //TEXT
 h1,
 h2,
@@ -64,13 +97,6 @@ h2,
 h3,
 p {
   font-family: Comfortaa-Light;
-}
-
-//CARD
-.card {
-  width: 18rem;
-  align-items: center;
-  margin-bottom: 30px;
 }
 
 /*................................ AUTOCOMPLETE PLACE ..............................*/
@@ -95,6 +121,114 @@ p {
   }
 }
 
+/*............................. CALENDAR  .........................*/
+input.datapicker-input[type="text"] {
+  background-image: url("/agenda.png");
+  background-size: 20px;
+  background-position: 4px 2px;
+}
+
+//change color of selected day calendar
+.react-datepicker__day.react-datepicker__day--selected {
+  background-color: #75d8a2;
+}
+
+/*................................ CREATE NEW TRIP ..............................*/
+.all-sugg-cont,
+.to-do-list-container {
+  border: 2px solid #222222;
+  border-radius: 8px;
+  overflow: auto;
+  width: 600px;
+  height: 400px;
+  max-width: 600px;
+}
+
+.blockOne {
+  margin-left: 25px;
+  font-family: Comfortaa-Light;
+}
+
+.blockTwo {
+  margin-left: 5px;
+}
+
+//change style of bootsrap button in page
+.button-to-do-list.btn.btn-primary[type="button"],
+.button-activities.btn.btn-primary[type="button"],
+.button-modal-footer.btn.btn-primary[type="button"],
+.button-modal-footer.btn.btn-secondary[type="button"] {
+  padding: 6px 20px;
+  font-size: 12px;
+  font-family: Comfortaa-Light;
+}
+
+.dropdown-item[role="button"] {
+  color: white;
+}
+
+#dropdown-menu-align-right {
+  //id-->DropdownButton
+  color: white;
+  background-color: #75d8a2;
+
+  font-family: Comfortaa-Medium;
+  padding: 3px 10px;
+  box-shadow: none;
+}
+
+.dropdown-menu.show.dropdown-menu-right {
+  //className-->Dropdown menu
+  background-color: #75d8a2;
+  font-family: Comfortaa-Medium;
+  border-color: #75d8a2;
+}
+
+.header-new-trip,
+.calendar-date-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.pretty.p-default.p-curve {
+  //className-->Checkbox
+  margin-bottom: 30px;
+}
+
+.select-sugg,
+.text-need-sugg,
+.to-do-list {
+  font-size: 20px;
+}
+
+.select-sugg {
+  margin-bottom: 20px;
+}
+
+.sugg-container {
+  margin-left: 11px;
+}
+
+.suggestions {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.to-do-list {
+  margin-left: 18px;
+  margin-top: 10px;
+}
+
+ul {
+  margin-right: 8px;
+}
+
 /*............................. FOOTER STYLE  .........................*/
 .foot {
   background-color: black;
@@ -109,8 +243,7 @@ p {
 .button-to-trip {
   transition-duration: 0.4s;
   &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
     transition: 0.5s ease;
   }
@@ -170,7 +303,6 @@ p {
   max-height: 500px; /* fallback */
   -webkit-line-clamp: 10; /* number of lines to show */
   -webkit-box-orient: vertical;
-
   text-align: justify;
 }
 
@@ -186,8 +318,7 @@ p {
   padding: 12px 60px;
   transition-duration: 0.4s;
   &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     transition: 0.5s ease;
   }
 }
@@ -298,28 +429,6 @@ p {
   min-height: 600px;
 }
 
-input[type="submit"] {
-  //Button "submit"
-  background-color: #455753;
-  border: none;
-  color: white;
-  padding: 3px 20px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-input[type="text"] {
-  width: 300px;
-  border-color: #455753;
-  border-radius: 5px;
-  background-image: url("/Binocolo.png");
-  background-size: 22px;
-  background-position: 4px 2px;
-  background-repeat: no-repeat;
-  padding-left: 35px;
-}
-
 .location-logo {
   padding-top: 2.5%;
   padding-bottom: 60px;
@@ -343,69 +452,6 @@ input[type="text"] {
   font-family: Comfortaa-SemiBold;
   top: 80px;
   position: relative;
-}
-
-/*................................ CREATE NEW TRIP ..............................*/
-.blockOne {
-  margin-left: 15px;
-  font-family: Comfortaa-Light;
-}
-
-.blockTwo {
-  margin-left: 5px;
-}
-
-.dropdown-item[role="button"] {
-  color: white;
-}
-
-#dropdown-menu-align-right {
-  //id-->DropdownButton
-  color: white;
-  background-color: #75d8a2;
-
-  font-family: Comfortaa-Medium;
-  padding: 3px 10px;
-  box-shadow: none;
-}
-
-.dropdown-menu.show.dropdown-menu-right {
-  //className-->Dropdown menu
-
-  background-color: #75d8a2;
-  font-family: Comfortaa-Medium;
-  border-color: #75d8a2;
-}
-
-.header-new-trip {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  text-align: left;
-}
-
-.select-sugg,
-.text-need-sugg,
-.to-do-list {
-  font-size: 20px;
-}
-
-.pretty.p-default.p-round {
-  //className-->tips
-  margin-bottom: 20px;
-}
-
-.select-sugg {
-  margin-bottom: 20px;
-}
-
-.suggestions {
-  display: flex;
-  flex-flow: column wrap;
-}
-
-.to-do-list {
-  margin-left: 18px;
 }
 
 // FONT STYLE
