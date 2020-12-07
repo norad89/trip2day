@@ -44,7 +44,11 @@ function CreateNewTrip() {
   const checkbox = useCheckboxState({ state: [] });
   const [shown, setShown] = useState([]);
   const [selectDate, setselectDate] = useState(new Date());
-  const [selectedSuggestion, setselectedSuggestion] = useState("")
+  const [selectedSuggestion, setselectedSuggestion] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleSelect = (e) => {
     setShown(e);
@@ -67,47 +71,37 @@ function CreateNewTrip() {
       </Checkbox>
     ));
   }
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
 
   function addSelectedSuggestion(selectedSuggIndex) {
-    handleShow()
-    setselectedSuggestion(checkbox.state[selectedSuggIndex])
+    handleShow();
+    setselectedSuggestion(checkbox.state[selectedSuggIndex]);
   }
 
   function showInAgenda() {
     handleClose();
-    setselectDate(selectDate)
+    setselectDate(selectDate);
   }
 
-
   function renderToDoList() {
-
-
     return (
       <>
-        {
-        checkbox.state.map((item, indexTo) => (
+        {checkbox.state.map((item, indexTo) => (
           <ul key={indexTo}>
             <li>{item}</li>
-            <Button variant="primary" onClick={() => addSelectedSuggestion(indexTo)}>
+            <Button
+              variant="primary"
+              onClick={() => addSelectedSuggestion(indexTo)}
+            >
               Inserisci in agenda
             </Button>
           </ul>
-        ))
-        }
+        ))}
         <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>Scegli la data per l'attività</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <DatePicker
-              selected={selectDate}
-              onChange={handleChangeSelect}
-            />
+            <DatePicker selected={selectDate} onChange={handleChangeSelect} />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
@@ -125,70 +119,75 @@ function CreateNewTrip() {
   return (
     <div>
       <TopNavbar />
-      
-      <h2 className="headerNewTrip">
-        Inizia il tuo viaggio a D E S T I N A Z I O N E
-      </h2>
       <br />
-
-      <div className="allSuggCont">
-        <div className="row">
-          <div className="blockOne">
-            <h3 className="textStyleSugg">Ti serve un suggerimento?</h3>
+      <br />
+      <div className="case">
+        <h2>Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
+        <br />
+        <br />
+        <br />
+        <div className="header-new-trip">
+          <div className="allSuggCont">
+            <div className="row">
+              <div className="blockOne">
+                <h3 className="text-need-sugg">Ti serve un suggerimento?</h3>
+              </div>
+              <div className="blockTwo">
+                <DropdownButton
+                  alignRight
+                  title="Categories"
+                  id="dropdown-menu-align-right"
+                  variant="success"
+                >
+                  <Dropdown.Item
+                    onSelect={() => handleSelect(museumSuggestions)}
+                  >
+                    Museums
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => handleSelect(restaurantSuggestions)}
+                  >
+                    Restaurants
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => handleSelect(hotelSuggestions)}
+                  >
+                    Hotels
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onSelect={() => handleSelect(placeSuggestions)}
+                  >
+                    Best places to discover
+                  </Dropdown.Item>
+                  <Dropdown.Item onSelect={() => handleSelect(tourSuggestions)}>
+                    Tours to takes
+                  </Dropdown.Item>
+                </DropdownButton>
+              </div>
+            </div>
+            <br />
+            <div className="sugg-container">
+              <h3 className="select-sugg">
+                Seleziona i suggerimenti di tuoi interesse:
+              </h3>
+              <div className="suggestions">{renderSuggestions()}</div>
+            </div>
           </div>
-          <div className="blockTwo">
-            <DropdownButton
-              alignRight
-              title="Categories"
-              id="dropdown-menu-align-right"
-              variant="success"
-            >
-              <Dropdown.Item
-                style={{ color: "#222222" }}
-                onSelect={() => handleSelect(museumSuggestions)}
-              >
-                Museums
-              </Dropdown.Item>
-              <Dropdown.Item
-                style={{ color: "#222222" }}
-                onSelect={() => handleSelect(restaurantSuggestions)}
-              >
-                Restaurants
-              </Dropdown.Item>
-              <Dropdown.Item
-                style={{ color: "#222222" }}
-                onSelect={() => handleSelect(hotelSuggestions)}
-              >
-                Hotels
-              </Dropdown.Item>
-              <Dropdown.Item
-                style={{ color: "#222222" }}
-                onSelect={() => handleSelect(placeSuggestions)}
-              >
-                Best places to discover
-              </Dropdown.Item>
-              <Dropdown.Item
-                style={{ color: "#222222" }}
-                onSelect={() => handleSelect(tourSuggestions)}
-              >
-                Tours to takes
-              </Dropdown.Item>
-            </DropdownButton>
+
+          <div className="to-do-list-container">
+            <h3 className="to-do-list">Ecco la tua To Do List:</h3>
+            {renderToDoList()}
           </div>
         </div>
-
-        <div className="SuggContainer">
-          <h3 className="textStyleSugg">
-            Seleziona i suggerimenti di tuoi interesse:
-          </h3>
-          <div className="suggestions">{renderSuggestions()}</div>
-        </div>
+        <br />
+        <br />
+        <br />
+        <Calendar
+          selectedSuggestion={selectedSuggestion}
+          checkboxState={checkbox.state}
+          selectDate={selectDate}
+        />
       </div>
-
-      <h3 className="textStyleSugg">Ecco la tua To Do List:</h3>
-      {renderToDoList()}
-
-      <Calendar selectedSuggestion={selectedSuggestion} checkboxState={checkbox.state} selectDate={selectDate} />
     </div>
   );
 }

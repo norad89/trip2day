@@ -38,17 +38,21 @@ function SearchLocation() {
   return (
     <div>
       <TopNavbar />
+      <div className="case">
+        <img className="location-logo" src="trip2day_logo.png" width="30%" />
 
-      <img className="locationLogo" src="trip2day_logo.png" width="30%" />
+        <div className="background-location">
+          <h1 className="src-location-title">Prepare for a new adventure!</h1>
+          <div className="location-style">
+            <InputLocation />
+            <Link href="./CreateNewTrip">
+              <button>Vai a CreateNewTrip</button>
+            </Link>
+          </div>
 
-      <div className="backgroundLocation">
-        <h1 className="textCenter">Prepare for a new adventure!</h1>
-        <div className="locationStyle">
-          <InputLocation />
-          <Link href="./CreateNewTrip"><button>Vai a CreateNewTrip</button></Link>
+          <br />
         </div>
       </div>
-      <br />
     </div>
   );
 }
