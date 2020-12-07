@@ -56,7 +56,7 @@ export default function CheckDate(checkedProps) {
                         {item.giorno} {indexAgenda + 1}
                       </Card.Title>
                       <Card.Text>{item.sugg}</Card.Text>
-                      <Button variant="primary">
+                      <Button className="button-activities" variant="primary">
                         Aggiungi altre attività:
                       </Button>
                     </Card.Body>
@@ -74,15 +74,25 @@ export default function CheckDate(checkedProps) {
 
   return (
     <div>
-      <h3 className="textStyleSugg">Please select the dates of travel:</h3>
-      <b>Start Date</b>:
-      <DatePicker dateFormat="dd/MM/yyyy" selected={startDate} onChange={handleChangeStart} />
-      &nbsp;&nbsp;&nbsp;
-      <b>End Date</b>:
-      <DatePicker dateFormat="dd/MM/yyyy" selected={endDate} onChange={handleChangeEnd} />
+
+      <h3>Please select the dates of travel:</h3>
+      <br />
+      <div className="calendar-date-container">
+        <div>
+          <b>Start Date</b>: &nbsp;
+      <DatePicker dateFormat="dd/MM/yyyy" className="datapicker-input" selected={startDate} onChange={handleChangeStart} />
+        </div>
+        <div>
+          <b>End Date</b>: &nbsp;
+      <DatePicker dateFormat="dd/MM/yyyy" className="datapicker-input" selected={endDate} onChange={handleChangeEnd} />
+        </div>
+      </div>
+
       <div className="amount">
+        <br />
         Your trip will last {daysLeft} days. Here's your daily agenda:
       </div>
+      <br />
       <div>{myAgenda(daysLeft)}</div>
     </div>
   );
