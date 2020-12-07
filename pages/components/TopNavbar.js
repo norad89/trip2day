@@ -3,6 +3,7 @@ import { signIn, signOut, useSession } from "next-auth/client";
 
 export default function TopNavbar() {
   const [session, loading] = useSession();
+
   return (
     <>
       <Navbar bg="primary" sticky="top">
@@ -25,7 +26,7 @@ export default function TopNavbar() {
               <>
                 <p>Not signed in</p>
                 <button
-                  className="ButtonNavbar"
+                  className="button-navbar"
                   onClick={() =>
                     signIn("facebook", {
                       callbackUrl: "http://localhost:3000/PlannedTrips",
@@ -41,7 +42,7 @@ export default function TopNavbar() {
               <>
                 <p>Signed in as {session.user.name}!</p>
                 <button
-                  className="ButtonNavbar"
+                  className="button-navbar"
                   onClick={() =>
                     signOut({ callbackUrl: "http://localhost:3000" })
                   }

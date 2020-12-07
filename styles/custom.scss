@@ -1,357 +1,306 @@
+/*............................. GENERAL  .........................*/
 $theme-colors: (
   "primary": #e4e4e4,
 );
 
+.flexcontainer {
+  display: flex;
+
+  justify-content: center;
+  justify-content: space-around;
+}
+
+//Center element
+.case {
+  display: block;
+  font-family: Comfortaa-Light;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.logo,
+.location-logo,
+.img-container,
+.card,
+.description-profile,
+.background-location {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//Button
+a {
+  color: white;
+  font-family: Comfortaa-Light;
+  font-size: 16px;
+}
+
+button,
+button[style="button"] {
+  background-color: #75d8a2;
+  color: white;
+  padding: 12px 40px;
+  text-decoration: none;
+  font-family: Comfortaa-Light;
+  text-align: center;
+  border: none;
+}
+
+.button-to-trip,
+.default-button,
+.button-navbar,
+input[type="submit"] {
+  border-radius: 4px;
+}
+
+//TEXT
+h1,
+h2,
+.travel-photo-text {
+  font-family: Comfortaa-Medium;
+}
+
+h3,
+p {
+  font-family: Comfortaa-Light;
+}
+
+//CARD
 .card {
+  width: 18rem;
+  align-items: center;
   margin-bottom: 30px;
 }
 
-// NAVBAR STYLE
+/*................................ AUTOCOMPLETE PLACE ..............................*/
 
-.navbar-text {
-  display: inline-block;
-  margin-bottom: 0px;}
-
-.navbar p {
-  margin-bottom: 0px;
+.autocomplete-place {
+  position: relative;
+  &-results {
+    position: absolute;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #00000011;
+  }
+  &-items {
+    list-style: none;
+    border: 1px solid #00000011;
+    cursor: pointer;
+    padding: 10px 10px;
+    &:hover {
+      background-color: #0000ff11;
+    }
+  }
 }
 
-.mr-auto {
+/*............................. FOOTER STYLE  .........................*/
+.foot {
+  background-color: black;
+  color: #e4e4e4;
+  height: 3vh;
   font-family: Comfortaa-Light;
-}
-
-.ButtonNavbar {
-  background-color: #75D8A2;
-  border-radius: 12px;
-  border: none;
-  color: white;
-  padding: 12px 40px;
+  font-size: small;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 14px;
+}
+
+/*............................. HEADER STYLE  .........................*/
+.button-to-trip {
   transition-duration: 0.4s;
-  cursor: pointer;
-  outline: none;
-  font-family: Comfortaa-Light;
+  &:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
+    transition: 0.5s ease;
+  }
 }
 
-.ButtonNavbar:hover {
-  outline: none;
+.button-text {
+  color: white;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+  &:link {
+    color: white;
+    text-decoration: none;
+  }
+  &:visited {
+    color: white;
+    text-decoration: none;
+  }
+  &:active {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-.justify-content-end {
-  font-family: Comfortaa-Light;
+.btn.btn-secondary {
+  //className-->ButtonGroup
+  color: white;
+  background-color: #455753;
+  padding: 8px 10px;
+  border: 1px solid white;
 }
 
+.description-profile {
+  width: 500px;
+}
 
-// LOGIN PAGE
+.img-container {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.img-profile {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.myStory {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 25px; /* fallback */
+  max-height: 500px; /* fallback */
+  -webkit-line-clamp: 10; /* number of lines to show */
+  -webkit-box-orient: vertical;
+
+  text-align: justify;
+}
+
+.profileName {
+  background-color: #75d8a2;
+  border-radius: 6px;
+  color: white;
+}
+
+/*............................. LOGIN PAGE  .........................*/
+.default-button {
+  margin: 4px 2px;
+  padding: 12px 60px;
+  transition-duration: 0.4s;
+  &:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s ease;
+  }
+}
+
+.img-prof-log {
+  border-radius: 50%;
+}
 
 .logincover {
-  height: 96vh;
-  width:50%;
-  text-align: center;
-  justify-content: center;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+  height: 96vh;
+  width: 50%;
 }
 
 .loginformcontainer {
-  background-color: #e4e4e4 ;
+  background-color: #e4e4e4;
   width: 50%;
 }
 
 .logo {
   padding-top: 15%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   padding-bottom: 100px;
 }
 
-.loginform {
-  text-align: center;
-  font-family: Comfortaa-Regular;
-}
-
-.DefaultButton {
-  background-color: #75D8A2;
-  border-radius: 12px;
-  border: none;
-  color: white;
-  padding: 12px 60px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  outline: none;
-  font-family: Comfortaa-Light;
-}
-
-.DefaultButton:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  transition: .5s ease;
-  outline: none;
-}
-
-.DefaultButton:active {
-  outline: none;
-}
-
-.imgProfile {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50%;
-}
-
-.Welcome {
+.welcome {
   font-size: 20px;
 }
 
+/*............................. NAVBAR STYLE  .........................*/
+.button-navbar {
+  margin: 4px 14px;
+  font-size: 12px;
+}
 
-// FOOTER STYLE
-
-.Foot {
-  height: 3vh;
-  text-align: center;
-  font-size: small;
+.navbar {
+  &-text {
+    display: inline-block;
+    margin-bottom: 0px;
+  }
   font-family: Comfortaa-Light;
-  color:#E4E4E4; 
-  background-color: black;
+  p {
+    margin-bottom: 0px;
+  }
 }
 
-
-//HEADER STYLE
-
-.contenitore {
-  margin: 0;
-  padding: 10px;
-  text-align: justify;
-}
-
-.images{
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-}
-
-.ImgContainer {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 3px solid #455753;
-}
-
-.Description {
-  padding: 5px;
-  width: 500px;
-  word-wrap: break-word;
-  font-family: Comfortaa-Regular;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ProfileName {
-  background-color: #75D8A2;
+/*................................ PLANNED TRIPS ..............................*/
+.button-container {
   color: white;
-  border-radius: 6px;
-  text-align: center;
-  font-family: Comfortaa-Medium;
-}
-
-.MyStory {
-  font-family: Comfortaa-Light;
-  overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   line-height: 25px;     /* fallback */
-   max-height: 500px;      /* fallback */
-   -webkit-line-clamp: 10; /* number of lines to show */
-   -webkit-box-orient: vertical;
-}
-
-.ButtonToTrip {
-  background-color: #75D8A2;
-  border-radius: 12px;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
   font-size: 16px;
-  cursor: pointer;
-  outline: none;
-  font-family: Comfortaa-Light;
-  padding: 12px 40px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-}
-
-.ButtonToTrip:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  transition: .5s ease;
-  outline: none;
-}
-
-.ButtonText {
-  color: white;
-}
-
-.ButtonText:hover {
-  color: white;
-  text-decoration: none;
-}
-
-.ButtonText:link {
-  text-decoration: none;
-}
-
-.ButtonText:visited {
-  text-decoration: none;
-}
-
-.ButtonText:active {
-  text-decoration: none;
-}
-
-.ButtonPosition {
-  height: 100px;
-  position: relative;
-}
-
-
-// MY TRIPS
-
-.text-center {
-  font-family: Comfortaa-Light;
-}
-
-
-// PLANNED TRIPS
-
-.card {
-  // display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 18rem;
-  align-items: center;
-}
-
-.TravelPhotoText {
-  font-family: Comfortaa-Medium;
+  padding: 16px 32px;
 }
 
 .card-img-top {
+  //className-->img polaroid
   margin-top: 20px;
 }
 
-.Middle {
-  transition: .5s ease;
+.image-container {
+  &:hover .new-trip-image {
+    opacity: 0.3;
+    transition: 0.5s ease;
+  }
+  &:hover .middle {
+    opacity: 1;
+  }
+}
+
+.middle {
+  text-align: center;
+  transition: 0.5s ease;
   opacity: 0;
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  text-align: center;
 }
 
-.ImageContainer:hover .NewTripImage {
-  opacity: 0.3;
-  transition: .5s ease;
-}
-
-.ImageContainer:hover .Middle {
-  opacity: 1;
-}
-
-.ButtonContainer {
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-}
-
-.NewTripButton {
-  display: inline-block;
+.new-trip-button {
   padding: 15px 25px;
   font-size: 15px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
+  border-radius: 50%;
   color: #fff;
   background-color: #455753;
-  border: none;
-  border-radius: 50%;
   box-shadow: 0 9px #999;
+  &:hover {
+    background-color: #455753;
+  }
+  &:active {
+    background-color: #455753;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    outline: none;
+  }
 }
 
-.NewTripButton:hover {
-  background-color: #455753;
-  outline: none;
-}
-
-.NewTripButton:active {
-  background-color: #455753;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-  outline: none;
-}
-
-
-// SEARCH LOCATION
-
-.LocationLogo {
-  padding-top: 2.5%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 60px;
-}
-
-.BackgroundLocation {
-  background-image: url('/Landscape.jpg');
+/*................................ SEARCH LOCATION ..............................*/
+.background-location {
+  background-image: url("/Landscape.jpg");
   background-repeat: no-repeat;
-  // background-size: 90% 800px;
   background-size: cover;
   background-position: center;
-  // -webkit-border-radius: 50px;
-  // -moz-border-radius: 50px;
   border-radius: 70px;
   border: none;
   width: 90%;
   min-height: 600px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.LocationStyle {
-  height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.OnSubmitStyle {
-  color: #222222;
-  font-family: Comfortaa-SemiBold;
-}
-
-input[type=submit] {
+input[type="submit"] {
+  //Button "submit"
   background-color: #455753;
-  border-radius: 5px;
   border: none;
   color: white;
   padding: 3px 20px;
@@ -360,56 +309,104 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=text] {
+input[type="text"] {
   width: 300px;
   border-color: #455753;
   border-radius: 5px;
-
-  background-image: url('/Binocolo.png');
+  background-image: url("/Binocolo.png");
   background-size: 22px;
   background-position: 4px 2px;
   background-repeat: no-repeat;
   padding-left: 35px;
 }
 
-.TextCenter {
-  text-align: center;
+.location-logo {
+  padding-top: 2.5%;
+  padding-bottom: 60px;
+}
+
+.location-style {
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.on-submit-style {
+  color: #222222;
+  font-family: Comfortaa-SemiBold;
+}
+
+.src-location-title {
   font-size: 50px;
   color: #222222;
   font-family: Comfortaa-SemiBold;
-  // margin-top: 10px;
   top: 80px;
   position: relative;
 }
 
-// AUTOCOMPLETE PLACE
-
-.AutocompletePlace {
-  position: relative;
+/*................................ CREATE NEW TRIP ..............................*/
+.blockOne {
+  margin-left: 15px;
+  font-family: Comfortaa-Light;
 }
 
-.AutocompletePlace-results {
-  position: absolute;
-  background-color: white;
-  padding: 0;
-  margin: 0;
-  border: 1px solid #00000011;
+.blockTwo {
+  margin-left: 5px;
 }
 
-.AutocompletePlace-items {
-  list-style: none;
-  border: 1px solid #00000011;
-  cursor: pointer;
-  padding: 10px 10px;
+.dropdown-item[role="button"] {
+  color: white;
 }
 
-.AutocompletePlace-items:hover {
-  background-color: #0000FF11;
+#dropdown-menu-align-right {
+  //id-->DropdownButton
+  color: white;
+  background-color: #75d8a2;
+
+  font-family: Comfortaa-Medium;
+  padding: 3px 10px;
+  box-shadow: none;
 }
 
-// CREATE NEW TRIP
+.dropdown-menu.show.dropdown-menu-right {
+  //className-->Dropdown menu
 
+  background-color: #75d8a2;
+  font-family: Comfortaa-Medium;
+  border-color: #75d8a2;
+}
 
+.header-new-trip {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.select-sugg,
+.text-need-sugg,
+.to-do-list {
+  font-size: 20px;
+}
+
+.pretty.p-default.p-round {
+  //className-->tips
+  margin-bottom: 20px;
+}
+
+.select-sugg {
+  margin-bottom: 20px;
+}
+
+.suggestions {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.to-do-list {
+  margin-left: 18px;
+}
 
 // FONT STYLE
 
@@ -433,16 +430,12 @@ input[type=text] {
   src: url("/fonts/Comfortaa-SemiBold.ttf");
 }
 
+// Pretty Checkbox React
 
-// NON SO COSA CAZZO SIANO
+@import "@djthoms/pretty-checkbox/src/pretty-checkbox.scss";
 
-.flexcontainer {
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;  
-}
-
+@import "@djthoms/pretty-checkbox/src/rtl.scss";
 
 // BOOSTRAP IMPORT
 
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";

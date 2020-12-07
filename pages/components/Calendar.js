@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import DatePicker from "react-datepicker";
 import { Card, Button, Container, Row } from "react-bootstrap";
@@ -8,6 +8,21 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function CheckDate(checkedProps) {
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());
+  /* const [checkboxState, setcheckboxState] = useState(checkedProps.checkboxState) */
+  const [selectDate, setselectDate] = useState(checkedProps.selectDate); //date selected in the modal
+  const [selectedSuggestion, setselectedSuggestion] = useState(
+    checkedProps.selectedSuggestion
+  ); //suggestion selected in the modal
+
+  /* useEffect(() => {setcheckboxState(checkedProps.checkboxState)
+    console.log(checkedProps.checkboxState)},[checkedProps.checkboxState]) */
+
+  useEffect(() => {
+    setselectDate(checkedProps.selectDate);
+    setselectedSuggestion(checkedProps.selectedSuggestion);
+    console.log(checkedProps.selectedSuggestion);
+    console.log(checkedProps.selectDate);
+  }, [checkedProps.selectDate]);
 
   function handleChangeStart(date) {
     setstartDate(date);
@@ -21,36 +36,28 @@ export default function CheckDate(checkedProps) {
     if (!dayjs.isDayjs(startDate)) startDate = dayjs(startDate);
     if (!dayjs.isDayjs(endDate)) endDate = dayjs(endDate);
 
-    return endDate.diff(startDate, "days");
+    return endDate.diff(startDate, "days") + 1;
   }
 
   function myAgenda(props) {
     if (props > 0) {
-      const day = { giorno: "Giorno", sugg: "duccio apri" };
+      const day = { giorno: "Giorno", sugg: "Le tue attività" };
       const agenda = new Array(props).fill(day);
-
-      function addSuggestion(arr) {
-        arr.splice(3, 0, {
-          giorno: "Giorno",
-          sugg: checkedProps.checkboxState[0],
-        });
-        console.log(arr);
-      }
 
       return (
         <>
           <Container fluid>
             <Row>
-              {agenda.map((item, index) => (
+              {agenda.map((item, indexAgenda) => (
                 <>
-                  <Card style={{ width: "18rem" }} key={index}>
+                  <Card style={{ width: "18rem" }} key={indexAgenda}>
                     <Card.Body>
                       <Card.Title>
-                        {item.giorno} {index + 1}
+                        {item.giorno} {indexAgenda + 1}
                       </Card.Title>
                       <Card.Text>{item.sugg}</Card.Text>
-                      <Button variant="primary" onClick={addSuggestion(agenda)}>
-                        aggiungi le cose da fare
+                      <Button variant="primary">
+                        Aggiungi altre attività:
                       </Button>
                     </Card.Body>
                   </Card>
@@ -63,11 +70,11 @@ export default function CheckDate(checkedProps) {
     }
   }
 
-  const daysLeft = calculateDaysLeft(startDate, endDate) + 1;
+  const daysLeft = calculateDaysLeft(startDate, endDate);
 
   return (
     <div>
-      <h3>Please select the dates of travel:</h3>
+      <h3 className="textStyleSugg">Please select the dates of travel:</h3>
       <b>Start Date</b>:
       <DatePicker selected={startDate} onChange={handleChangeStart} />
       &nbsp;&nbsp;&nbsp;

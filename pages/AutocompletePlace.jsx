@@ -59,26 +59,26 @@ export default class AutocompletePlace extends Component {
   }
   render() {
     return (
-      <div className="AutocompletePlace">
+      <div className="autocomplete-place">
         <input
-          className="AutocompletePlace-input"
+          className="autocomplete-place-input"
           type="text"
           value={this.state.search}
           onChange={this.handleSearchChange}
           placeholder=""
         />
-        <ul className="AutocompletePlace-results">
+        <ul className="autocomplete-place-results">
           {this.state.results.map((place) => (
             <li
               key={place.id}
-              className="AutocompletePlace-items"
+              className="autocomplete-place-items"
               onClick={() => this.handleItemClicked(place)}
             >
               {place.place_name}
             </li>
           ))}
           {this.state.isLoading && (
-            <li className="AutocompletePlace-items">Loading...</li>
+            <li className="autocomplete-place-items">Loading...</li>
           )}
         </ul>
       </div>

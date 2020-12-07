@@ -3,20 +3,20 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <div className="contenitore">
+    <div className="case">
       <br />
-      <div className="ImgContainer">
+      <div className="img-container">
         <img
-          className="images"
+          className="img-profile"
           src="https://bidonica.files.wordpress.com/2010/04/vlcsnap-2010-04-19-19h00m46s204.png"
         />
       </div>
       <br />
 
-      <div className="Description">
-        <h1 className="ProfileName"> Cristina Munuz </h1>
+      <div className="description-profile">
+        <h1 className="profileName"> Cristina Munuz </h1>
         <br />
-        <p className="MyStory">
+        <p className="myStory">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
@@ -24,42 +24,28 @@ function Header() {
 
       <br />
 
-      <div className="ButtonPosition">
+      <div className="buttonPosition">
         <Link href="./SearchLocation">
-          <button className="ButtonToTrip">
-            <a className="ButtonText"> Plan your next trip </a>
+          <button className="button-to-trip">
+            <a className="button-text"> Plan your next trip </a>
           </button>
         </Link>
       </div>
-
+      <br />
+      <br />
       <br />
       <div className="text-center">
         <ButtonGroup aria-label="Basic example">
           <Link href="./PastTrips">
-            <Button
-              style={{ color: "white", backgroundColor: "#455753" }}
-              variant="secondary"
-            >
-              My Past Trips
-            </Button>
+            <Button variant="secondary">My Past Trips</Button>
           </Link>
 
           <Link href="./PlannedTrips">
-            <Button
-              variant="secondary"
-              style={{ color: "white", backgroundColor: "#455753" }}
-            >
-              My Planned Trips
-            </Button>
+            <Button variant="secondary">My Planned Trips</Button>
           </Link>
 
           <Link href="./Photos">
-            <Button
-              style={{ color: "white", backgroundColor: "#455753" }}
-              variant="secondary"
-            >
-              My Photos
-            </Button>
+            <Button variant="secondary">My Photos</Button>
           </Link>
         </ButtonGroup>
       </div>
