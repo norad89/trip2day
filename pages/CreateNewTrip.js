@@ -43,17 +43,23 @@ function CreateNewTrip() {
 
   const checkbox = useCheckboxState({ state: [] });
   const [shown, setShown] = useState([]);
+  const [selectDate, setselectDate] = useState(new Date());
+  const [selectedSuggestion, setselectedSuggestion] = useState("")
 
   const handleSelect = (e) => {
     setShown(e);
   };
 
+  function handleChangeSelect(date) {
+    setselectDate(date);
+  }
+
   function renderSuggestions() {
-    return shown.map(({ author, sug, index }) => (
+    return shown.map(({ author, sug, indexSugg }) => (
       <Checkbox
         color="success"
         shape="round"
-        key={index}
+        key={indexSugg}
         value={sug}
         {...checkbox}
       >
@@ -66,34 +72,48 @@ function CreateNewTrip() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [selectDate, setSelectDate] = useState(new Date());
+
+  function addSelectedSuggestion(selectedSuggIndex) {
+    handleShow()
+    setselectedSuggestion(checkbox.state[selectedSuggIndex])
+  }
+
+  function showInAgenda() {
+    handleClose();
+    setselectDate(selectDate)
+  }
+
 
   function renderToDoList() {
+
+
     return (
       <>
-        {checkbox.state.map((item, index) => (
-          <ul key={index}>
+        {
+        checkbox.state.map((item, indexTo) => (
+          <ul key={indexTo}>
             <li>{item}</li>
-            <Button variant="primary" onClick={handleShow}>
-              Inserisci nel calendario
+            <Button variant="primary" onClick={() => addSelectedSuggestion(indexTo)}>
+              Inserisci in agenda
             </Button>
           </ul>
-        ))}
+        ))
+        }
         <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Scegli la data</Modal.Title>
+            <Modal.Title>Scegli la data per l'attività</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <DatePicker
               selected={selectDate}
-              onChange={(date) => setSelectDate(date)}
+              onChange={handleChangeSelect}
             />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Chiudi
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={showInAgenda}>
               Salva le modifiche
             </Button>
           </Modal.Footer>
@@ -168,7 +188,7 @@ function CreateNewTrip() {
       <h3 className="textStyleSugg">Ecco la tua To Do List:</h3>
       {renderToDoList()}
 
-      <Calendar checkboxState={checkbox.state} selectDate={selectDate} />
+      <Calendar selectedSuggestion={selectedSuggestion} checkboxState={checkbox.state} selectDate={selectDate} />
     </div>
   );
 }
