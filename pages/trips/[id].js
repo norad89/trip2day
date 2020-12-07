@@ -1,19 +1,12 @@
-function Trip({ trip }) {
-  console.log(trip);
-  return <>ciao mamma, sono andato a {trip.location}</>;
-}
+function Trip({ data }) {}
 
-export default Trip;
-
-export async function getServerSideProps(context) {
-  const { id } = context.query;
-  console.log(id);
-  const res = await fetch(`http://localhost:3001/${id}`);
+export async function getServerSideProps() {
+  const res = await fetch(`http://localhost:3002/museumSuggestions`);
   const data = await res.json();
 
   return {
-    props: {
-      trip: data,
-    },
+    props: { data },
   };
 }
+
+export default Trip;
