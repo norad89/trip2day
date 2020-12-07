@@ -1,10 +1,9 @@
 import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
-import Calendar from "./components/Calendar";
+import DailyPlanner from "./components/DailyPlanner";
 import React, { useState } from "react";
 import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
-import BigCalendar from "./components/BigCalendar";
 
 function CreateNewTrip() {
   const museumSuggestions = [
@@ -44,8 +43,9 @@ function CreateNewTrip() {
   const checkbox = useCheckboxState({ state: [] });
   const [shown, setShown] = useState([]);
   const [selectDate, setselectDate] = useState(new Date());
-  const [selectedSuggestion, setselectedSuggestion] = useState("");
+  const [currentSuggestion, setcurrentSuggestion] = useState("");
   const [show, setShow] = useState(false);
+  const [suggestionToAdd, setsuggestionToAdd] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -59,61 +59,81 @@ function CreateNewTrip() {
   }
 
   function renderSuggestions() {
-    return shown.map(({ author, sug, indexSugg }) => (
-      <Checkbox
-        color="success"
-        shape="curve"
-        key={indexSugg}
-        value={sug}
-        {...checkbox}
-      >
-        {author + " suggerisce: " + sug}
-      </Checkbox>
-    ));
+    return (
+      <>
+        <h3 className="select-sugg">
+          Choose from your friends' advices:
+        </h3>
+        {shown.map(({ author, sug, indexSugg }) => (
+          <Checkbox
+            color="success"
+            shape="curve"
+            key={indexSugg}
+            value={sug}
+            {...checkbox}
+          >
+            {author + " suggests: " + sug}
+          </Checkbox>
+        ))}
+      </>
+    );
   }
 
-  function addSelectedSuggestion(selectedSuggIndex) {
+  function addcurrentSuggestion(suggestionAtCurrentIndex) {
     handleShow();
-    setselectedSuggestion(checkbox.state[selectedSuggIndex]);
+    setcurrentSuggestion(checkbox.state[suggestionAtCurrentIndex]);
   }
 
   function showInAgenda() {
     handleClose();
-    setselectDate(selectDate);
+    setsuggestionToAdd({start: selectDate, end: selectDate, title: currentSuggestion})
   }
 
   function renderToDoList() {
     return (
       <>
-        {checkbox.state.map((item, indexTo) => (
-          <ul key={indexTo}>
-            <li>{item}</li>
-            <Button className="button-to-do-list"
+       <h3 className="to-do-list">Your To Do List:</h3>
+        {checkbox.state.map((checkedSuggestion, indexToDo) => (
+          <ul key={indexToDo}>
+            <li>{checkedSuggestion}</li>
+            <Button
+              className="button-to-do-list"
               variant="primary"
-              onClick={() => addSelectedSuggestion(indexTo)}
+              onClick={() => addcurrentSuggestion(indexToDo)}
             >
-              Inserisci in agenda
+              Plan this activity
             </Button>
           </ul>
         ))}
-        
+
         <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Scegli la data per l'attività</Modal.Title>
+            <Modal.Title>Choose the date for this activity</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <DatePicker className="datapicker-input" selected={selectDate} onChange={handleChangeSelect} />
+            <DatePicker
+              className="datapicker-input"
+              selected={selectDate}
+              onChange={handleChangeSelect}
+            />
           </Modal.Body>
           <Modal.Footer>
-            <Button className="button-modal-footer" variant="secondary" onClick={handleClose}>
-              Chiudi
+            <Button
+              className="button-modal-footer"
+              variant="secondary"
+              onClick={handleClose}
+            >
+              Close
             </Button>
-            <Button className="button-modal-footer" variant="primary" onClick={showInAgenda}>
-              Salva le modifiche
+            <Button
+              className="button-modal-footer"
+              variant="primary"
+              onClick={showInAgenda}
+            >
+              Save changes
             </Button>
           </Modal.Footer>
         </Modal>
-        
       </>
     );
   }
@@ -124,7 +144,7 @@ function CreateNewTrip() {
       <br />
       <br />
       <div className="case">
-        <h2>Inizia il tuo viaggio a D E S T I N A Z I O N E</h2>
+        <h2>Start your trip to destination!</h2>
         <br />
         <br />
         <br />
@@ -132,7 +152,7 @@ function CreateNewTrip() {
           <div className="all-sugg-cont">
             <div className="row">
               <div className="blockOne">
-                <h3 className="text-need-sugg">Ti serve un suggerimento?</h3>
+                <h3 className="text-need-sugg">Are you looking for suggestions?</h3>
               </div>
               <div className="blockTwo">
                 <DropdownButton
@@ -169,27 +189,17 @@ function CreateNewTrip() {
             </div>
             <br />
             <div className="sugg-container">
-              <h3 className="select-sugg">
-                Seleziona i suggerimenti di tuoi interesse:
-              </h3>
               <div className="suggestions">{renderSuggestions()}</div>
             </div>
           </div>
 
-          <div className="to-do-list-container">
-            <h3 className="to-do-list">Ecco la tua To Do List:</h3>
-            {renderToDoList()}
-          </div>
+          <div className="to-do-list-container">{renderToDoList()}</div>
         </div>
         <br />
         <br />
         <br />
-        {/* <Calendar
-          selectedSuggestion={selectedSuggestion}
-          checkboxState={checkbox.state}
-          selectDate={selectDate} 
-        />*/}
-        <BigCalendar />
+        <DailyPlanner suggestionToAdd = {suggestionToAdd}
+        />
       </div>
     </div>
   );
