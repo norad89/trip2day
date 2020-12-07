@@ -13,15 +13,13 @@ export default function CheckDate(checkedProps) {
     checkedProps.selectedSuggestion
   ); //suggestion selected in the modal
 
-  /* useEffect(() => {setcheckboxState(checkedProps.checkboxState)
-    console.log(checkedProps.checkboxState)},[checkedProps.checkboxState]) */
-
   useEffect(() => {
     setselectDate(checkedProps.selectDate);
     setselectedSuggestion(checkedProps.selectedSuggestion);
-    console.log(checkedProps.selectedSuggestion);
-    console.log(checkedProps.selectDate);
+    console.log(agenda);
   }, [checkedProps.selectDate]);
+  /* useEffect(() => {setcheckboxState(checkedProps.checkboxState)
+    console.log(checkedProps.checkboxState)},[checkedProps.checkboxState]) */
 
   function handleChangeStart(date) {
     setstartDate(date);
@@ -39,10 +37,39 @@ export default function CheckDate(checkedProps) {
   }
 
   function myAgenda(props) {
-    if (props > 0) {
-      const day = { giorno: "Giorno", sugg: "Le tue attività" };
-      const agenda = new Array(props).fill(day);
+    if (props > 0 && checkedProps.selectedSuggestion !== "") {
+      setAgenda(
+        agenda.splice(calculateDaysLeft(startDate, selectDate) - 1, 1, {
+          giorno: "Giorno",
+          sugg: checkedProps.selectedSuggestion,
+        })
+      );
+      return (
+        <>
+          <Container fluid>
+            <Row>
+              {agenda.map((item, indexAgenda) => (
+                <>
+                  <Card style={{ width: "18rem" }} key={indexAgenda}>
+                    <Card.Body>
+                      <Card.Title>
+                        {item.giorno} {indexAgenda + 1}
+                      </Card.Title>
+                      <Card.Text>{item.sugg}</Card.Text>
+                      <Button variant="primary">
+                        Aggiungi altre attività:
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </>
+              ))}
+            </Row>
+          </Container>
+        </>
+      );
+    }
 
+    if (props > 0) {
       return (
         <>
           <Container fluid>
@@ -70,6 +97,11 @@ export default function CheckDate(checkedProps) {
   }
 
   const daysLeft = calculateDaysLeft(startDate, endDate);
+  const day = { giorno: "Giorno", sugg: "Le tue attività" };
+  useEffect(() => {
+    setAgenda(new Array(daysLeft).fill(day));
+  }, [daysLeft]);
+  const [agenda, setAgenda] = useState(new Array(daysLeft).fill(day));
 
   return (
     <div>
