@@ -18,12 +18,11 @@ export default function CheckDate(checkedProps) {
 
   useEffect(() => {
     setselectDate(checkedProps.selectDate);
-    console.log(checkedProps.selectDate);
-  }, [checkedProps.selectDate]);
-  useEffect(() => {
     setselectedSuggestion(checkedProps.selectedSuggestion);
     console.log(checkedProps.selectedSuggestion);
-  }, [checkedProps.selectedSuggestion]);
+    console.log(checkedProps.selectDate);
+  }, [checkedProps.selectDate]);
+
 
   function handleChangeStart(date) {
     setstartDate(date);
@@ -39,18 +38,12 @@ export default function CheckDate(checkedProps) {
 
     return endDate.diff(startDate, "days") + 1;
   }
+  
 
   function myAgenda(props) {
     if (props > 0) {
-      const day = { giorno: "Giorno", sugg: "duccio apri tutto" };
+      const day = { giorno: "Giorno", sugg: "Le tue attività" };
       const agenda = new Array(props).fill(day);
-
-      function addSuggestion(arr) {
-        arr.splice(3, 1, {
-          giorno: "Giorno",
-          sugg: checkedProps.checkboxState[0],
-        });
-      }
 
       return (
         <>
@@ -64,7 +57,7 @@ export default function CheckDate(checkedProps) {
                         {item.giorno} {indexAgenda + 1}
                       </Card.Title>
                       <Card.Text>{item.sugg}</Card.Text>
-                      <Button variant="primary" onClick={addSuggestion(agenda)}>
+                      <Button variant="primary">
                         Aggiungi altre attività:
                       </Button>
                     </Card.Body>
