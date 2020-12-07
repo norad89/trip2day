@@ -76,10 +76,10 @@ export default function CheckDate(checkedProps) {
     <div>
       <h3 className="textStyleSugg">Please select the dates of travel:</h3>
       <b>Start Date</b>:
-      <DatePicker selected={startDate} onChange={handleChangeStart} />
+      <DatePicker dateFormat="dd/MM/yyyy" selected={startDate} onChange={handleChangeStart} />
       &nbsp;&nbsp;&nbsp;
       <b>End Date</b>:
-      <DatePicker selected={endDate} onChange={handleChangeEnd} />
+      <DatePicker dateFormat="dd/MM/yyyy" selected={endDate} onChange={handleChangeEnd} />
       <div className="amount">
         Your trip will last {daysLeft} days. Here's your daily agenda:
       </div>
