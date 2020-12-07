@@ -4,7 +4,7 @@ import Calendar from "./components/Calendar";
 import React, { useState } from "react";
 import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import BigCalendar from "./components/BigCalendar";
 
 function CreateNewTrip() {
   const museumSuggestions = [
@@ -184,11 +184,12 @@ function CreateNewTrip() {
         <br />
         <br />
         <br />
-        <Calendar
+        {/* <Calendar
           selectedSuggestion={selectedSuggestion}
           checkboxState={checkbox.state}
-          selectDate={selectDate}
-        />
+          selectDate={selectDate} 
+        />*/}
+        <BigCalendar />
       </div>
     </div>
   );
