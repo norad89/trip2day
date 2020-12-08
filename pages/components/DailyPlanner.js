@@ -5,9 +5,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
-const myEventsList = [
-  { start: new Date(), end: new Date(), title: "Your Trip" },
-];
+const myEventsList = [];
 
 export default function DailyPlanner(props) {
   const [startDate, setstartDate] = useState(new Date());
@@ -28,7 +26,7 @@ export default function DailyPlanner(props) {
   }, [daysLeft]);
 
   function addTravelToCalendar(tripLength) {
-    myEventsList.splice(0, 1, tripLength);
+    myEventsList.push(tripLength);
   }
 
   function addSuggestionToCalendar(sugg) {
