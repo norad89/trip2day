@@ -206,9 +206,8 @@ function CreateNewTrip() {
         <br />
         <br />
         <br />
-
           <DailyPlanner suggestionToAdd={suggestionToAdd} />
-        
+      
         <br />
         <Link href="/trips/[id]" as={`/trips/${location.location}`}>
           <Button>Save</Button>
