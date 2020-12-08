@@ -5,8 +5,8 @@ const inputLocation = () => {
     e.preventDefault();
     try {
       const body = { location };
-      const response = await fetch("http://localhost:3002/location", {
-        method: "POST",
+      const response = await fetch("http://localhost:3001/location", {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
@@ -26,7 +26,7 @@ const inputLocation = () => {
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         ></input>
-        <button>Sparati</button>
+        <button>Travel</button>
       </form>
     </Fragment>
   );
