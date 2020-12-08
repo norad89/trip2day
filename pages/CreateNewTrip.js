@@ -5,13 +5,8 @@ import React, { useState, useEffect } from "react";
 import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
 
-/////////////////////////////////////////////////////////////////////
-import Link from "next/link";
-
-/////////////////////////////////////////////////////////////////////
-
 function CreateNewTrip() {
-  const [location, setLocation] = useState([]);
+  const [location, setLocation] = useState([""]);
   const [museumSuggestions, setMuseumSuggestions] = useState([]);
   const [restaurantSuggestions, setRestaurantSuggestions] = useState([]);
   const [hotelSuggestions, setHotelSuggestions] = useState([]);
@@ -113,7 +108,6 @@ function CreateNewTrip() {
         <h3 className="select-sugg">Choose from your friends' advices:</h3>
 
         {chosenCategory.map(({ author, sug, indexSugg }) => (
-
           <Checkbox
             color="success"
             shape="curve"
@@ -165,6 +159,7 @@ function CreateNewTrip() {
           </Modal.Header>
           <Modal.Body>
             <DatePicker
+              dateFormat="dd/MM/yyyy"
               className="datapicker-input"
               selected={selectDate}
               onChange={handleChangeSelect}
@@ -197,12 +192,11 @@ function CreateNewTrip() {
       <br />
       <br />
       <div className="case">
-
-    <div className="create-new-trip-title">
-        {location.map((location) => (
-          <h2>This is your trip to {location.location}</h2>
-        ))}
-  </div>
+        <div className="create-new-trip-title">
+          {location.map((location) => (
+            <h2>This is your trip to {location.location}</h2>
+          ))}
+        </div>
 
         <br />
         <br />
@@ -259,13 +253,11 @@ function CreateNewTrip() {
         <br />
         <br />
 
-          <DailyPlanner suggestionToAdd={suggestionToAdd} />
-      
-        <br />
-        <Link href="/trips/[id]" as={`/trips/${location.location}`}>
-          <Button>Save</Button>
-        </Link>
-
+        <DailyPlanner
+          suggestionToAdd={suggestionToAdd}
+          toDoList={checkbox.state}
+          location={location[0].location} // console error to be fixed
+        />
       </div>
     </div>
   );
