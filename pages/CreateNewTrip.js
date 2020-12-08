@@ -5,6 +5,11 @@ import React, { useState, useEffect } from "react";
 import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
 
+/////////////////////////////////////////////////////////////////////
+import Link from "next/link";
+
+/////////////////////////////////////////////////////////////////////
+
 function CreateNewTrip() {
   const [location, setLocation] = useState([]);
   const [museumSuggestions, setMuseumSuggestions] = useState([]);
@@ -106,7 +111,9 @@ function CreateNewTrip() {
     return (
       <>
         <h3 className="select-sugg">Choose from your friends' advices:</h3>
+
         {chosenCategory.map(({ author, sug, indexSugg }) => (
+
           <Checkbox
             color="success"
             shape="curve"
@@ -246,13 +253,19 @@ function CreateNewTrip() {
               <div className="suggestions">{renderSuggestions()}</div>
             </div>
           </div>
-
           <div className="to-do-list-container">{renderToDoList()}</div>
         </div>
         <br />
         <br />
         <br />
-        <DailyPlanner suggestionToAdd={suggestionToAdd} />
+
+          <DailyPlanner suggestionToAdd={suggestionToAdd} />
+      
+        <br />
+        <Link href="/trips/[id]" as={`/trips/${location.location}`}>
+          <Button>Save</Button>
+        </Link>
+
       </div>
     </div>
   );
