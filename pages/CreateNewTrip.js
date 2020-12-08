@@ -1,47 +1,91 @@
 import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import DailyPlanner from "./components/DailyPlanner";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
 
 function CreateNewTrip() {
-  const museumSuggestions = [
-    {
-      author: "Mario",
-      sug: "Ti consiglio di visitare il Museo dei Funghi",
-    },
-    {
-      author: "Luigi",
-      sug: "Il Museo dei Meme va assolutamente visitato!",
-    },
-    {
-      author: "Peach",
-      sug: "Non visitare il museo di React, è una perdita di tempo",
-    },
-  ];
+  const [location, setLocation] = useState([]);
+  const [museumSuggestions, setMuseumSuggestions] = useState([]);
+  const [restaurantSuggestions, setRestaurantSuggestions] = useState([]);
+  const [hotelSuggestions, setHotelSuggestions] = useState([]);
+  const [placeSuggestions, setPlaceSuggestions] = useState([]);
+  const [tourSuggestions, setTourSuggestions] = useState([]);
 
-  const restaurantSuggestions = [
-    {
-      author: "Mario",
-      sug: "Ti consiglio di visitare il Ristorante Pizza e Fichi",
-    },
-    {
-      author: "Luigi",
-      sug: "Il Paninaro Onto va assolutamente visitato!",
-    },
-    {
-      author: "Peach",
-      sug: "Non visitare il Gelataio Fiammingo, è una perdita di tempo",
-    },
-  ];
+  const getLocation = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/location");
+      const jsonData = await response.json();
+      setLocation(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
-  const hotelSuggestions = [];
-  const placeSuggestions = [];
-  const tourSuggestions = [];
+  const getMuseumSuggestions = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/museumSuggestions");
+      const jsonData = await response.json();
+      setMuseumSuggestions(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const getRestaurantSuggestions = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:3001/restaurantSuggestions"
+      );
+      const jsonData = await response.json();
+      setRestaurantSuggestions(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const getHotelSuggestions = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/hotelSuggestions");
+      const jsonData = await response.json();
+      setHotelSuggestions(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const getPlaceSuggestions = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/placeSuggestions");
+      const jsonData = await response.json();
+      setPlaceSuggestions(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const getTourSuggestions = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/tourSuggestions");
+      const jsonData = await response.json();
+      setTourSuggestions(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getLocation();
+    getMuseumSuggestions();
+    getRestaurantSuggestions();
+    getHotelSuggestions();
+    getPlaceSuggestions();
+    getTourSuggestions();
+  }, []);
 
   const checkbox = useCheckboxState({ state: [] });
-  const [shown, setShown] = useState([]);
+  const [chosenCategory, setChosenCategory] = useState([]);
   const [selectDate, setselectDate] = useState(new Date());
   const [currentSuggestion, setcurrentSuggestion] = useState("");
   const [show, setShow] = useState(false);
@@ -51,7 +95,7 @@ function CreateNewTrip() {
   const handleShow = () => setShow(true);
 
   const handleSelect = (e) => {
-    setShown(e);
+    setChosenCategory(e);
   };
 
   function handleChangeSelect(date) {
@@ -61,10 +105,8 @@ function CreateNewTrip() {
   function renderSuggestions() {
     return (
       <>
-        <h3 className="select-sugg">
-          Choose from your friends' advices:
-        </h3>
-        {shown.map(({ author, sug, indexSugg }) => (
+        <h3 className="select-sugg">Choose from your friends' advices:</h3>
+        {chosenCategory.map(({ author, sug, indexSugg }) => (
           <Checkbox
             color="success"
             shape="curve"
@@ -86,13 +128,17 @@ function CreateNewTrip() {
 
   function showInAgenda() {
     handleClose();
-    setsuggestionToAdd({start: selectDate, end: selectDate, title: currentSuggestion})
+    setsuggestionToAdd({
+      start: selectDate,
+      end: selectDate,
+      title: currentSuggestion,
+    });
   }
 
   function renderToDoList() {
     return (
       <>
-       <h3 className="to-do-list">Your To Do List:</h3>
+        <h3 className="to-do-list">Your To Do List:</h3>
         {checkbox.state.map((checkedSuggestion, indexToDo) => (
           <ul key={indexToDo}>
             <li>{checkedSuggestion}</li>
@@ -144,9 +190,13 @@ function CreateNewTrip() {
       <br />
       <br />
       <div className="case">
-        <div className="create-new-trip-title">
-        <h2>Start your trip to destination!</h2>
-        </div>
+
+    <div className="create-new-trip-title">
+        {location.map((location) => (
+          <h2>This is your trip to {location.location}</h2>
+        ))}
+  </div>
+
         <br />
         <br />
         <br />
@@ -154,7 +204,9 @@ function CreateNewTrip() {
           <div className="all-sugg-cont">
             <div className="row">
               <div className="blockOne">
-                <h3 className="text-need-sugg">Are you looking for suggestions?</h3>
+                <h3 className="text-need-sugg">
+                  Are you looking for suggestions?
+                </h3>
               </div>
               <div className="blockTwo">
                 <DropdownButton
@@ -200,8 +252,7 @@ function CreateNewTrip() {
         <br />
         <br />
         <br />
-        <DailyPlanner suggestionToAdd = {suggestionToAdd}
-        />
+        <DailyPlanner suggestionToAdd={suggestionToAdd} />
       </div>
     </div>
   );
