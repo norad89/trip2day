@@ -5,6 +5,11 @@ import React, { useState } from "react";
 import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
 
+/////////////////////////////////////////////////////////////////////
+import Link from "next/link";
+
+/////////////////////////////////////////////////////////////////////
+
 function CreateNewTrip() {
   const museumSuggestions = [
     {
@@ -61,9 +66,7 @@ function CreateNewTrip() {
   function renderSuggestions() {
     return (
       <>
-        <h3 className="select-sugg">
-          Choose from your friends' advices:
-        </h3>
+        <h3 className="select-sugg">Choose from your friends' advices:</h3>
         {shown.map(({ author, sug, indexSugg }) => (
           <Checkbox
             color="success"
@@ -86,13 +89,17 @@ function CreateNewTrip() {
 
   function showInAgenda() {
     handleClose();
-    setsuggestionToAdd({start: selectDate, end: selectDate, title: currentSuggestion})
+    setsuggestionToAdd({
+      start: selectDate,
+      end: selectDate,
+      title: currentSuggestion,
+    });
   }
 
   function renderToDoList() {
     return (
       <>
-       <h3 className="to-do-list">Your To Do List:</h3>
+        <h3 className="to-do-list">Your To Do List:</h3>
         {checkbox.state.map((checkedSuggestion, indexToDo) => (
           <ul key={indexToDo}>
             <li>{checkedSuggestion}</li>
@@ -152,7 +159,9 @@ function CreateNewTrip() {
           <div className="all-sugg-cont">
             <div className="row">
               <div className="blockOne">
-                <h3 className="text-need-sugg">Are you looking for suggestions?</h3>
+                <h3 className="text-need-sugg">
+                  Are you looking for suggestions?
+                </h3>
               </div>
               <div className="blockTwo">
                 <DropdownButton
@@ -192,14 +201,18 @@ function CreateNewTrip() {
               <div className="suggestions">{renderSuggestions()}</div>
             </div>
           </div>
-
           <div className="to-do-list-container">{renderToDoList()}</div>
         </div>
         <br />
         <br />
         <br />
-        <DailyPlanner suggestionToAdd = {suggestionToAdd}
-        />
+
+          <DailyPlanner suggestionToAdd={suggestionToAdd} />
+        
+        <br />
+        <Link href="/trips/[id]" as={`/trips/${location.location}`}>
+          <Button>Save</Button>
+        </Link>
       </div>
     </div>
   );
