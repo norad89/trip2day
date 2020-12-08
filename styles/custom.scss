@@ -29,6 +29,7 @@ button.btn.btn-primary[type="button"] {
   border: none;
 }
 
+.button-travel,
 .button-to-trip,
 .default-button,
 .button-navbar,
@@ -51,6 +52,9 @@ input[type="submit"] {
   padding: 10px 0;
 }
 
+.app,
+.create-new-trip-title,
+.data-travel-container,
 .background-location,
 .card,
 .description-profile,
@@ -122,6 +126,24 @@ p {
 }
 
 /*............................. CALENDAR  .........................*/
+.app {
+  width: 900px;
+}
+
+.create-new-trip-title {
+  padding-bottom: 1px;
+  padding-top: 10px;
+  width: 600px;
+}
+
+.create-new-trip-title, 
+.data-travel-container {
+  background-color: #2F7055;
+  width: 1000px;
+  border-radius: 12px;
+  color: white;
+}
+
 input.datapicker-input[type="text"] {
   background-image: url("/agenda.png");
   background-size: 20px;
@@ -129,8 +151,10 @@ input.datapicker-input[type="text"] {
 }
 
 //change color of selected day calendar
-.react-datepicker__day.react-datepicker__day--selected {
+.react-datepicker__day.react-datepicker__day--selected,
+.rbc-event.rbc-event-allday {
   background-color: #75d8a2;
+  text-align: center;
 }
 
 /*................................ CREATE NEW TRIP ..............................*/
@@ -171,7 +195,7 @@ input.datapicker-input[type="text"] {
   //id-->DropdownButton
   color: white;
   background-color: #75d8a2;
-
+  border: none;
   font-family: Comfortaa-Medium;
   padding: 3px 10px;
   box-shadow: none;
@@ -427,6 +451,16 @@ ul {
   border: none;
   width: 90%;
   min-height: 600px;
+}
+
+.button-travel {
+  padding: 3px 15px;
+  margin-left: 3px;
+}
+
+.choose-destination-text {
+  font-size: 20px;
+  text-align: left;
 }
 
 .location-logo {

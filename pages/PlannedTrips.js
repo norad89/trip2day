@@ -58,6 +58,7 @@ function PlannedTrips() {
 
   return (
     <div>
+      {console.log()}
       <div>{loginCheck()}</div>
       <TopNavbar />
       <Header />
