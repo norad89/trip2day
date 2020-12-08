@@ -51,6 +51,9 @@ input[type="submit"] {
   padding: 10px 0;
 }
 
+.app,
+.create-new-trip-title,
+.data-travel-container,
 .background-location,
 .card,
 .description-profile,
@@ -128,9 +131,29 @@ input.datapicker-input[type="text"] {
   background-position: 4px 2px;
 }
 
+.data-travel-container,
+.create-new-trip-title {
+  background-color: #2F7055;
+  width: 1000px;
+  border-radius: 12px;
+  color: white;
+}
+
+.create-new-trip-title {
+  padding-bottom: 1px;
+  padding-top: 10px;
+  width: 600px;
+}
+
 //change color of selected day calendar
-.react-datepicker__day.react-datepicker__day--selected {
+.react-datepicker__day.react-datepicker__day--selected,
+.rbc-event.rbc-event-allday {
   background-color: #75d8a2;
+  text-align: center;
+}
+
+.app {
+  width: 900px;
 }
 
 /*................................ CREATE NEW TRIP ..............................*/
@@ -171,7 +194,7 @@ input.datapicker-input[type="text"] {
   //id-->DropdownButton
   color: white;
   background-color: #75d8a2;
-
+  border: none;
   font-family: Comfortaa-Medium;
   padding: 3px 10px;
   box-shadow: none;

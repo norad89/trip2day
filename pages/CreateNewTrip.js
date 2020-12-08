@@ -144,7 +144,9 @@ function CreateNewTrip() {
       <br />
       <br />
       <div className="case">
+        <div className="create-new-trip-title">
         <h2>Start your trip to destination!</h2>
+        </div>
         <br />
         <br />
         <br />
