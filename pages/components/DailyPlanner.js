@@ -52,7 +52,7 @@ export default function DailyPlanner(props) {
 
   function BigCalendar() {
     return (
-      <div className="App">
+      <div className="app">
         <Calendar
           localizer={localizer}
           events={myEventsList}
@@ -66,6 +66,8 @@ export default function DailyPlanner(props) {
 
   return (
     <div>
+      <div className="data-travel-container">
+        <br />
       <h3>Please select the dates of travel:</h3>
       <br />
       <div className="calendar-date-container">
@@ -88,11 +90,19 @@ export default function DailyPlanner(props) {
           />
         </div>
       </div>
+      <br />
+      </div>
 
       <div className="amount">
+       
+        <br />
+        <br />
         <br />
         Your trip will last {daysLeft} days. Here's your daily agenda:
       </div>
+      <br />
+      <br />
+      <br />
       <BigCalendar />
     </div>
   );

@@ -190,9 +190,13 @@ function CreateNewTrip() {
       <br />
       <br />
       <div className="case">
+
+    <div className="create-new-trip-title">
         {location.map((location) => (
           <h2>This is your trip to {location.location}</h2>
         ))}
+  </div>
+
         <br />
         <br />
         <br />
