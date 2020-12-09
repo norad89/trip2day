@@ -1,12 +1,14 @@
 import TopNavbar from "./components/TopNavbar";
 import Header from "./components/Header";
+import UploadFile from "./components/Upload";
 
 function Photos() {
   return (
     <div>
       <TopNavbar />
       <Header />
-      <p> -page content goes here- </p>
+      <br />
+      <UploadFile />        
     </div>
   );
 }
