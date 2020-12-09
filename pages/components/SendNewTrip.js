@@ -5,7 +5,6 @@ import Link from "next/link";
 const sendNewTrip = (props) => {
   const eventslist = props.eventsList;
   const todolist = props.toDoList;
-  console.log(eventslist)
 
   const SaveButton = React.forwardRef(({ onClick, href }, ref) => {
     const handleClick = async () => {
@@ -16,6 +15,19 @@ const sendNewTrip = (props) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
         });
+      } catch (err) {
+        console.error(err.message);
+      }
+      try {
+        const eventsbody = { eventslist };
+        const response = await fetch(
+          "http://localhost:3001/tripEventsList",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(eventsbody),
+          }
+        );
       } catch (err) {
         console.error(err.message);
       }

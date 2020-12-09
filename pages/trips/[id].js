@@ -18,15 +18,28 @@ function Trip() {
     try {
       const response = await fetch("http://localhost:3001/tripToDoList");
       const jsonData = await response.json();
-      const todos = jsonData[jsonData.length -1].todo.slice(2,-2).split('","')
-      setToDoList(todos)
+      console.log(jsonData)
+      const todos = jsonData[jsonData.length - 1].todo
+        .slice(2, -2)
+        .split('","');
+      setToDoList(todos);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
+  const getEventsList = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/tripEventsList");
+      const jsonData = await response.json();
+      console.log(jsonData[jsonData.length - 1].events)
     } catch (err) {
       console.error(err.message);
     }
   };
 
   useEffect(() => {
+    getEventsList();
     getToDoList();
   }, []);
 
