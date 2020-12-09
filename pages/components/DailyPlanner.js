@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -7,9 +7,8 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Link from "next/link";
 
-const myEventsList = [];
-
 export default function DailyPlanner(props) {
+  const myEventsList = useRef([]);
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());
   const [suggestionToAdd, setsuggestionToAdd] = useState(props.suggestionToAdd);
@@ -26,7 +25,7 @@ export default function DailyPlanner(props) {
     console.log("stai viaggiando a:");
     console.log(props.location);
     console.log("questi sono gli eventi del viaggio:");
-    console.log(myEventsList);
+    console.log(myEventsList.current);
     console.log("e queste le attività che hai deciso di fare:");
     console.log(props.toDoList);
   }, [props.suggestionToAdd]);
@@ -44,11 +43,11 @@ export default function DailyPlanner(props) {
   }, [daysLeft]);
 
   function addTravelToCalendar(tripLength) {
-    myEventsList.push(tripLength);
+    myEventsList.current.splice(0, 1, tripLength);
   }
 
   function addSuggestionToCalendar(sugg) {
-    myEventsList.push(sugg);
+    myEventsList.current.push(sugg);
   }
 
   function handleChangeStart(date) {
@@ -60,8 +59,12 @@ export default function DailyPlanner(props) {
   }
 
   function calculateDaysLeft(startDate, endDate) {
-    if (!moment.isMoment(startDate)) startDate = moment(startDate);
-    if (!moment.isMoment(endDate)) endDate = moment(endDate);
+    if (!moment.isMoment(startDate)) {
+      startDate = moment(startDate);
+    }
+    if (!moment.isMoment(endDate)) {
+      endDate = moment(endDate);
+    }
 
     return endDate.diff(startDate, "days") + 1;
   }
@@ -71,7 +74,7 @@ export default function DailyPlanner(props) {
       <div className="app">
         <Calendar
           localizer={localizer}
-          events={myEventsList}
+          events={myEventsList.current}
           startAccessor="start"
           endAccessor="end"
           style={{ height: 500 }}
