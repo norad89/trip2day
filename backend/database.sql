@@ -46,3 +46,10 @@ CREATE TABLE trip_eventslist (
     enddate character varying,
     title character varying
 );
+
+CREATE TABLE images
+(
+    image_id SERIAL PRIMARY KEY NOT NULL,
+    image bytea,
+    name character varying,
+)
