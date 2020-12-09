@@ -10,7 +10,7 @@ export default class UploadFile extends Component {
     uploadForm(file){
         let form = new FormData(this.myForm);
         form.append('myImage', file);
-        fetch('/upload-image', {
+        fetch('/upload', {
           method: 'POST',
           body: form
         }).then(res => console.log('res of fetch', res));

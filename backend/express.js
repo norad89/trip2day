@@ -1,12 +1,37 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const fileUpload = require("express-fileupload");
 const pool = require("./db");
 const app = express();
 const port = 3001;
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(fileUpload());
+app.use(bodyParser.urlencoded({ extended: false }));
 
+const knex = require("knex")({
+  client: "postgres",
+  connection: {
+    user: "postgres",
+    password: "trip2day",
+    host: "localhost",
+    port: 3002,
+    database: "trip2day",
+  },
+  useNullAsDefault: true,
+});
+
+app.post("/upload", async (req, res) => {
+  const { name, data } = req.files.image;
+  if (name && data) {
+    await knex.insert({ name: name, image: data }).into("images");
+    res.sendStatus(200);
+  } else {
+    res.sendStatus(400);
+  }
+});
 
 //LOCATION///////////////////////////////////////////////////////////////////
 
