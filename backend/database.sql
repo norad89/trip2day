@@ -8,39 +8,41 @@ CREATE TABLE location(
 CREATE TABLE museum_suggestions (
     museum_suggestions_id integer PRIMARY KEY NOT NULL,
     author character varying,
-    sug character varying,
-    location character varying,
-    CONSTRAINT location_fk FOREIGN KEY (location) REFERENCES public.location (location) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION NOT VALID
+    sug character varying
 );
 
 CREATE TABLE restaurant_suggestions (
-    restaurantSuggestions_id integer PRIMARY KEY NOT NULL,
+    restaurant_suggestions_id integer PRIMARY KEY NOT NULL,
     author character varying,
-    sug character varying,
-    location character varying,
-    CONSTRAINT location_fk FOREIGN KEY (location) REFERENCES public.location (location) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION NOT VALID
-)
+    sug character varying
+);
 
 CREATE TABLE hotel_suggestions (
-    hotelSuggestions_id integer PRIMARY KEY NOT NULL,
+    hotel_suggestions_id integer PRIMARY KEY NOT NULL,
     author character varying,
-    sug character varying,
-    location character varying,
-    CONSTRAINT location_fk FOREIGN KEY (location) REFERENCES public.location (location) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION NOT VALID
-)
+    sug character varying
+);
 
 CREATE TABLE place_suggestions (
-    placeSuggestions_id integer PRIMARY KEY NOT NULL,
+    place_suggestions_id integer PRIMARY KEY NOT NULL,
     author character varying,
-    sug character varying,
-    location character varying,
-    CONSTRAINT location_fk FOREIGN KEY (location) REFERENCES public.location (location) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION NOT VALID
-)
+    sug character varying
+);
 
 CREATE TABLE tour_suggestions (
-    tourSuggestions_id integer PRIMARY KEY NOT NULL,
+    tour_suggestions_id integer PRIMARY KEY NOT NULL,
     author character varying,
-    sug character varying,
-    location character varying,
-    CONSTRAINT location_fk FOREIGN KEY (location) REFERENCES public.location (location) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION NOT VALID
-)
+    sug character varying
+);
+
+CREATE TABLE trip_todolist (
+    tripodolist_id integer PRIMARY KEY NOT NULL,
+    todo character varying
+);
+
+CREATE TABLE trip_eventslist (
+    trip_eventslist_id integer PRIMARY KEY NOT NULL,
+    startdate character varying,
+    enddate character varying,
+    title character varying
+);
