@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import DailyPlanner from "../components/DailyPlanner";
+import UploadFile from "../components/Upload";
 
 function Trip() {
   const router = useRouter();
@@ -9,6 +10,7 @@ function Trip() {
       <h1> {id} </h1>
       <br/>
       <DailyPlanner />
+      <UploadFile />
     </div>
   );
 
