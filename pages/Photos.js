@@ -48,6 +48,7 @@ function Photos() {
   return (
     <div>
       <TopNavbar />
+
       <Header />
       <div>
         <br />
@@ -121,6 +122,7 @@ function Photos() {
         </Container>
       </div>
       <br />
+
     </div>
   );
 }

@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import UploadFile from "../components/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
 
 function Trip() {
   const router = useRouter();
@@ -41,8 +43,13 @@ function Trip() {
   }
 
   return (
+
+
     <>
       <TopNavbar />
+    
+      <UploadFile />
+
 
       <div className="case">
         <br />
