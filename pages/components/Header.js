@@ -1,20 +1,26 @@
 import { Button, ButtonGroup } from "react-bootstrap";
+import { useSession } from "next-auth/client";
 import Link from "next/link";
 
 function Header() {
+  function showUserName() {
+    return session ? session.user.name : "User Name";
+  }
+  function showProfilePicture() {
+    return session ? session.user.image : "profile";
+  }
+
+  const [session, loading] = useSession();
   return (
     <div className="case">
       <br />
       <div className="img-container">
-        <img
-          className="img-profile"
-          src="https://bidonica.files.wordpress.com/2010/04/vlcsnap-2010-04-19-19h00m46s204.png"
-        />
+        <img className="img-profile" src={showProfilePicture()} />
       </div>
       <br />
 
       <div className="description-profile">
-        <h1 className="profileName"> Cristina Munuz </h1>
+        <h1 className="profileName">{showUserName()}</h1>
         <br />
         <p className="myStory">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -1,7 +1,4 @@
 import TopNavbar from "./components/TopNavbar";
-import React, { useState } from "react";
-import Link from "next/link";
-import AutocompletePlace from "./AutocompletePlace";
 import InputLocation from "./components/InputLocation";
 
 function SearchLocation() {

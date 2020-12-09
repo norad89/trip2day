@@ -1,12 +1,12 @@
+import React, { useState, useEffect } from "react";
+import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import DailyPlanner from "./components/DailyPlanner";
-import React, { useState, useEffect } from "react";
-import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
 
 function CreateNewTrip() {
-  const [location, setLocation] = useState([""]);
+  const [location, setLocation] = useState([]);
   const [museumSuggestions, setMuseumSuggestions] = useState([]);
   const [restaurantSuggestions, setRestaurantSuggestions] = useState([]);
   const [hotelSuggestions, setHotelSuggestions] = useState([]);
@@ -192,11 +192,13 @@ function CreateNewTrip() {
       <br />
       <br />
       <div className="case">
-        <div className="create-new-trip-title">
-          {location.map((location) => (
-            <h2>This is your trip to {location.location}</h2>
-          ))}
-        </div>
+
+    <div className="create-new-trip-title">
+        {location.map((location) => (
+          <h2 className="create-new-trip-text">This is your trip to {location.location}</h2>
+        ))}
+  </div>
+
 
         <br />
         <br />
@@ -256,7 +258,7 @@ function CreateNewTrip() {
         <DailyPlanner
           suggestionToAdd={suggestionToAdd}
           toDoList={checkbox.state}
-          location={location[0].location} // console error to be fixed
+          location={location[0] ? location[0].location : ""} // console error to be fixed
         />
       </div>
     </div>

@@ -136,9 +136,15 @@ p {
   width: 600px;
 }
 
-.create-new-trip-title, 
+.create-new-trip-title {
+  background-color: #2f7055;
+  width: 600px;
+  border-radius: 12px;
+  color: white;
+}
+
 .data-travel-container {
-  background-color: #2F7055;
+  background-color: #2f7055;
   width: 1000px;
   border-radius: 12px;
   color: white;
@@ -185,6 +191,11 @@ input.datapicker-input[type="text"] {
   padding: 6px 20px;
   font-size: 12px;
   font-family: Comfortaa-Light;
+}
+
+.create-new-trip-text {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .dropdown-item[role="button"] {
@@ -267,7 +278,8 @@ ul {
 .button-to-trip {
   transition-duration: 0.4s;
   &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
     transition: 0.5s ease;
   }
@@ -342,7 +354,8 @@ ul {
   padding: 12px 60px;
   transition-duration: 0.4s;
   &:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
     transition: 0.5s ease;
   }
 }
@@ -371,6 +384,15 @@ ul {
 
 .welcome {
   font-size: 20px;
+}
+
+/*............................. MY PHOTO STYLE  .........................*/
+img.my-photo-of-trip {
+  width: 230px;
+  height: 230px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {opacity: 0.7;};
 }
 
 /*............................. NAVBAR STYLE  .........................*/
