@@ -200,7 +200,7 @@ function CreateNewTrip() {
 
     <div className="create-new-trip-title">
         {location.map((location) => (
-          <h2>This is your trip to {location.location}</h2>
+          <h2 className="create-new-trip-text">This is your trip to {location.location}</h2>
         ))}
   </div>
 
