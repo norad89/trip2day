@@ -6,7 +6,7 @@ import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
 
 function CreateNewTrip() {
-  const [location, setLocation] = useState([""]);
+  const [location, setLocation] = useState([]);
   const [museumSuggestions, setMuseumSuggestions] = useState([]);
   const [restaurantSuggestions, setRestaurantSuggestions] = useState([]);
   const [hotelSuggestions, setHotelSuggestions] = useState([]);
@@ -256,7 +256,7 @@ function CreateNewTrip() {
         <DailyPlanner
           suggestionToAdd={suggestionToAdd}
           toDoList={checkbox.state}
-          location={location[0].location} // console error to be fixed
+          location={location[0] ? location[0].location : ""} // console error to be fixed
         />
       </div>
     </div>

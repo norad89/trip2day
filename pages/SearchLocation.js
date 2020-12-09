@@ -15,6 +15,9 @@ function SearchLocation() {
           <h1 className="src-location-title">Prepare for a new adventure!</h1>
           <div className="location-style">
             <InputLocation />
+            <Link href="/">
+              <a>Home</a>
+            </Link>
           </div>
 
           <br />

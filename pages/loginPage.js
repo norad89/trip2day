@@ -44,7 +44,7 @@ function LoginPage() {
                       })
                     }
                   >
-                    Sign in
+                    Sign in with Facebook
                   </button>
                 </>
               )}
