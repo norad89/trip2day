@@ -113,7 +113,7 @@ app.post("/tripToDoList/", async (req, res) => {
   try {
     const { todolist } = req.body;
     const newTodolist = await pool.query(
-      "INSERT INTO todo (todolist) VALUES($1) RETURNING *",
+      "INSERT INTO trip_todolist (todo) VALUES($1) RETURNING *",
       [todolist]
     );
     res.json(newTodolist.rows[0]);
@@ -123,8 +123,8 @@ app.post("/tripToDoList/", async (req, res) => {
 });
 app.get("/tripToDoList", async (req, res) => {
   try {
-    const allLocations = await pool.query("SELECT * FROM location");
-    res.json(allLocations.rows);
+    const allTodolist = await pool.query("SELECT * FROM trip_todolist");
+    res.json(allTodolist.rows);
   } catch (err) {
     console.error(err.message);
   }

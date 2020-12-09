@@ -1,11 +1,11 @@
-import TopNavbar from "./components/TopNavbar";
-import Header from "./components/Header";
 import { Button, Card, Container, Row } from "react-bootstrap";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import ModalImage from "react-modal-image";
+import TopNavbar from "./components/TopNavbar";
+import Header from "./components/Header";
+import Link from "next/link";
 
 function loginCheck() {
   const [session, loading] = useSession();

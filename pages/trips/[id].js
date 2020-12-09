@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import UploadFile from "../components/Upload";
+import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-
 
 function Trip() {
   const router = useRouter();
@@ -12,7 +12,24 @@ function Trip() {
 
   const localizer = momentLocalizer(moment);
 
-  const toDoList = ["pippa", "la", "droga"];
+  const [toDoList, setToDoList] = useState([]);
+
+  const getToDoList = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/tripToDoList");
+      const jsonData = await response.json();
+      const todos = jsonData[jsonData.length -1].todo.slice(2,-2).split('","')
+      setToDoList(todos)
+
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getToDoList();
+  }, []);
+
   const myEventsList = [{}];
 
   function BigCalendar() {
@@ -43,13 +60,10 @@ function Trip() {
   }
 
   return (
-
-
     <>
       <TopNavbar />
-    
-      <UploadFile />
 
+      <UploadFile />
 
       <div className="case">
         <br />
