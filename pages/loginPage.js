@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { signIn, signOut, useSession } from "next-auth/client";
-import Footer from "./components/Footer";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Footer from "./components/Footer";
 
 function loginCheck() {
   const [session, loading] = useSession();

@@ -17,7 +17,6 @@ export default function TopNavbar() {
         </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/PlannedTrips">My Travel Book</Nav.Link>
-          <Nav.Link href="/PlannedTrips">Friends</Nav.Link>
         </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">

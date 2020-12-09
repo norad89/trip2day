@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from "react";
+import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import DailyPlanner from "./components/DailyPlanner";
-import React, { useState, useEffect } from "react";
-import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import DatePicker from "react-datepicker";
 
 function CreateNewTrip() {

@@ -1,7 +1,4 @@
 import TopNavbar from "./components/TopNavbar";
-import React, { useState } from "react";
-import Link from "next/link";
-import AutocompletePlace from "./AutocompletePlace";
 import InputLocation from "./components/InputLocation";
 
 function SearchLocation() {
@@ -15,9 +12,6 @@ function SearchLocation() {
           <h1 className="src-location-title">Prepare for a new adventure!</h1>
           <div className="location-style">
             <InputLocation />
-            <Link href="/">
-              <a>Home</a>
-            </Link>
           </div>
 
           <br />

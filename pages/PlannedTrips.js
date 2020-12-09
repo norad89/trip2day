@@ -1,10 +1,10 @@
+import { useState, useEffect } from "react";
+import { useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 import { Button, Card, Container, Row } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import Header from "./components/Header";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useSession } from "next-auth/client";
-import { useRouter } from "next/router";
 
 function loginCheck() {
   const [session, loading] = useSession();

@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { Button } from "react-bootstrap";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import DatePicker from "react-datepicker";
 import moment from "moment";
+import SendNewTrip from "../components/SendNewTrip";
+import "react-datepicker/dist/react-datepicker.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import Link from "next/link";
 
 export default function DailyPlanner(props) {
   const myEventsList = useRef([]);
@@ -22,12 +21,6 @@ export default function DailyPlanner(props) {
   useEffect(() => {
     setsuggestionToAdd(props.suggestionToAdd);
     addSuggestionToCalendar(props.suggestionToAdd);
-    console.log("stai viaggiando a:");
-    console.log(props.location);
-    console.log("questi sono gli eventi del viaggio:");
-    console.log(myEventsList.current);
-    console.log("e queste le attività che hai deciso di fare:");
-    console.log(props.toDoList);
   }, [props.suggestionToAdd]);
 
   useEffect(() => {
@@ -123,9 +116,11 @@ export default function DailyPlanner(props) {
       <br />
       <BigCalendar />
       <br />
-      <Link href="/trips/[id]" as={`/trips/${location}`}>
-        <Button>Save</Button>
-      </Link>
+      <SendNewTrip
+        location={location}
+        eventsList={myEventsList.current}
+        toDoList={toDoList}
+      />
     </div>
   );
 }
