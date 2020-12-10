@@ -23,9 +23,10 @@ function Header() {
         <h1 className="profile-name">{showUserName()}</h1>
         <br />
         <p className="myStory">
-        Hi guys! Welcome to Trip2Day, the new platform that will allow you to create a real travel experience. 
-        You can leverage your community of friends to get tips directly on your daily planner and share your photos.
-        Enjoy your trip!
+          Hi guys! Welcome to Trip2Day, the new platform that will allow you to
+          create a real travel experience. You can leverage your community of
+          friends to get tips directly on your daily planner and share your
+          photos. Enjoy your trip!
         </p>
       </div>
 
@@ -48,7 +49,9 @@ function Header() {
           </Link>
 
           <Link href="./Photos">
-            <Button className="button-my-photo" variant="secondary">My Photos</Button>
+            <Button className="button-my-photo" variant="secondary">
+              My Photos
+            </Button>
           </Link>
         </ButtonGroup>
       </div>

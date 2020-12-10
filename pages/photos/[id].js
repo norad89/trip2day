@@ -22,7 +22,7 @@ function Trip() {
   const { id } = router.query;
 
   function printImage(id) {
-    return ("http://localhost:3001/images/"+id)
+    return "http://localhost:3001/images/" + id;
   }
 
   return (
@@ -30,19 +30,20 @@ function Trip() {
       <div>{loginCheck()}</div>
       <TopNavbar />
 
-      <UploadFile />
-
       <div className="case">
         <br />
         <br />
         <div className="create-new-trip-title">
           <h1> My photos of {id} </h1>
-          </div>
+        </div>
         <br />
         <br />
         <br />
         <div className="header-new-trip">
-          <div className="to-do-list-container"><img src={printImage()}></img></div>
+          <div className="to-do-list-container">
+            <img src={printImage()}></img>
+          </div>
+          <UploadFile />
         </div>
         <br />
         <br />
@@ -52,7 +53,7 @@ function Trip() {
       <br />
       <br />
       <br />
-    <Footer />
+      <Footer />
     </>
   );
 }

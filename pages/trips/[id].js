@@ -8,7 +8,6 @@ import moment from "moment";
 import Footer from "../components/Footer";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
-
 function loginCheck() {
   const [session, loading] = useSession();
   const router = useRouter();
@@ -26,7 +25,7 @@ function Trip() {
 
   const localizer = momentLocalizer(moment);
 
-  const [myEventsList, setmyEventsList] = useState([])
+  const [myEventsList, setmyEventsList] = useState([]);
   const [toDoList, setToDoList] = useState([]);
 
   const getToDoList = async () => {
@@ -47,9 +46,9 @@ function Trip() {
     try {
       const response = await fetch("http://localhost:3001/tripEventsList");
       const jsonData = await response.json();
-      console.log(jsonData[jsonData.length - 1].events)
-      const events = jsonData[jsonData.length - 1].events
-      setmyEventsList(events)
+      console.log(jsonData[jsonData.length - 1].events);
+      const events = jsonData[jsonData.length - 1].events;
+      setmyEventsList(events);
     } catch (err) {
       console.error(err.message);
     }
@@ -106,7 +105,6 @@ function Trip() {
           <div className="to-do-list-container">{renderToDoList()}</div>
           <UploadFile />
         </div>
-        
 
         <br />
         <br />
@@ -117,7 +115,7 @@ function Trip() {
       <br />
       <br />
       <br />
-    <Footer />
+      <Footer />
     </>
   );
 }

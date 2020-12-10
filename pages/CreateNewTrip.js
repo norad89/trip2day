@@ -9,7 +9,6 @@ import DatePicker from "react-datepicker";
 
 import Footer from "./components/Footer";
 
-
 function loginCheck() {
   const [session, loading] = useSession();
   const router = useRouter();
@@ -280,7 +279,7 @@ function CreateNewTrip() {
       </div>
       <br />
       <br />
-    <Footer />
+      <Footer />
     </div>
   );
 }

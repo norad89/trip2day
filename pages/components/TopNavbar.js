@@ -24,11 +24,11 @@ export default function TopNavbar() {
           <Nav.Link href="/Photos">My Photos</Nav.Link>
         </Nav>
         <Navbar.Toggle />
-         <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className="justify-content-end">
           <Navbar>
-              <div className="img-container">
-               <img className="img-profile" src={showProfilePicture()} />
-                </div>
+            <div className="img-container">
+              <img className="img-profile" src={showProfilePicture()} />
+            </div>
             {!session && (
               <>
                 <p>Not signed in</p>

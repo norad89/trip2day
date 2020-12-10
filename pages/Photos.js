@@ -19,7 +19,6 @@ function loginCheck() {
   }, [session, loading]);
 }
 
-
 function Photos() {
   const [cardList, setList] = useState([]);
 
@@ -37,7 +36,7 @@ function Photos() {
   useEffect(() => {
     getLocation();
   }, []);
-  
+
   function renderCard() {
     return cardList.map((cardList, index) => {
       const { location, photo } = cardList;
@@ -67,8 +66,8 @@ function Photos() {
         <br />
         <Container>
           <Row>
-          <Card>
-          <Card.Img variant="top" />
+            <Card>
+              <Card.Img variant="top" />
               <Link
                 href="/photos/[id]"
                 as={`/photos/${location[0] ? location[0].location : ""}`}
@@ -82,7 +81,10 @@ function Photos() {
                 <Card.Title>
                   {" "}
                   {location.map((location) => (
-                    <Link href="/photos/[id]" as={`/photos/${location.location}`}>
+                    <Link
+                      href="/photos/[id]"
+                      as={`/photos/${location.location}`}
+                    >
                       <a className="travel-photo-text">
                         Your photos of {location.location}
                       </a>
