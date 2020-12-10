@@ -5,6 +5,7 @@ import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import Footer from "./components/Footer";
 
 function Trip() {
   const router = useRouter();
@@ -12,6 +13,7 @@ function Trip() {
 
   const localizer = momentLocalizer(moment);
 
+  const [myEventsList, setmyEventsList] = useState([])
   const [toDoList, setToDoList] = useState([]);
 
   const getToDoList = async () => {
@@ -32,7 +34,9 @@ function Trip() {
     try {
       const response = await fetch("http://localhost:3001/tripEventsList");
       const jsonData = await response.json();
-      console.log(jsonData[jsonData.length - 1].events)
+      console.log(jsonData[jsonData.length - 1].eventsjson)
+      const events = jsonData[jsonData.length - 1].eventsjson
+      setmyEventsList(events)
     } catch (err) {
       console.error(err.message);
     }
@@ -42,8 +46,6 @@ function Trip() {
     getEventsList();
     getToDoList();
   }, []);
-
-  const myEventsList = [{}];
 
   function BigCalendar() {
     return (
@@ -95,6 +97,11 @@ function Trip() {
         <br />
       </div>
       <BigCalendar />
+      <br />
+      <br />
+      <br />
+      <br />
+    <Footer />
     </>
   );
 }

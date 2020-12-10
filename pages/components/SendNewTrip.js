@@ -20,14 +20,11 @@ const sendNewTrip = (props) => {
       }
       try {
         const eventsbody = { eventslist };
-        const response = await fetch(
-          "http://localhost:3001/tripEventsList",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(eventsbody),
-          }
-        );
+        const response = await fetch("http://localhost:3001/tripEventsList", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(eventsbody),
+        });
       } catch (err) {
         console.error(err.message);
       }
