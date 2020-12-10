@@ -43,6 +43,19 @@ app.get("/images/:id", async (req, res) => {
   }
 });
 
+app.put("/images/", async (req, res) => {
+  try {
+    const { suggestion } = req.body;
+    const newSuggestion = await pool.query(
+      "UPDATE images SET sugg = $1 WHERE image_id = 1",
+      [suggestion]
+    );
+    res.json(newSuggestion.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 //LOCATION///////////////////////////////////////////////////////////////////
 
 app.put("/location/", async (req, res) => {
