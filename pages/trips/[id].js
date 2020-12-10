@@ -6,6 +6,18 @@ import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import Footer from "./components/Footer";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { useSession } from "next-auth/client";
+
+function loginCheck() {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!(session || loading)) {
+      router.push("/");
+    }
+  }, [session, loading]);
+}
 
 function Trip() {
   const router = useRouter();
@@ -20,7 +32,7 @@ function Trip() {
     try {
       const response = await fetch("http://localhost:3001/tripToDoList");
       const jsonData = await response.json();
-      console.log(jsonData)
+      console.log(jsonData);
       const todos = jsonData[jsonData.length - 1].todo
         .slice(2, -2)
         .split('","');
@@ -34,8 +46,8 @@ function Trip() {
     try {
       const response = await fetch("http://localhost:3001/tripEventsList");
       const jsonData = await response.json();
-      console.log(jsonData[jsonData.length - 1].eventsjson)
-      const events = jsonData[jsonData.length - 1].eventsjson
+      console.log(jsonData[jsonData.length - 1].events)
+      const events = jsonData[jsonData.length - 1].events
       setmyEventsList(events)
     } catch (err) {
       console.error(err.message);
@@ -76,6 +88,7 @@ function Trip() {
 
   return (
     <>
+      <div>{loginCheck()}</div>
       <TopNavbar />
 
       <UploadFile />

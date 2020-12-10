@@ -1,29 +1,30 @@
-import React, {Component} from "react"
-import {ImageWithoutForm} from "./ImageWithoutForm"
-
+import React, { Component } from "react";
+import { ImageWithoutForm } from "./ImageWithoutForm";
 export default class UploadFile extends Component {
-    onImageLoad(e){
-        console.log('onImageLoad', e.target.files[0]);
-        this.uploadForm(e.target.files[0]);
-    }
-
-    uploadForm(file){
-        let form = new FormData(this.myForm);
-        form.append('myImage', file);
-        fetch('http://localhost:3001/upload', {
-          method: 'POST',
-          body: form
-        }).then(res => console.log('res of fetch', res));
-    }
+  onImageLoad(e) {
+    console.log("onImageLoad", e.target.files[0]);
+    this.uploadForm(e.target.files[0]);
+  }
+  uploadForm(file) {
+    const formdata = new FormData();
+    formdata.append("image", file);
+    const requestOptions = {
+      method: "POST",
+      body: formdata,
+    };
+    fetch("http://localhost:3001/upload", requestOptions)
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+    console.log(requestOptions);
+  }
 
   render() {
     return (
       <div>
         <h4>Upload Image</h4>
-        <ImageWithoutForm onImageLoad={(e)=>this.onImageLoad(e)} />
-        <form id="upload_form" ref="myForm"  encType="multipart/form-data">
-        </form>
+        <ImageWithoutForm onImageLoad={(e) => this.onImageLoad(e)} />
+        <form id="upload_form" encType="multipart/form-data"></form>
       </div>
-    )
+    );
   }
 }
