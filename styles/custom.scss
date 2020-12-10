@@ -313,7 +313,7 @@ ul {
 }
 
 .description-profile {
-  width: 500px;
+  width: 600px;
 }
 
 .img-container {
@@ -416,7 +416,59 @@ img.my-photo-of-trip {
   }
 }
 
-/*................................ PLANNED TRIPS ..............................*/
+.navbar.navbar-expand.navbar-light.bg-primary.sticky-top {
+  padding: 0 5px;
+}
+
+
+/*................................ SEARCH LOCATION ..............................*/
+.background-location {
+  background-image: url("/Landscape.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 70px;
+  border: none;
+  width: 90%;
+  min-height: 600px;
+}
+
+.button-travel {
+  padding: 3px 15px;
+  margin-left: 3px;
+}
+
+.choose-destination-text {
+  font-size: 20px;
+  text-align: left;
+}
+
+.location-logo {
+  padding-top: 2.5%;
+  padding-bottom: 60px;
+}
+
+.location-style {
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.on-submit-style {
+  color: #222222;
+  font-family: Comfortaa-SemiBold;
+}
+
+.src-location-title {
+  font-size: 50px;
+  color: #222222;
+  font-family: Comfortaa-SemiBold;
+  top: 80px;
+  position: relative;
+}
+
+/*................................ TRAVEL BOOK ..............................*/
 .button-container {
   color: white;
   font-size: 16px;
@@ -467,51 +519,13 @@ img.my-photo-of-trip {
   }
 }
 
-/*................................ SEARCH LOCATION ..............................*/
-.background-location {
-  background-image: url("/Landscape.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 70px;
-  border: none;
-  width: 90%;
-  min-height: 600px;
-}
-
-.button-travel {
-  padding: 3px 15px;
-  margin-left: 3px;
-}
-
-.choose-destination-text {
-  font-size: 20px;
-  text-align: left;
-}
-
-.location-logo {
-  padding-top: 2.5%;
-  padding-bottom: 60px;
-}
-
-.location-style {
-  height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.on-submit-style {
+a.travel-photo-text {
   color: #222222;
-  font-family: Comfortaa-SemiBold;
-}
-
-.src-location-title {
-  font-size: 50px;
-  color: #222222;
-  font-family: Comfortaa-SemiBold;
-  top: 80px;
-  position: relative;
+  text-decoration: none;
+  &:hover {
+    color: #222222;
+    text-decoration: none;
+  }
 }
 
 /*................................ UPLOAD ..............................*/
