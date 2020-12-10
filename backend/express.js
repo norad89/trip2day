@@ -111,22 +111,12 @@ app.get("/tourSuggestions", async (req, res) => {
 
 //EVENTSLIST///////////////////////////////////////////////////////////////////
 
-/*app.post("/tripEventsList", async (req, res) => {
-  const { start, end, title } = req.body;
-  if (start && end && title) {
-    await knex.insert({ startdate: start, enddate: end, title: title }).into("trip_eventslist");
-    res.sendStatus(200);
-  } else {
-    res.sendStatus(400);
-  }
-});*/
-
 app.post("/tripEventsList/", async (req, res) => {
   try {
     const { eventslist } = req.body;
     console.log(req.body)
     const newEventslist = await pool.query(
-      "INSERT INTO trip_eventslist (eventsjson) VALUES($1) RETURNING *",
+      "INSERT INTO trip_eventslist (events) VALUES($1) RETURNING *",
       [eventslist]
     );
     res.json(newEventslist.rows[0]);

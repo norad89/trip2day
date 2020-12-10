@@ -42,9 +42,7 @@ CREATE TABLE trip_todolist (
 
 CREATE TABLE trip_eventslist (
     trip_eventslist_id SERIAL PRIMARY KEY NOT NULL,
-    startdate character varying,
-    enddate character varying,
-    title character varying
+    events json[]
 );
 
 CREATE TABLE images
