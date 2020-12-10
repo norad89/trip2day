@@ -6,7 +6,9 @@ import { useRouter } from "next/router";
 import TopNavbar from "./components/TopNavbar";
 import DailyPlanner from "./components/DailyPlanner";
 import DatePicker from "react-datepicker";
+
 import Footer from "./components/Footer";
+
 
 function loginCheck() {
   const [session, loading] = useSession();

@@ -8,7 +8,6 @@ import Header from "./components/Header";
 import Link from "next/link";
 import Footer from "./components/Footer";
 
-
 function loginCheck() {
   const [session, loading] = useSession();
   const router = useRouter();
@@ -20,9 +19,25 @@ function loginCheck() {
   }, [session, loading]);
 }
 
+
 function Photos() {
   const [cardList, setList] = useState([]);
 
+  const [location, setLocation] = useState([]);
+
+  const getLocation = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/location");
+      const jsonData = await response.json();
+      setLocation(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  useEffect(() => {
+    getLocation();
+  }, []);
+  
   function renderCard() {
     return cardList.map((cardList, index) => {
       const { location, photo } = cardList;
@@ -52,69 +67,32 @@ function Photos() {
         <br />
         <Container>
           <Row>
-            <Card>
-              <div>
-                <Card.Img variant="top" />
-                <ModalImage
-                  className="my-photo-of-trip"
-                  small={"/amsterdam.jpg"}
-                  large={"/amsterdam.jpg"}
-                  overflow="hidden"
-                />
-              </div>
-
+          <Card>
+          <Card.Img variant="top" />
+              <Link
+                href="/photos/[id]"
+                as={`/photos/${location[0] ? location[0].location : ""}`}
+              >
+                <a>
+                  <img src="/Londra.jpg" width="230px" overflow="hidden"></img>
+                </a>
+              </Link>
               <Card.Body>
                 <br />
-
                 <Card.Title>
-                  <p className="travel-photo-text"> Amsterdam </p>
+                  {" "}
+                  {location.map((location) => (
+                    <Link href="/photos/[id]" as={`/photos/${location.location}`}>
+                      <a className="travel-photo-text">
+                        Your photos of {location.location}
+                      </a>
+                    </Link>
+                  ))}{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
               </Card.Body>
             </Card>
-
             <div>{renderCard()}</div>
-
-            <Card>
-              <Card.Img variant="top" />
-
-              <ModalImage
-                className="my-photo-of-trip"
-                small={"/Parigi.jpg"}
-                large={"/Parigi.jpg"}
-                overflow="hidden"
-              />
-
-              <Card.Body>
-                <br />
-
-                <Card.Title>
-                  {" "}
-                  <p className="travel-photo-text"> Parigi </p>{" "}
-                </Card.Title>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
-
-            <Card>
-              <Card.Img variant="top" />
-
-              <ModalImage
-                className="my-photo-of-trip"
-                small={"/Formentera.jpg"}
-                large={"/Formentera.jpg"}
-                overflow="hidden"
-              />
-
-              <Card.Body>
-                <br />
-                <Card.Title>
-                  {" "}
-                  <p className="travel-photo-text"> Formentera </p>{" "}
-                </Card.Title>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
           </Row>
         </Container>
       </div>

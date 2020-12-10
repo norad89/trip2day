@@ -6,18 +6,16 @@ export default class UploadFile extends Component {
     this.uploadForm(e.target.files[0]);
   }
   uploadForm(file) {
-    const formdata = new FormData();
-    formdata.append("image", file);
+    const formData = FormData();
+    formData.append("image", file);
     const requestOptions = {
       method: "POST",
-      body: formdata,
+      body: formData,
     };
     fetch("http://localhost:3001/upload", requestOptions)
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
-    console.log(requestOptions);
   }
-
   render() {
     return (
       <div className="upload-image-container">
