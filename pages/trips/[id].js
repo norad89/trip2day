@@ -1,12 +1,13 @@
+import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
-import Footer from "./components/Footer";
+import Footer from "../components/Footer";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { useSession } from "next-auth/client";
+
 
 function loginCheck() {
   const [session, loading] = useSession();

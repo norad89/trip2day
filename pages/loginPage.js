@@ -40,7 +40,7 @@ function LoginPage() {
                     className="default-button"
                     onClick={() =>
                       signIn("facebook", {
-                        callbackUrl: "http://localhost:3000/PlannedTrips",
+                        callbackUrl: "http://localhost:3000/TravelBook",
                       })
                     }
                   >

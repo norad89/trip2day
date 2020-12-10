@@ -1,10 +1,12 @@
 import TopNavbar from "./components/TopNavbar";
 import InputLocation from "./components/InputLocation";
 import Footer from "./components/Footer";
+import { useState, useEffect } from "react";
 import { useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 
 function loginCheck() {
-  const [session, loading] = useSession;
+  const [session, loading] = useSession();
   const router = useRouter();
 
   useEffect(() => {

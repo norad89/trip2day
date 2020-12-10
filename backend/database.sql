@@ -86,5 +86,5 @@ CREATE TABLE trip_eventslist (
 CREATE TABLE images (
     image_id SERIAL PRIMARY KEY NOT NULL,
     image bytea,
-    name character varying,
-)
+    name character varying
+);
