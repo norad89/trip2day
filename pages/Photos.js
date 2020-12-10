@@ -6,6 +6,8 @@ import ModalImage from "react-modal-image";
 import TopNavbar from "./components/TopNavbar";
 import Header from "./components/Header";
 import Link from "next/link";
+import Footer from "./components/Footer";
+
 
 function loginCheck() {
   const [session, loading] = useSession();
@@ -17,9 +19,6 @@ function loginCheck() {
     }
   }, [session, loading]);
 }
-
-
-
 
 function Photos() {
   const [cardList, setList] = useState([]);
@@ -43,10 +42,9 @@ function Photos() {
     });
   }
 
-
-
   return (
     <div>
+      <div>{loginCheck()}</div>
       <TopNavbar />
 
       <Header />
@@ -55,7 +53,7 @@ function Photos() {
         <Container>
           <Row>
             <Card>
-              <div >
+              <div>
                 <Card.Img variant="top" />
                 <ModalImage
                   className="my-photo-of-trip"
@@ -72,7 +70,6 @@ function Photos() {
                   <p className="travel-photo-text"> Amsterdam </p>
                 </Card.Title>
                 <Card.Text></Card.Text>
-
               </Card.Body>
             </Card>
 
@@ -80,13 +77,14 @@ function Photos() {
 
             <Card>
               <Card.Img variant="top" />
-              
-                <ModalImage 
-                  className="my-photo-of-trip" 
-                  small={"/Parigi.jpg"} 
-                  large={"/Parigi.jpg"}
-                  overflow="hidden"/>
-              
+
+              <ModalImage
+                className="my-photo-of-trip"
+                small={"/Parigi.jpg"}
+                large={"/Parigi.jpg"}
+                overflow="hidden"
+              />
+
               <Card.Body>
                 <br />
 
@@ -95,19 +93,19 @@ function Photos() {
                   <p className="travel-photo-text"> Parigi </p>{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
-
               </Card.Body>
             </Card>
 
             <Card>
               <Card.Img variant="top" />
-              
-              <ModalImage 
-                  className="my-photo-of-trip" 
-                  small={"/Formentera.jpg"} 
-                  large={"/Formentera.jpg"}
-                  overflow="hidden"/>
-              
+
+              <ModalImage
+                className="my-photo-of-trip"
+                small={"/Formentera.jpg"}
+                large={"/Formentera.jpg"}
+                overflow="hidden"
+              />
+
               <Card.Body>
                 <br />
                 <Card.Title>
@@ -115,14 +113,14 @@ function Photos() {
                   <p className="travel-photo-text"> Formentera </p>{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
-
               </Card.Body>
             </Card>
           </Row>
         </Container>
       </div>
       <br />
-
+      <br />
+      <Footer />
     </div>
   );
 }

@@ -5,6 +5,8 @@ import { Button, Card, Container, Row } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import Header from "./components/Header";
 import Link from "next/link";
+import Footer from "./components/Footer";
+
 
 function loginCheck() {
   const [session, loading] = useSession();
@@ -58,7 +60,6 @@ function PlannedTrips() {
 
   return (
     <div>
-      {console.log()}
       <div>{loginCheck()}</div>
       <TopNavbar />
       <Header />
@@ -144,6 +145,9 @@ function PlannedTrips() {
         </Container>
       </div>
       <br />
+
+      <br />
+      <Footer />
     </div>
   );
 }

@@ -1,10 +1,24 @@
+import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
+import Footer from "../components/Footer";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
+
+function loginCheck() {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!(session || loading)) {
+      router.push("/");
+    }
+  }, [session, loading]);
+}
 
 function Trip() {
   const router = useRouter();
@@ -12,13 +26,14 @@ function Trip() {
 
   const localizer = momentLocalizer(moment);
 
+  const [myEventsList, setmyEventsList] = useState([])
   const [toDoList, setToDoList] = useState([]);
 
   const getToDoList = async () => {
     try {
       const response = await fetch("http://localhost:3001/tripToDoList");
       const jsonData = await response.json();
-      console.log(jsonData)
+      console.log(jsonData);
       const todos = jsonData[jsonData.length - 1].todo
         .slice(2, -2)
         .split('","');
@@ -33,6 +48,8 @@ function Trip() {
       const response = await fetch("http://localhost:3001/tripEventsList");
       const jsonData = await response.json();
       console.log(jsonData[jsonData.length - 1].events)
+      const events = jsonData[jsonData.length - 1].events
+      setmyEventsList(events)
     } catch (err) {
       console.error(err.message);
     }
@@ -42,8 +59,6 @@ function Trip() {
     getEventsList();
     getToDoList();
   }, []);
-
-  const myEventsList = [{}];
 
   function BigCalendar() {
     return (
@@ -74,6 +89,7 @@ function Trip() {
 
   return (
     <>
+      <div>{loginCheck()}</div>
       <TopNavbar />
 
       <UploadFile />
@@ -95,6 +111,11 @@ function Trip() {
         <br />
       </div>
       <BigCalendar />
+      <br />
+      <br />
+      <br />
+      <br />
+    <Footer />
     </>
   );
 }

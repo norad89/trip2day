@@ -5,7 +5,6 @@ $theme-colors: (
 
 .flexcontainer {
   display: flex;
-
   justify-content: center;
   justify-content: space-around;
 }
@@ -53,9 +52,9 @@ input[type="submit"] {
 }
 
 .app,
+.background-location,
 .create-new-trip-title,
 .data-travel-container,
-.background-location,
 .card,
 .description-profile,
 .img-container,
@@ -130,19 +129,7 @@ p {
   width: 900px;
 }
 
-.create-new-trip-title {
-  padding-bottom: 1px;
-  padding-top: 10px;
-  width: 600px;
-}
-
-.create-new-trip-title {
-  background-color: #2f7055;
-  width: 600px;
-  border-radius: 12px;
-  color: white;
-}
-
+.create-new-trip-title,
 .data-travel-container {
   background-color: #2f7055;
   width: 1000px;
@@ -194,9 +181,17 @@ input.datapicker-input[type="text"] {
 }
 
 .create-new-trip-text {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 6px;
+  margin-right: 6px;
 }
+
+.create-new-trip-title {
+  width: 600px;
+  padding-bottom: 1px;
+  padding-top: 10px;
+  width: 600px;
+}
+
 
 .dropdown-item[role="button"] {
   color: white;
@@ -227,7 +222,7 @@ input.datapicker-input[type="text"] {
   text-align: left;
 }
 
-.row {
+.row-create-trip {
   margin-top: 10px;
 }
 
@@ -266,12 +261,13 @@ ul {
 
 /*............................. FOOTER STYLE  .........................*/
 .foot {
-  background-color: black;
-  color: #e4e4e4;
-  height: 3vh;
+  background-color: #2F7055;
+  color: #E4E4E4;
+  height: 38px;
   font-family: Comfortaa-Light;
   font-size: small;
   text-align: center;
+  padding: 12px 0;
 }
 
 /*............................. HEADER STYLE  .........................*/
@@ -305,12 +301,16 @@ ul {
   }
 }
 
+//className-->ButtonGroup (My Past Trip - My Planned Trips - My Photo)
 .btn.btn-secondary {
-  //className-->ButtonGroup
   color: white;
   background-color: #455753;
-  padding: 8px 10px;
+  padding: 8px 20px;
   border: 1px solid white;
+}
+
+.button-my-photo.btn.btn-secondary{
+  padding: 8px 35px;
 }
 
 .description-profile {
@@ -373,7 +373,7 @@ ul {
 }
 
 .loginformcontainer {
-  background-color: #e4e4e4;
+  background-color: white;
   width: 50%;
 }
 
@@ -449,7 +449,7 @@ img.my-photo-of-trip {
   padding: 15px 25px;
   font-size: 15px;
   border-radius: 50%;
-  color: #fff;
+  color: white;
   background-color: #455753;
   box-shadow: 0 9px #999;
   &:hover {

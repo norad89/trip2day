@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Checkbox, useCheckboxState } from "pretty-checkbox-react";
 import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
+import { useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 import TopNavbar from "./components/TopNavbar";
 import DailyPlanner from "./components/DailyPlanner";
 import DatePicker from "react-datepicker";
+import Footer from "./components/Footer";
+
+function loginCheck() {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!(session || loading)) {
+      router.push("/");
+    }
+  }, [session, loading]);
+}
 
 function CreateNewTrip() {
   const [location, setLocation] = useState([]);
@@ -188,24 +202,25 @@ function CreateNewTrip() {
 
   return (
     <div>
+      <div>{loginCheck()}</div>
       <TopNavbar />
       <br />
       <br />
       <div className="case">
-
-    <div className="create-new-trip-title">
-        {location.map((location) => (
-          <h2 className="create-new-trip-text">This is your trip to {location.location}</h2>
-        ))}
-  </div>
-
+        <div className="create-new-trip-title">
+          {location.map((location) => (
+            <h2 className="create-new-trip-text">
+              This is your trip to {location.location}
+            </h2>
+          ))}
+        </div>
 
         <br />
         <br />
         <br />
         <div className="header-new-trip">
           <div className="all-sugg-cont">
-            <div className="row">
+            <div className="row-create-trip">
               <div className="blockOne">
                 <h3 className="text-need-sugg">
                   Are you looking for suggestions?
@@ -261,6 +276,9 @@ function CreateNewTrip() {
           location={location[0] ? location[0].location : ""} // console error to be fixed
         />
       </div>
+      <br />
+      <br />
+    <Footer />
     </div>
   );
 }

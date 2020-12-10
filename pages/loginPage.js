@@ -10,7 +10,7 @@ function loginCheck() {
 
   useEffect(() => {
     if (session || loading) {
-      router.push("/PlannedTrips");
+      router.push("/TravelBook");
     }
   }, [session, loading]);
 }
@@ -40,7 +40,7 @@ function LoginPage() {
                     className="default-button"
                     onClick={() =>
                       signIn("facebook", {
-                        callbackUrl: "http://localhost:3000/PlannedTrips",
+                        callbackUrl: "http://localhost:3000/TravelBook",
                       })
                     }
                   >
@@ -54,7 +54,7 @@ function LoginPage() {
                     style={{
                       width: "300px",
                       margin: "auto",
-                      background: "#e4e4e4",
+                      background: "white",
                       padding: "20px",
                       color: "#000",
                     }}
