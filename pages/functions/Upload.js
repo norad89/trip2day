@@ -13,7 +13,6 @@ export default class UploadFile extends Component {
       body: formData,
     };
     fetch("http://localhost:3001/upload", requestOptions)
-      .then((response) => console.log(response))
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   }

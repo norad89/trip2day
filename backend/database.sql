@@ -79,19 +79,17 @@ VALUES
     (2, 'Lana', 'Fai il giro della città in bici');
 
 CREATE TABLE trip_todolist (
-    tripodolist_id integer PRIMARY KEY NOT NULL,
+    tripodolist_id SERIAL PRIMARY KEY NOT NULL,
     todo character varying
 );
 
 CREATE TABLE trip_eventslist (
-    trip_eventslist_id integer PRIMARY KEY NOT NULL,
-    startdate character varying,
-    enddate character varying,
-    title character varying
+    trip_eventslist_id SERIAL PRIMARY KEY NOT NULL,
+    events json[]
 );
 
 CREATE TABLE images (
     image_id SERIAL PRIMARY KEY NOT NULL,
     image bytea,
-    name character varying,
-)
+    name character varying
+);

@@ -1,5 +1,8 @@
 import TopNavbar from "./components/TopNavbar";
 import InputLocation from "./components/InputLocation";
+
+import Footer from "./components/Footer";
+
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
@@ -32,6 +35,9 @@ function SearchLocation() {
           <br />
         </div>
       </div>
+      <br />
+      <br />
+      <Footer />
     </div>
   );
 }
