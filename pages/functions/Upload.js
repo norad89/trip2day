@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ImageWithoutForm } from "./ImageWithoutForm";
+import InputSuggestion from "../components/InputSuggestion";
 export default class UploadFile extends Component {
   onImageLoad(e) {
     console.log("onImageLoad", e.target.files[0]);
@@ -26,6 +27,7 @@ export default class UploadFile extends Component {
         />
 
         <form id="upload_form" encType="multipart/form-data"></form>
+        <InputSuggestion />
       </div>
     );
   }
