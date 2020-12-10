@@ -114,6 +114,7 @@ app.get("/tourSuggestions", async (req, res) => {
 app.post("/tripEventsList/", async (req, res) => {
   try {
     const { eventslist } = req.body;
+    console.log(req.body)
     const newEventslist = await pool.query(
       "INSERT INTO trip_eventslist (events) VALUES($1) RETURNING *",
       [eventslist]
@@ -123,6 +124,7 @@ app.post("/tripEventsList/", async (req, res) => {
     console.error(err.message);
   }
 });
+
 app.get("/tripEventsList", async (req, res) => {
   try {
     const allEventslist = await pool.query("SELECT * FROM trip_eventslist");

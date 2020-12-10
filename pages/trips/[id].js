@@ -12,6 +12,7 @@ function Trip() {
 
   const localizer = momentLocalizer(moment);
 
+  const [myEventsList, setmyEventsList] = useState([])
   const [toDoList, setToDoList] = useState([]);
 
   const getToDoList = async () => {
@@ -32,7 +33,9 @@ function Trip() {
     try {
       const response = await fetch("http://localhost:3001/tripEventsList");
       const jsonData = await response.json();
-      console.log(jsonData[jsonData.length - 1].events)
+      console.log(jsonData[jsonData.length - 1].eventsjson)
+      const events = jsonData[jsonData.length - 1].eventsjson
+      setmyEventsList(events)
     } catch (err) {
       console.error(err.message);
     }
@@ -42,8 +45,6 @@ function Trip() {
     getEventsList();
     getToDoList();
   }, []);
-
-  const myEventsList = [{}];
 
   function BigCalendar() {
     return (
