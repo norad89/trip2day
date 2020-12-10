@@ -6,6 +6,8 @@ import ModalImage from "react-modal-image";
 import TopNavbar from "./components/TopNavbar";
 import Header from "./components/Header";
 import Link from "next/link";
+import Footer from "./components/Footer";
+
 
 function loginCheck() {
   const [session, loading] = useSession();
@@ -119,7 +121,8 @@ function Photos() {
         </Container>
       </div>
       <br />
-
+      <br />
+      <Footer />
     </div>
   );
 }

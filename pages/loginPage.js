@@ -54,7 +54,7 @@ function LoginPage() {
                     style={{
                       width: "300px",
                       margin: "auto",
-                      background: "#e4e4e4",
+                      background: "white",
                       padding: "20px",
                       color: "#000",
                     }}

@@ -1,5 +1,6 @@
 import TopNavbar from "./components/TopNavbar";
 import InputLocation from "./components/InputLocation";
+import Footer from "./components/Footer";
 
 function SearchLocation() {
   return (
@@ -17,6 +18,9 @@ function SearchLocation() {
           <br />
         </div>
       </div>
+      <br />
+      <br />
+      <Footer />
     </div>
   );
 }
