@@ -47,7 +47,7 @@ function Header() {
           </Link>
 
           <Link href="./Photos">
-            <Button variant="secondary">My Photos</Button>
+            <Button className="button-my-photo" variant="secondary">My Photos</Button>
           </Link>
         </ButtonGroup>
       </div>
