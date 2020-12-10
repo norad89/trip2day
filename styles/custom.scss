@@ -263,11 +263,11 @@ ul {
 .foot {
   background-color: #2F7055;
   color: #E4E4E4;
-  height: 36px;
+  height: 38px;
   font-family: Comfortaa-Light;
   font-size: small;
   text-align: center;
-  padding: 9px 0;
+  padding: 12px 0;
 }
 
 /*............................. HEADER STYLE  .........................*/
@@ -305,8 +305,12 @@ ul {
 .btn.btn-secondary {
   color: white;
   background-color: #455753;
-  padding: 8px 10px;
+  padding: 8px 20px;
   border: 1px solid white;
+}
+
+.button-my-photo.btn.btn-secondary{
+  padding: 8px 35px;
 }
 
 .description-profile {
