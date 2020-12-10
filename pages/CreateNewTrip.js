@@ -4,6 +4,18 @@ import { DropdownButton, Dropdown, Modal, Button } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import DailyPlanner from "./components/DailyPlanner";
 import DatePicker from "react-datepicker";
+import { useSession } from "next-auth/client";
+
+function loginCheck() {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!(session || loading)) {
+      router.push("/");
+    }
+  }, [session, loading]);
+}
 
 function CreateNewTrip() {
   const [location, setLocation] = useState([]);
@@ -188,17 +200,18 @@ function CreateNewTrip() {
 
   return (
     <div>
+      <div>{loginCheck()}</div>
       <TopNavbar />
       <br />
       <br />
       <div className="case">
-
-    <div className="create-new-trip-title">
-        {location.map((location) => (
-          <h2 className="create-new-trip-text">This is your trip to {location.location}</h2>
-        ))}
-  </div>
-
+        <div className="create-new-trip-title">
+          {location.map((location) => (
+            <h2 className="create-new-trip-text">
+              This is your trip to {location.location}
+            </h2>
+          ))}
+        </div>
 
         <br />
         <br />
