@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Link from "next/link";
 import Footer from "./components/Footer";
 
+
 function loginCheck() {
   const [session, loading] = useSession();
   const router = useRouter();
@@ -145,6 +146,7 @@ function PlannedTrips() {
         </Container>
       </div>
       <br />
+
       <br />
       <Footer />
     </div>
