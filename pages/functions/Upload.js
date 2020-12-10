@@ -6,23 +6,25 @@ export default class UploadFile extends Component {
     this.uploadForm(e.target.files[0]);
   }
   uploadForm(file) {
-    const formdata = new FormData();
-    formdata.append("image", file);
+    const formData = new FormData();
+    formData.append("image", file);
     const requestOptions = {
       method: "POST",
-      body: formdata,
+      body: formData,
     };
     fetch("http://localhost:3001/upload", requestOptions)
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
-    console.log(requestOptions);
   }
-
   render() {
     return (
-      <div>
-        <h4>Upload Image</h4>
-        <ImageWithoutForm onImageLoad={(e) => this.onImageLoad(e)} />
+      <div className="upload-image-container">
+        <h3 className="to-do-list">Upload Image of your trips</h3>
+        <ImageWithoutForm
+          className="prova"
+          onImageLoad={(e) => this.onImageLoad(e)}
+        />
+
         <form id="upload_form" encType="multipart/form-data"></form>
       </div>
     );

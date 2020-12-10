@@ -6,25 +6,27 @@ function Header() {
   function showUserName() {
     return session ? session.user.name : "User Name";
   }
-  function showProfilePicture() {
-    return session ? session.user.image : "profile";
-  }
+  // function showProfilePicture() {
+  //   return session ? session.user.image : "profile";
+  // }
 
   const [session, loading] = useSession();
   return (
     <div className="case">
       <br />
-      <div className="img-container">
+      {/* <div className="img-container">
         <img className="img-profile" src={showProfilePicture()} />
-      </div>
+      </div> */}
       <br />
 
       <div className="description-profile">
-        <h1 className="profileName">{showUserName()}</h1>
+        <h1 className="profile-name">{showUserName()}</h1>
         <br />
         <p className="myStory">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Hi guys! Welcome to Trip2Day, the new platform that will allow you to
+          create a real travel experience. You can leverage your community of
+          friends to get tips directly on your daily planner and share your
+          photos. Enjoy your trip!
         </p>
       </div>
 
@@ -47,7 +49,9 @@ function Header() {
           </Link>
 
           <Link href="./Photos">
-            <Button className="button-my-photo" variant="secondary">My Photos</Button>
+            <Button className="button-my-photo" variant="secondary">
+              My Photos
+            </Button>
           </Link>
         </ButtonGroup>
       </div>

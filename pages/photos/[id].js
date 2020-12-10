@@ -1,12 +1,10 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import { useSession } from "next-auth/client";
 import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
-import moment from "moment";
 import Footer from "../components/Footer";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { useSession } from "next-auth/client";
 
 function loginCheck() {
   const [session, loading] = useSession();
@@ -23,26 +21,29 @@ function Trip() {
   const router = useRouter();
   const { id } = router.query;
 
-  
+  function printImage(id) {
+    return "http://localhost:3001/images/" + id;
+  }
 
   return (
     <>
       <div>{loginCheck()}</div>
       <TopNavbar />
 
-      <UploadFile />
-
       <div className="case">
         <br />
         <br />
         <div className="create-new-trip-title">
           <h1> My photos of {id} </h1>
-          </div>
+        </div>
         <br />
         <br />
         <br />
         <div className="header-new-trip">
-          <div className="to-do-list-container">{}</div>
+          <div className="to-do-list-container">
+            <img src={printImage()}></img>
+          </div>
+          <UploadFile />
         </div>
         <br />
         <br />
@@ -52,7 +53,7 @@ function Trip() {
       <br />
       <br />
       <br />
-    <Footer />
+      <Footer />
     </>
   );
 }

@@ -33,6 +33,16 @@ app.post("/upload", async (req, res) => {
   }
 });
 
+app.get("/images/:id", async (req, res) => {
+  const id = req.params.id;
+  const img = await knex("images").where({ image_id: id }).first();
+  if (img) {
+    res.end(img.image);
+  } else {
+    res.end("No Img with that Id!");
+  }
+});
+
 //LOCATION///////////////////////////////////////////////////////////////////
 
 app.put("/location/", async (req, res) => {
@@ -114,7 +124,7 @@ app.get("/tourSuggestions", async (req, res) => {
 app.post("/tripEventsList/", async (req, res) => {
   try {
     const { eventslist } = req.body;
-    console.log(req.body)
+    console.log(req.body);
     const newEventslist = await pool.query(
       "INSERT INTO trip_eventslist (events) VALUES($1) RETURNING *",
       [eventslist]

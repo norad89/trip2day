@@ -4,6 +4,10 @@ import { signIn, signOut, useSession } from "next-auth/client";
 export default function TopNavbar() {
   const [session, loading] = useSession();
 
+  function showProfilePicture() {
+    return session ? session.user.image : "profile";
+  }
+
   return (
     <>
       <Navbar bg="primary" sticky="top">
@@ -17,10 +21,14 @@ export default function TopNavbar() {
         </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/TravelBook">My Travel Book</Nav.Link>
+          <Nav.Link href="/Photos">My Photos</Nav.Link>
         </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar>
+            <div className="img-container">
+              <img className="img-profile" src={showProfilePicture()} />
+            </div>
             {!session && (
               <>
                 <p>Not signed in</p>

@@ -22,17 +22,17 @@ const options = {
         //   return Promise.resolve(false)
         // You can also Reject this callback with an Error or with a URL:
         // return Promise.reject(new Error('error message')) // Redirect to error page
-        return Promise.reject('http://localhost:3000')        // Redirect to a URL
+        return Promise.reject("http://localhost:3000"); // Redirect to a URL
       }
     },
     redirect: async (url, baseUrl) => {
       return url.startsWith(baseUrl)
         ? Promise.resolve(url)
-        : Promise.resolve(baseUrl)
+        : Promise.resolve(baseUrl);
     },
     session: async (session, user, sessionToken) => {
-      session.foo = 'bar' // Add property to session
-      return Promise.resolve(session)
+      session.foo = "bar"; // Add property to session
+      return Promise.resolve(session);
     },
   },
 
