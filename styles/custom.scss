@@ -319,16 +319,20 @@ ul {
 
 .img-container {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
   margin-bottom: 20px;
+  margin-top: 15px;
+  margin-right: 10px;
 }
 
 .img-profile {
-  height: 200px;
-  width: 200px;
+  height: 60px;
+  width: 60px;
   object-fit: cover;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .myStory {
