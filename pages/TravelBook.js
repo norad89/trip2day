@@ -7,7 +7,6 @@ import Header from "./components/Header";
 import Link from "next/link";
 import Footer from "./components/Footer";
 
-
 function loginCheck() {
   const [session, loading] = useSession();
   const router = useRouter();
@@ -20,39 +19,22 @@ function loginCheck() {
 }
 
 function PlannedTrips() {
+  const [location, setLocation] = useState([]);
   const [cardList, setList] = useState([]);
 
-  /*useEffect(() => {
-    fetch("http://localhost:3001/").then((response) => {
-      response.json().then((content) => {
-        setList([...content.cardViaggio]);
-      });
-    });
+  const getLocation = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/location");
+      const jsonData = await response.json();
+      setLocation(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getLocation();
   }, []);
-  const [value, setValue] = useState("");
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  } */
-
-  function renderCard() {
-    return cardList.map((cardList, index) => {
-      const { location, photo } = cardList;
-      return (
-        <Card className="photo" key={index}>
-          <Card.Img variant="top" />
-          <img src={photo} width="200px" overflow="hidden"></img>
-          <Card.Body>
-            <Card.Title>{location}</Card.Title>
-            <Card.Text></Card.Text>
-            <Button>
-              <Link href="./NewTrip">Cross</Link>
-            </Button>
-          </Card.Body>
-        </Card>
-      );
-    });
-  }
 
   const trip = {
     id: "Parigi",
@@ -93,52 +75,36 @@ function PlannedTrips() {
                 <br />
 
                 <Card.Title>
-                  <p className="travel-photo-text"> New trip</p>
+                  <p className="travel-photo-text"> Start a new trip</p>
                 </Card.Title>
                 <Card.Text></Card.Text>
-
-                {/* <Link href="./SearchLocation"><Button onChange={handleChange}><a className='NewTripsButton'> Prepare </a></Button></Link> */}
-              </Card.Body>
-            </Card>
-
-            <div>{renderCard()}</div>
-
-            <Card>
-              <Card.Img variant="top" />
-              <a>
-                <img src="/Parigi.jpg" width="230px" overflow="hidden"></img>
-              </a>
-              <Card.Body>
-                <br />
-                {/* <Card.Title><Link href="/trips/[id]" as={`/trips/${trip.id}`}><a className='NewTripsButton'>{trip.id}</a></Link></Card.Title> */}
-                <Card.Title>
-                  {" "}
-                  <p className="travel-photo-text"> Parigi </p>{" "}
-                </Card.Title>
-                <Card.Text></Card.Text>
-
-                {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>
             </Card>
 
             <Card>
               <Card.Img variant="top" />
-              <a>
-                <img
-                  src="/Formentera.jpg"
-                  width="230px"
-                  overflow="hidden"
-                ></img>
-              </a>
+              <Link
+                href="/trips/[id]"
+                as={`/trips/${location[0] ? location[0].location : ""}`}
+              >
+                <a>
+                  <img src="/Londra.jpg" width="230px" overflow="hidden"></img>
+                </a>
+              </Link>
               <Card.Body>
                 <br />
+
                 <Card.Title>
                   {" "}
-                  <p className="travel-photo-text"> Formentera </p>{" "}
+                  {location.map((location) => (
+                    <Link href="/trips/[id]" as={`/trips/${location.location}`}>
+                      <a className="travel-photo-text">
+                        Your trip to {location.location}
+                      </a>
+                    </Link>
+                  ))}{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
-
-                {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>
             </Card>
           </Row>
