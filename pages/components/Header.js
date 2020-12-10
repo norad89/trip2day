@@ -42,12 +42,8 @@ function Header() {
       <br />
       <div className="text-center">
         <ButtonGroup aria-label="Basic example">
-          <Link href="./PastTrips">
-            <Button variant="secondary">My Past Trips</Button>
-          </Link>
-
-          <Link href="./PlannedTrips">
-            <Button variant="secondary">My Planned Trips</Button>
+          <Link href="./MyTravelBook">
+            <Button variant="secondary">My Travel Book</Button>
           </Link>
 
           <Link href="./Photos">

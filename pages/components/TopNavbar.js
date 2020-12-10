@@ -7,7 +7,7 @@ export default function TopNavbar() {
   return (
     <>
       <Navbar bg="primary" sticky="top">
-        <Navbar.Brand href="/PlannedTrips">
+        <Navbar.Brand href="/MyTravelBook">
           <img
             src="/trip2day_logo.png"
             height="30"
@@ -16,7 +16,7 @@ export default function TopNavbar() {
           />
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/PlannedTrips">My Travel Book</Nav.Link>
+          <Nav.Link href="/MyTravelBook">My Travel Book</Nav.Link>
         </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">

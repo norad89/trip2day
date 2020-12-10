@@ -10,7 +10,7 @@ function loginCheck() {
 
   useEffect(() => {
     if (session || loading) {
-      router.push("/PlannedTrips");
+      router.push("/MyTravelBook");
     }
   }, [session, loading]);
 }
