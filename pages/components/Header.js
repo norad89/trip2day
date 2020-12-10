@@ -20,7 +20,7 @@ function Header() {
       <br />
 
       <div className="description-profile">
-        <h1 className="profileName">{showUserName()}</h1>
+        <h1 className="profile-name">{showUserName()}</h1>
         <br />
         <p className="myStory">
         Hi guys! Welcome to Trip2Day, the new platform that will allow you to create a real travel experience. 

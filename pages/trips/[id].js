@@ -92,8 +92,6 @@ function Trip() {
       <div>{loginCheck()}</div>
       <TopNavbar />
 
-      <UploadFile />
-
       <div className="case">
         <br />
         <br />
@@ -103,9 +101,13 @@ function Trip() {
         <br />
         <br />
         <br />
+
         <div className="header-new-trip">
           <div className="to-do-list-container">{renderToDoList()}</div>
+          <UploadFile />
         </div>
+        
+
         <br />
         <br />
         <br />

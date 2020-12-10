@@ -94,6 +94,7 @@ function PlannedTrips() {
               <Card.Body>
                 <br />
 
+
                 <Card.Title>
                   {" "}
                   {location.map((location) => (
@@ -105,6 +106,7 @@ function PlannedTrips() {
                   ))}{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
+
               </Card.Body>
             </Card>
           </Row>

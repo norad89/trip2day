@@ -18,9 +18,11 @@ export default class UploadFile extends Component {
   }
   render() {
     return (
-      <div>
-        <h4>Upload Image</h4>
-        <ImageWithoutForm onImageLoad={(e) => this.onImageLoad(e)} />
+
+      <div className="upload-image-container">
+        <h3 className="to-do-list">Upload Image of your trips</h3>
+        <ImageWithoutForm className="prova" onImageLoad={(e) => this.onImageLoad(e)} />
+
         <form id="upload_form" encType="multipart/form-data"></form>
       </div>
     );

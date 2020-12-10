@@ -223,7 +223,7 @@ function CreateNewTrip() {
         <div className="header-new-trip">
           <div className="all-sugg-cont">
             <div className="row-create-trip">
-              <div className="blockOne">
+              <div className="block-one">
                 <h3 className="text-need-sugg">
                   Are you looking for suggestions?
                 </h3>
