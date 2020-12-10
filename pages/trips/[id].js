@@ -7,6 +7,7 @@ import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import Footer from "../components/Footer";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import InputSuggestions from "../components/InputSuggestions";
 
 function loginCheck() {
   const [session, loading] = useSession();
@@ -104,6 +105,7 @@ function Trip() {
         <div className="header-new-trip">
           <div className="to-do-list-container">{renderToDoList()}</div>
           <UploadFile />
+          <InputSuggestions />
         </div>
 
         <br />

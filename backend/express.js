@@ -32,7 +32,18 @@ app.post("/upload", async (req, res) => {
     res.sendStatus(400);
   }
 });
-
+app.put("/images/", async (req, res) => {
+  try {
+    const { suggestions } = req.body;
+    const newSuggestion = await pool.query(
+      "UPDATE images SET sug = $1 WHERE image_id = 1",
+      [suggestions]
+    );
+    res.json(newSuggestion.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 app.get("/images/:id", async (req, res) => {
   const id = req.params.id;
   const img = await knex("images").where({ image_id: id }).first();
