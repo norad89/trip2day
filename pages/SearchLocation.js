@@ -1,57 +1,41 @@
 import TopNavbar from "./components/TopNavbar";
-import AddCardViaggio from "./functions/AddCardViaggio"
-import { useState } from 'react'
-import Link from 'next/link'
+import InputLocation from "./components/InputLocation";
+import Footer from "./components/Footer";
+import { useState, useEffect } from "react";
+import { useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 
-function LocationForm() {
+function loginCheck() {
+  const [session, loading] = useSession();
+  const router = useRouter();
 
-  const [value, setValue] = useState('')
-
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault()
-    fetch("http://localhost:3001/Parigi", {
-      method: 'POST',
-      body: JSON.stringify({ "location": [{ "location": value }] }),
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then(res => res.json())
-      .then(json => setValue(json.value))
-  }
-
-  return (
-    <form className="OnSubmitStyle" onSubmit={handleSubmit}>
-      <label>
-        <div>Choose your destination:</div>
-          <input type="text" value={value} onChange={handleChange} />
-      </label>
-      <Link href="./CreateNewTrip"><input type="submit" value="Submit" /></Link>
-    </form>
-  );
-
+  useEffect(() => {
+    if (!(session || loading)) {
+      router.push("/");
+    }
+  }, [session, loading]);
 }
 
 function SearchLocation() {
   return (
     <div>
+      <div>{loginCheck()}</div>
+      <TopNavbar />
+      <div className="case">
+        <img className="location-logo" src="trip2day_logo.png" width="30%" />
 
-      <div>
-        <TopNavbar />
-      </div>
+        <div className="background-location">
+          <h1 className="src-location-title">Prepare for a new adventure!</h1>
+          <div className="location-style">
+            <InputLocation />
+          </div>
 
-      <img className="LocationLogo" src="trip2day_logo.png" width="30%" />
-
-      <div className='BackgroundLocation'>
-        <h1 className="TextCenter" >Prepare for a new adventure!</h1>
-        <div className="LocationStyle">
-        <LocationForm />
+          <br />
         </div>
       </div>
       <br />
-
+      <br />
+      <Footer />
     </div>
   );
 }

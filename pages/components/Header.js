@@ -1,56 +1,58 @@
-import { Button, ButtonGroup } from 'react-bootstrap'
-import Link from 'next/link'
+import { Button, ButtonGroup } from "react-bootstrap";
+import { useSession } from "next-auth/client";
+import Link from "next/link";
 
 function Header() {
-    return (
-        <div className='contenitore'>
+  function showUserName() {
+    return session ? session.user.name : "User Name";
+  }
+  function showProfilePicture() {
+    return session ? session.user.image : "profile";
+  }
 
-            <br />
-            <img className='images' src="https://i.pinimg.com/originals/ac/b9/6b/acb96bd45aa8123f05757b16666cd45d.jpg" width="200px" />
+  const [session, loading] = useSession();
+  return (
+    <div className="case">
+      <br />
+      <div className="img-container">
+        <img className="img-profile" src={showProfilePicture()} />
+      </div>
+      <br />
 
-            <br />
+      <div className="description-profile">
+        <h1 className="profileName">{showUserName()}</h1>
+        <br />
+        <p className="myStory">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
 
-            <div className='Description'>
-                <h1 className='ProfileName'> Cristina Munuz </h1>
-                <p className='MyStory'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
+      <br />
 
-            <br />
+      <div className="buttonPosition">
+        <Link href="./SearchLocation">
+          <button className="button-to-trip">
+            <a className="button-text"> Plan your next trip </a>
+          </button>
+        </Link>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div className="text-center">
+        <ButtonGroup aria-label="Basic example">
+          <Link href="./TravelBook">
+            <Button variant="secondary">My Travel Book</Button>
+          </Link>
 
-            <div className='ButtonPosition'>
-                <Link href='./SearchLocation'><button className='ButtonToTrip'><a className='ButtonText'> Plan your next trip </a></button></Link>
-            </div>
-
-            <br />
-            <div className='text-center'>
-                <ButtonGroup aria-label="Basic example">
-
-                    <Link href="./PastTrips"><Button
-                        style={{ color: 'white', backgroundColor: '#455753' }}
-                        variant="secondary">
-                        My Past Trips</Button></Link>
-
-                    <Link href="./PlannedTrips"><Button
-                        variant="secondary"
-                        style={{ color: 'white', backgroundColor: '#455753' }}>
-                        My Planned Trips
-                    </Button></Link>
-
-                    <Link href="./Photos"><Button
-                        style={{ color: 'white', backgroundColor: '#455753' }}
-                        variant="secondary">
-                        My Photos
-                    </Button></Link>
-
-                </ButtonGroup>
-            </div>
-        </div>
-
-
-    )
+          <Link href="./Photos">
+            <Button className="button-my-photo" variant="secondary">My Photos</Button>
+          </Link>
+        </ButtonGroup>
+      </div>
+    </div>
+  );
 }
 
-export default Header
-
+export default Header;

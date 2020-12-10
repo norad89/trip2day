@@ -1,8 +1,7 @@
-import { Button, Card, Container, Row } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
-import ModalImage from "react-modal-image";
+import { Button, Card, Container, Row } from "react-bootstrap";
 import TopNavbar from "./components/TopNavbar";
 import Header from "./components/Header";
 import Link from "next/link";
@@ -20,8 +19,21 @@ function loginCheck() {
   }, [session, loading]);
 }
 
-function Photos() {
+function PlannedTrips() {
   const [cardList, setList] = useState([]);
+
+  /*useEffect(() => {
+    fetch("http://localhost:3001/").then((response) => {
+      response.json().then((content) => {
+        setList([...content.cardViaggio]);
+      });
+    });
+  }, []);
+  const [value, setValue] = useState("");
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  } */
 
   function renderCard() {
     return cardList.map((cardList, index) => {
@@ -42,34 +54,50 @@ function Photos() {
     });
   }
 
+  const trip = {
+    id: "Parigi",
+  };
+
   return (
     <div>
       <div>{loginCheck()}</div>
       <TopNavbar />
-
       <Header />
-      <div>
+      <br />
+      <div className="text-center">
         <br />
         <Container>
           <Row>
             <Card>
-              <div>
+              <div className="image-container">
                 <Card.Img variant="top" />
-                <ModalImage
-                  className="my-photo-of-trip"
-                  small={"/amsterdam.jpg"}
-                  large={"/amsterdam.jpg"}
+                <img
+                  className="new-trip-image"
+                  src="/New_Trips.jpg"
+                  width="230px"
+                  height="230px"
                   overflow="hidden"
-                />
+                ></img>
+                <div className="middle">
+                  <div className="button-container">
+                    <Link href="./SearchLocation">
+                      <button className="new-trip-button">
+                        <a> New Trip </a>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
               </div>
 
               <Card.Body>
                 <br />
 
                 <Card.Title>
-                  <p className="travel-photo-text"> Amsterdam </p>
+                  <p className="travel-photo-text"> New trip</p>
                 </Card.Title>
                 <Card.Text></Card.Text>
+
+                {/* <Link href="./SearchLocation"><Button onChange={handleChange}><a className='NewTripsButton'> Prepare </a></Button></Link> */}
               </Card.Body>
             </Card>
 
@@ -77,35 +105,31 @@ function Photos() {
 
             <Card>
               <Card.Img variant="top" />
-
-              <ModalImage
-                className="my-photo-of-trip"
-                small={"/Parigi.jpg"}
-                large={"/Parigi.jpg"}
-                overflow="hidden"
-              />
-
+              <a>
+                <img src="/Parigi.jpg" width="230px" overflow="hidden"></img>
+              </a>
               <Card.Body>
                 <br />
-
+                {/* <Card.Title><Link href="/trips/[id]" as={`/trips/${trip.id}`}><a className='NewTripsButton'>{trip.id}</a></Link></Card.Title> */}
                 <Card.Title>
                   {" "}
                   <p className="travel-photo-text"> Parigi </p>{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
+
+                {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>
             </Card>
 
             <Card>
               <Card.Img variant="top" />
-
-              <ModalImage
-                className="my-photo-of-trip"
-                small={"/Formentera.jpg"}
-                large={"/Formentera.jpg"}
-                overflow="hidden"
-              />
-
+              <a>
+                <img
+                  src="/Formentera.jpg"
+                  width="230px"
+                  overflow="hidden"
+                ></img>
+              </a>
               <Card.Body>
                 <br />
                 <Card.Title>
@@ -113,15 +137,19 @@ function Photos() {
                   <p className="travel-photo-text"> Formentera </p>{" "}
                 </Card.Title>
                 <Card.Text></Card.Text>
+
+                {/* <Button variant="primary">Go somewhere</Button> */}
               </Card.Body>
             </Card>
           </Row>
         </Container>
       </div>
       <br />
+
       <br />
       <Footer />
     </div>
   );
 }
-export default Photos;
+
+export default PlannedTrips;
