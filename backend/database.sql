@@ -5,6 +5,11 @@ CREATE TABLE location(
     location VARCHAR(255)
 );
 
+INSERT INTO
+    location(location_id, location)
+VALUES
+    (1, 'Londra');
+
 CREATE TABLE museum_suggestions (
     museum_suggestions_id integer PRIMARY KEY NOT NULL,
     author character varying,
