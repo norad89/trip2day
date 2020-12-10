@@ -36,12 +36,12 @@ CREATE TABLE tour_suggestions (
 );
 
 CREATE TABLE trip_todolist (
-    tripodolist_id integer PRIMARY KEY NOT NULL,
+    tripodolist_id SERIAL PRIMARY KEY NOT NULL,
     todo character varying
 );
 
 CREATE TABLE trip_eventslist (
-    trip_eventslist_id integer PRIMARY KEY NOT NULL,
+    trip_eventslist_id SERIAL PRIMARY KEY NOT NULL,
     startdate character varying,
     enddate character varying,
     title character varying
