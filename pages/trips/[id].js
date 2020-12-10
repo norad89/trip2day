@@ -5,6 +5,7 @@ import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import Footer from "./components/Footer";
 
 function Trip() {
   const router = useRouter();
@@ -95,6 +96,11 @@ function Trip() {
         <br />
       </div>
       <BigCalendar />
+      <br />
+      <br />
+      <br />
+      <br />
+    <Footer />
     </>
   );
 }
