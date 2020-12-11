@@ -53,8 +53,8 @@ function Trip() {
 
             <ModalImage
               className="my-photo-of-trip"
-              small={printImage(2)}
-              large={printImage(2)}
+              small={printImage(1)}
+              large={printImage(1)}
               overflow="hidden"
             />
 

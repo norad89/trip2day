@@ -8,7 +8,7 @@ CREATE TABLE location(
 INSERT INTO
     location(location_id, location)
 VALUES
-    (1, 'Londra');
+    (1, 'placeholder');
 
 CREATE TABLE museum_suggestions (
     museum_suggestions_id integer PRIMARY KEY NOT NULL,

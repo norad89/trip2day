@@ -23,10 +23,10 @@ const knex = require("knex")({
   useNullAsDefault: true,
 });
 
-app.post("/upload", async (req, res) => {
+app.put("/upload", async (req, res) => {
   const { name, data } = req.files.image;
   if (name && data) {
-    await knex.insert({ name: name, image: data }).into("images");
+    await knex.where({image_id: 1}).update({ name: name, image: data }).into("images");
     res.sendStatus(200);
   } else {
     res.sendStatus(400);

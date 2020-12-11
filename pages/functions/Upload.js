@@ -10,7 +10,7 @@ export default class UploadFile extends Component {
     const formData = new FormData();
     formData.append("image", file);
     const requestOptions = {
-      method: "POST",
+      method: "PUT",
       body: formData,
     };
     fetch("http://localhost:3001/upload", requestOptions)
@@ -20,10 +20,12 @@ export default class UploadFile extends Component {
   render() {
     return (
       <div>
-        <ImageWithoutForm onImageLoad={(e) => this.onImageLoad(e)} />
+        <ImageWithoutForm
+          className="prova"
+          onImageLoad={(e) => this.onImageLoad(e)}
+        />
 
         <form id="upload_form" encType="multipart/form-data"></form>
-        
       </div>
     );
   }
