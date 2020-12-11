@@ -5,6 +5,8 @@ import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import Footer from "../components/Footer";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Button, Card, Container, Row } from "react-bootstrap";
+import ModalImage from "react-modal-image";
 
 
 function loginCheck() {
@@ -21,6 +23,9 @@ function loginCheck() {
 function Trip() {
   const router = useRouter();
   const { id } = router.query;
+
+
+  
 
   function printImage(id) {
     return "http://localhost:3001/images/" + id;
@@ -40,12 +45,80 @@ function Trip() {
         <br />
         <br />
         <br />
-        <div className="header-new-trip">
-          <div className="to-do-list-container">
-            <img src={printImage()}></img>
-          </div>
+
+        <Container>
+          <Row>
+            <Card>
+              <div >
+                <Card.Img variant="top" />
+                <ModalImage
+                  className="my-photo-of-trip"
+                  small={"/amsterdam.jpg"}
+                  large={"/amsterdam.jpg"}
+                  overflow="hidden"
+                />
+              </div>
+
+              <Card.Body>
+                <br />
+
+                <Card.Title>
+                  <p className="travel-photo-text"> Amsterdam </p>
+                </Card.Title>
+                <Card.Text></Card.Text>
+
+              </Card.Body>
+            </Card>
+
+            {/* <div>{renderCard()}</div> */}
+
+            <Card>
+              <Card.Img variant="top" />
+
+                <ModalImage 
+                  className="my-photo-of-trip" 
+                  small={"/Parigi.jpg"} 
+                  large={"/Parigi.jpg"}
+                  overflow="hidden"/>
+
+              <Card.Body>
+                <br />
+
+                <Card.Title>
+                  {" "}
+                  <p className="travel-photo-text"> Parigi </p>{" "}
+                </Card.Title>
+                <Card.Text></Card.Text>
+
+              </Card.Body>
+            </Card>
+
+            <Card>
+              <Card.Img variant="top" />
+
+              <ModalImage 
+                  className="my-photo-of-trip" 
+                  small={"/Formentera.jpg"} 
+                  large={"/Formentera.jpg"}
+                  overflow="hidden"/>
+
+              <Card.Body>
+                <br />
+                <Card.Title>
+                  {" "}
+                  <p className="travel-photo-text"> Formentera </p>{" "}
+                </Card.Title>
+                <Card.Text></Card.Text>
+
+              </Card.Body>
+            </Card>
+          </Row>
+        </Container>
+        
+            {/* <img src={printImage()}></img> */}
+          
           <UploadFile />
-        </div>
+        
         <br />
         <br />
         <br />
