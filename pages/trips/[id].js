@@ -2,14 +2,14 @@ import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import { Button } from "react-bootstrap";
 import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import Footer from "../components/Footer";
 import InputSuggestion from "../components/InputSuggestion";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import { Button } from "react-bootstrap";
 import Link from "next/link";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 function loginCheck() {
   const [session, loading] = useSession();
@@ -123,6 +123,7 @@ function Trip() {
           <div className="upload-image-container">
             <h3 className="to-do-list">Upload Image of your trips</h3>
             <UploadFile />
+            <br />
             <InputSuggestion />
             <Link
               href="/photos/[id]"
