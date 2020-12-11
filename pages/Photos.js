@@ -20,7 +20,7 @@ function loginCheck() {
 }
 
 function Photos() {
-  const [cardList, setList] = useState([]);
+  const [cardList, setList] = useState([]); //serve??
 
   const [location, setLocation] = useState([]);
 
