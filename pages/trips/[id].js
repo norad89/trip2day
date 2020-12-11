@@ -125,6 +125,7 @@ function Trip() {
       <div className="upload-image-container">
         <h3 className="to-do-list">Upload Image of your trips</h3>
           <UploadFile />
+          <br />
           <InputSuggestion />
           <Link
               href="/photos/[id]"
