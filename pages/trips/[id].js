@@ -6,7 +6,9 @@ import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import Footer from "../components/Footer";
+import InputSuggestion from "../components/InputSuggestion";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
 
 function loginCheck() {
   const [session, loading] = useSession();
@@ -103,7 +105,13 @@ function Trip() {
 
         <div className="header-new-trip">
           <div className="to-do-list-container">{renderToDoList()}</div>
+          
+      <div className="upload-image-container">
+        <h3 className="to-do-list">Upload Image of your trips</h3>
           <UploadFile />
+          <InputSuggestion />
+          {/* bottone */}
+          </div>
         </div>
 
         <br />
