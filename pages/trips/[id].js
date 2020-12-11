@@ -9,10 +9,9 @@ import Footer from "../components/Footer";
 import InputSuggestion from "../components/InputSuggestion";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Button } from "react-bootstrap";
-
+import Link from "next/link";
 
 function loginCheck() {
-
   const [session, loading] = useSession();
   const router = useRouter();
 
@@ -38,7 +37,6 @@ function Trip() {
       console.error(err.message);
     }
   };
-
 
   const localizer = momentLocalizer(moment);
 
@@ -121,12 +119,12 @@ function Trip() {
 
         <div className="header-new-trip">
           <div className="to-do-list-container">{renderToDoList()}</div>
-          
-      <div className="upload-image-container">
-        <h3 className="to-do-list">Upload Image of your trips</h3>
-          <UploadFile />
-          <InputSuggestion />
-          <Link
+
+          <div className="upload-image-container">
+            <h3 className="to-do-list">Upload Image of your trips</h3>
+            <UploadFile />
+            <InputSuggestion />
+            <Link
               href="/photos/[id]"
               as={`/photos/${location[0] ? location[0].location : ""}`}
             >

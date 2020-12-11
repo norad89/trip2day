@@ -56,6 +56,17 @@ app.put("/images/", async (req, res) => {
   }
 });
 
+app.get("/images/sugg/:id", async (req, res) => {
+  const id = req.params.id;
+  const sug = await knex("images").where({ image_id: id }).first();
+  console.log(sug)
+  if (sug) {
+    res.end(sug.sugg);
+  } else {
+    res.end("No sug with that Id!");
+  }
+});
+
 //LOCATION///////////////////////////////////////////////////////////////////
 
 app.put("/location/", async (req, res) => {

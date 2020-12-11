@@ -26,6 +26,10 @@ function Trip() {
     return "http://localhost:3001/images/" + id;
   }
 
+  function printSuggestion(id) {
+    return "http://localhost:3001/images/sugg/" + id;
+  }
+
   return (
     <>
       <div>{loginCheck()}</div>
@@ -43,6 +47,7 @@ function Trip() {
         <div className="header-new-trip">
           <div className="to-do-list-container">
             <img src={printImage(1)}></img>
+  <div>{printSuggestion(1)}</div>
           </div>
           <UploadFile />
         </div>
