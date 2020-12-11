@@ -46,6 +46,7 @@ function Trip() {
         <br />
         <br />
 
+
         <Container>
           <Row>
             <Card>
@@ -117,6 +118,7 @@ function Trip() {
         
             {/* <img src={printImage()}></img> */}
           
+
           <UploadFile />
         
         <br />

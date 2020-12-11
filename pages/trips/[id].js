@@ -8,9 +8,11 @@ import moment from "moment";
 import Footer from "../components/Footer";
 import InputSuggestion from "../components/InputSuggestion";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { Button } from "react-bootstrap";
 
 
 function loginCheck() {
+
   const [session, loading] = useSession();
   const router = useRouter();
 
@@ -24,6 +26,19 @@ function loginCheck() {
 function Trip() {
   const router = useRouter();
   const { id } = router.query;
+
+  const [location, setLocation] = useState([]);
+
+  const getLocation = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/location");
+      const jsonData = await response.json();
+      setLocation(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
 
   const localizer = momentLocalizer(moment);
 
@@ -59,6 +74,7 @@ function Trip() {
   useEffect(() => {
     getEventsList();
     getToDoList();
+    getLocation();
   }, []);
 
   function BigCalendar() {
@@ -111,7 +127,12 @@ function Trip() {
           <UploadFile />
           <br />
           <InputSuggestion />
-          {/* bottone */}
+          <Link
+              href="/photos/[id]"
+              as={`/photos/${location[0] ? location[0].location : ""}`}
+            >
+              <Button>Your photos</Button>
+            </Link>
           </div>
         </div>
 
