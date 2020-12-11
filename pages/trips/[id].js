@@ -125,10 +125,12 @@ function Trip() {
             <UploadFile />
             <br />
             <InputSuggestion />
+            <br />
             <Link
               href="/photos/[id]"
               as={`/photos/${location[0] ? location[0].location : ""}`}
             >
+              
               <Button>Your photos</Button>
             </Link>
           </div>

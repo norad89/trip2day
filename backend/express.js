@@ -61,7 +61,7 @@ app.get("/images/sugg/:id", async (req, res) => {
   const sug = await knex("images").where({ image_id: id }).first();
   console.log(sug)
   if (sug) {
-    res.end(sug.sugg);
+    res.json(sug.sugg);
   } else {
     res.end("No sug with that Id!");
   }

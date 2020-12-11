@@ -91,5 +91,14 @@ CREATE TABLE trip_eventslist (
 CREATE TABLE images (
     image_id SERIAL PRIMARY KEY NOT NULL,
     image bytea,
-    name character varying
+    name character varying,
+    sugg character varying
+);
+
+INSERT INTO
+    images(image_id, sugg)
+VALUES
+    (
+        1,
+        'placeholder'
 );
