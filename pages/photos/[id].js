@@ -42,7 +42,7 @@ function Trip() {
         <br />
         <div className="header-new-trip">
           <div className="to-do-list-container">
-            <img src={printImage()}></img>
+            <img src={printImage(1)}></img>
           </div>
           <UploadFile />
         </div>
