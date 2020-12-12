@@ -32,13 +32,45 @@ function PlannedTrips() {
     }
   };
 
+  // ** FOR DEMO ONLY ** //
+  function showCard() {
+    if (location[0] && location[0].location === "Londra") {
+      return (
+        <>
+          <Card>
+            <Card.Img variant="top" />
+            <Link
+              href="/trips/[id]"
+              as={`/trips/${location[0] ? location[0].location : ""}`}
+            >
+              <a>
+                <img src="/Londra.jpg" width="230px" overflow="hidden"></img>
+              </a>
+            </Link>
+            <Card.Body>
+              <br />
+
+              <Card.Title>
+                {" "}
+                {location.map((location) => (
+                  <Link href="/trips/[id]" as={`/trips/${location.location}`}>
+                    <a className="travel-photo-text">
+                      Your trip to {location.location}
+                    </a>
+                  </Link>
+                ))}{" "}
+              </Card.Title>
+              <Card.Text></Card.Text>
+            </Card.Body>
+          </Card>
+        </>
+      );
+    }
+  }
+
   useEffect(() => {
     getLocation();
   }, []);
-
-  const trip = {
-    id: "Parigi",
-  };
 
   return (
     <div>
@@ -81,32 +113,7 @@ function PlannedTrips() {
               </Card.Body>
             </Card>
 
-            <Card>
-              <Card.Img variant="top" />
-              <Link
-                href="/trips/[id]"
-                as={`/trips/${location[0] ? location[0].location : ""}`}
-              >
-                <a>
-                  <img src="/Londra.jpg" width="230px" overflow="hidden"></img>
-                </a>
-              </Link>
-              <Card.Body>
-                <br />
-
-                <Card.Title>
-                  {" "}
-                  {location.map((location) => (
-                    <Link href="/trips/[id]" as={`/trips/${location.location}`}>
-                      <a className="travel-photo-text">
-                        Your trip to {location.location}
-                      </a>
-                    </Link>
-                  ))}{" "}
-                </Card.Title>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
+            {showCard()}
           </Row>
         </Container>
       </div>

@@ -19,10 +19,11 @@ const inputSuggestion = () => {
   const [suggestion, setSuggestion] = useState("");
   return (
     <div>
-      <h3 className="choose-destination-text">Add a Suggestion</h3>
+      <h3 className="add-sugg-text-nofloat">&nbsp;Add a Suggestion</h3>
       <Fragment>
         <form onSubmit={onSubmitForm}>
           <input
+            className="suggestion-input"
             type="text"
             value={suggestion}
             onChange={(e) => setSuggestion(e.target.value)}

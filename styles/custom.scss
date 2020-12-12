@@ -394,6 +394,7 @@ ul {
 img.my-photo-of-trip {
   width: 230px;
   height: 230px;
+  object-fit: cover;
   cursor: pointer;
   transition: 0.3s;
   &:hover {opacity: 0.7;};
@@ -438,9 +439,14 @@ img.my-photo-of-trip {
   margin-left: 3px;
 }
 
-.choose-destination-text {
+.choose-destination-text,
+.add-sugg-text {
   font-size: 20px;
   text-align: left;
+}
+
+.add-sugg-text-nofloat {
+  font-size: 20px;
 }
 
 .location-logo {
@@ -527,6 +533,19 @@ a.travel-photo-text {
     text-decoration: none;
   }
 }
+
+/*................................ TRIP ID ..............................*/
+.add-sugg-text {
+  margin-left: 5px;
+}
+
+input.suggestion-input[type="text"] {
+  background-image: url("/lente.png");
+  background-size: 23px;
+  background-position: 4px 2px;
+  margin-left: 5px;
+}
+
 
 /*................................ UPLOAD ..............................*/
 input[type="file"] {

@@ -23,10 +23,10 @@ const knex = require("knex")({
   useNullAsDefault: true,
 });
 
-app.post("/upload", async (req, res) => {
+app.put("/upload", async (req, res) => {
   const { name, data } = req.files.image;
   if (name && data) {
-    await knex.insert({ name: name, image: data }).into("images");
+    await knex.where({image_id: 1}).update({ name: name, image: data }).into("images");
     res.sendStatus(200);
   } else {
     res.sendStatus(400);
@@ -53,6 +53,17 @@ app.put("/images/", async (req, res) => {
     res.json(newSuggestion.rows[0]);
   } catch (err) {
     console.error(err.message);
+  }
+});
+
+app.get("/images/sugg/:id", async (req, res) => {
+  const id = req.params.id;
+  const sug = await knex("images").where({ image_id: id }).first();
+  console.log(sug)
+  if (sug) {
+    res.json(sug.sugg);
+  } else {
+    res.end("No sug with that Id!");
   }
 });
 

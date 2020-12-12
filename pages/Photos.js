@@ -20,7 +20,7 @@ function loginCheck() {
 }
 
 function Photos() {
-  const [cardList, setList] = useState([]);
+  const [cardList, setList] = useState([]); //serve??
 
   const [location, setLocation] = useState([]);
 
@@ -37,23 +37,39 @@ function Photos() {
     getLocation();
   }, []);
 
-  function renderCard() {
-    return cardList.map((cardList, index) => {
-      const { location, photo } = cardList;
+  // ** FOR DEMO ONLY ** //
+  function showCardPhoto() {
+    if (location[0] && location[0].location === "Londra") {
       return (
-        <Card className="photo" key={index}>
-          <Card.Img variant="top" />
-          <img src={photo} width="200px" overflow="hidden"></img>
-          <Card.Body>
-            <Card.Title>{location}</Card.Title>
-            <Card.Text></Card.Text>
-            <Button>
-              <Link href="./NewTrip">Cross</Link>
-            </Button>
-          </Card.Body>
-        </Card>
+        <>
+          <Card>
+            <Card.Img variant="top" />
+            <Link
+              href="/photos/[id]"
+              as={`/photos/${location[0] ? location[0].location : ""}`}
+            >
+              <a>
+                <img src="/Londra.jpg" width="230px" overflow="hidden"></img>
+              </a>
+            </Link>
+            <Card.Body>
+              <br />
+              <Card.Title>
+                {" "}
+                {location.map((location) => (
+                  <Link href="/photos/[id]" as={`/photos/${location.location}`}>
+                    <a className="travel-photo-text">
+                      Your photos of {location.location}
+                    </a>
+                  </Link>
+                ))}{" "}
+              </Card.Title>
+              <Card.Text></Card.Text>
+            </Card.Body>
+          </Card>
+        </>
       );
-    });
+    }
   }
 
   return (
@@ -65,37 +81,7 @@ function Photos() {
       <div>
         <br />
         <Container>
-          <Row>
-            <Card>
-              <Card.Img variant="top" />
-              <Link
-                href="/photos/[id]"
-                as={`/photos/${location[0] ? location[0].location : ""}`}
-              >
-                <a>
-                  <img src="/Londra.jpg" width="230px" overflow="hidden"></img>
-                </a>
-              </Link>
-              <Card.Body>
-                <br />
-                <Card.Title>
-                  {" "}
-                  {location.map((location) => (
-                    <Link
-                      href="/photos/[id]"
-                      as={`/photos/${location.location}`}
-                    >
-                      <a className="travel-photo-text">
-                        Your photos of {location.location}
-                      </a>
-                    </Link>
-                  ))}{" "}
-                </Card.Title>
-                <Card.Text></Card.Text>
-              </Card.Body>
-            </Card>
-            <div>{renderCard()}</div>
-          </Row>
+          <Row>{showCardPhoto()}</Row> 
         </Container>
       </div>
       <br />

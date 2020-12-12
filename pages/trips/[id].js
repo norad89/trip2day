@@ -2,10 +2,13 @@ import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import { Button } from "react-bootstrap";
 import UploadFile from "../functions/Upload";
 import TopNavbar from "../components/TopNavbar";
 import moment from "moment";
 import Footer from "../components/Footer";
+import InputSuggestion from "../components/InputSuggestion";
+import Link from "next/link";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 function loginCheck() {
@@ -22,6 +25,18 @@ function loginCheck() {
 function Trip() {
   const router = useRouter();
   const { id } = router.query;
+
+  const [location, setLocation] = useState([]);
+
+  const getLocation = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/location");
+      const jsonData = await response.json();
+      setLocation(jsonData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   const localizer = momentLocalizer(moment);
 
@@ -57,6 +72,7 @@ function Trip() {
   useEffect(() => {
     getEventsList();
     getToDoList();
+    getLocation();
   }, []);
 
   function BigCalendar() {
@@ -103,7 +119,21 @@ function Trip() {
 
         <div className="header-new-trip">
           <div className="to-do-list-container">{renderToDoList()}</div>
-          <UploadFile />
+
+          <div className="upload-image-container">
+            <h3 className="to-do-list">Upload Image of your trips</h3>
+            <UploadFile />
+            <br />
+            <InputSuggestion />
+            <br />
+            <Link
+              href="/photos/[id]"
+              as={`/photos/${location[0] ? location[0].location : ""}`}
+            >
+              
+              <Button>Your photos</Button>
+            </Link>
+          </div>
         </div>
 
         <br />
